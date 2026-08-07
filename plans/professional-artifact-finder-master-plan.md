@@ -123,13 +123,13 @@ Each focused command is a real skill within the plugin:
 
 ```text
 /patent-finder
-/white-paper-finder
+/whitepaper-finder
 /article-finder
 /tech-talk-finder
 /certification-finder
 /standards-publication-finder
 /community-contribution-finder
-/professional-artifact-finder
+/artifact-finder
 ```
 
 The plugin manifest should begin with:
@@ -1131,7 +1131,7 @@ source-snapshots/
 /patent-finder candidate_config="plugins/artifact-finder/candidate.config.json" \
   consent_confirmed=true
 
-/professional-artifact-finder candidate_config="plugins/artifact-finder/candidate.config.json" \
+/artifact-finder candidate_config="plugins/artifact-finder/candidate.config.json" \
   consent_confirmed=true \
   types="patents,white-papers,articles,tech-talks,certifications,standards-publications,community-contributions"
 
@@ -1142,7 +1142,7 @@ source-snapshots/
 /community-contribution-finder candidate_config="plugins/artifact-finder/candidate.config.json" \
   consent_confirmed=true
 
-/professional-artifact-finder resume=<run-id> offline=true
+/artifact-finder resume=<run-id> offline=true
 ```
 
 Defaults:
