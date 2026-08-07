@@ -46,6 +46,31 @@ The coordinator must run all of these layers:
 Discovery workers must not call a match confirmed, discard a same-name result, or write final
 runtime records.
 
+## Known patent inventory coverage
+
+When the user supplies or references an existing patent CSV, spreadsheet, JSON, or other patent
+list, treat it as a mandatory discovery baseline. Load it once through the coordinator and give
+workers the immutable rows. The inventory is not authoritative proof, but every row must be
+researched individually using its available application, publication, grant, title, inventor,
+assignee, and date fields.
+
+Create `patent-inventory-coverage.jsonl` with one entry per source row containing:
+
+- inventory file and row number;
+- raw and normalized identifiers;
+- matched candidate record IDs and canonical application key;
+- disposition: `included_candidate`, `uncertain_candidate`, `excluded_candidate`,
+  `duplicate_representation`, `distinct_related_application`, or `unresolved_source_access`;
+- supporting and contradictory evidence IDs;
+- a concise reason.
+
+Before evidence freeze, run exact identifier searches for every unmapped identifier and
+title-plus-inventor searches for rows without usable identifiers. Do not declare the patent search
+complete from a finite broad-name result page, a search-engine result cap, or a partially traversed
+inventor profile. Paginate until exhausted or record the precise blocking/rate-limit condition.
+If a baseline contains 75 rows and only 22 canonical applications are found, all remaining rows
+must appear in the coverage map with an evidence-backed disposition.
+
 ## Source priority
 
 Use sources in this order:
@@ -115,6 +140,12 @@ The canonical grain is **one jurisdictional non-provisional application per reco
 - Preserve every linked publication and grant identifier in sorted unique arrays.
 - Do not treat an application number, publication number, and grant number as interchangeable.
 - Do not collapse records by title, inventor list, assignee, abstract, or family ID alone.
+- Never treat matching titles, assignees, inventor sets, filing dates, priority claims, or family
+  membership as sufficient to merge two application numbers.
+- A publication and grant may be duplicate representations of one application, but each baseline
+  row remains traceable to that application in the coverage map.
+- Report these counts separately: inventory rows, unique application identifiers, unique
+  publication identifiers, unique grant identifiers, and canonical applications.
 
 ## Continuity and family preservation
 
@@ -135,6 +166,12 @@ Merge representations only when authoritative identifiers link them to the same 
 - pre-grant publication plus grant;
 - HTML/PDF/XML/text views of the same official record;
 - duplicate index entries pointing to the same official application.
+
+Deduplication is a linkage operation, not deletion. Preserve all source rows, identifiers, URLs,
+and evidence on the surviving canonical application. Never merge continuations, divisionals,
+continuations-in-part, reissues, national-stage applications, or sibling family applications.
+When an apparent duplicate lacks an authoritative application link, keep it as uncertain rather
+than dropping it.
 
 For one application, reconcile current compatibility `Type` as follows:
 
@@ -192,12 +229,17 @@ review outputs. Verify that compatibility headers exactly match the schema in th
 ## Completion checklist
 
 - Two or more discovery workers ran.
+- Every known-inventory row has a row-level coverage disposition.
+- Exact identifier gap searches ran for all unmapped baseline identifiers.
+- Pagination or result exhaustion is documented; broad-search result limits are not mistaken for
+  complete inventor coverage.
 - The higher-layer identity supervisor made every final attribution decision.
 - Each row represents one application and has a stable application-based canonical key.
 - Publication, application, and grant identifiers remain distinct.
 - Continuations/divisionals and family members remain separately linked.
 - Current `Grant`, `Application`, or `Abandoned` state is authority-backed.
 - Duplicate representations were merged only through authoritative links.
+- Inventory-row count and canonical-application count are both reported and their difference is
+  fully explained.
 - Every final field has evidence or an explicit unknown.
 - Normalized JSONL parses and the runtime produces the exact compatibility columns.
-

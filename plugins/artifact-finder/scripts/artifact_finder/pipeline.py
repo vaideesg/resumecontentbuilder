@@ -9,6 +9,7 @@ from typing import Any
 from .confidence import score_identity
 from .config import load_candidate_config
 from .models import ArtifactRecord
+from .portfolio import candidate_markdown_filename, render_candidate_markdown
 from .reconcile import reconcile_records
 from .render import (
     COMPATIBILITY_SCHEMAS,
@@ -27,6 +28,8 @@ def run_pipeline(
     *,
     consent_confirmed: bool,
     include_possible: bool = False,
+    portfolio_dir: str | Path | None = None,
+    portfolio_file: str | None = None,
 ) -> dict[str, Any]:
     if not consent_confirmed:
         raise ValueError("consent_confirmed=true is required")
@@ -38,6 +41,7 @@ def run_pipeline(
     retrieved_at = _snapshot_timestamp(reconciled)
 
     decisions: list[dict[str, Any]] = []
+    included_records: list[ArtifactRecord] = []
     outputs: dict[str, list[dict[str, Any]]] = {key: [] for key in COMPATIBILITY_SCHEMAS}
     enriched: dict[str, list[dict[str, Any]]] = {key: [] for key in COMPATIBILITY_SCHEMAS}
 
@@ -82,6 +86,7 @@ def run_pipeline(
 
         if decision == "include":
             outputs[record.artifact_type].append(_compatibility_row(record))
+            included_records.append(record)
 
     for artifact_type, headers in COMPATIBILITY_SCHEMAS.items():
         compatibility_rows = sorted(
@@ -127,6 +132,18 @@ def run_pipeline(
         "generated_at": retrieved_at,
         "status": "COMPLETE_DEGRADED" if degraded else "COMPLETE",
     }
+    portfolio_filename = portfolio_file or candidate_markdown_filename(config["candidate"]["canonical_name"])
+    if Path(portfolio_filename).name != portfolio_filename or not portfolio_filename.lower().endswith(".md"):
+        raise ValueError("portfolio_file must be a Markdown filename without directory components")
+    portfolio_path = Path(portfolio_dir) / portfolio_filename if portfolio_dir else output_path / portfolio_filename
+    render_candidate_markdown(
+        portfolio_path,
+        candidate=config["candidate"],
+        included_records=included_records,
+        generated_at=retrieved_at,
+        run_status=manifest["status"],
+    )
+    manifest["portfolio_file"] = str(portfolio_path)
     write_json(output_path / "run-manifest.json", manifest)
     checksums = _output_checksums(output_path)
     write_json(

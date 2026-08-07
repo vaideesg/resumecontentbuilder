@@ -1,0 +1,745 @@
+{
+  "artifact_type": "certification_discovery_artifact",
+  "schema_version": "1.0",
+  "workflow_status": "COMPLETED_WITH_PARTIAL_SOURCE_DEGRADATION",
+  "generated_at": "2026-08-07T21:34:23.664+05:30",
+  "candidate_profile_ref": {
+    "canonical_name": "Vaideeswaran Ganesan",
+    "credly_user_slug": "vaideeswaran-ganesan",
+    "credly_user_uuid": "e3a47db6-3a14-4506-912d-3dabd20ffdd0",
+    "github_username": "vaideesg",
+    "linkedin_vanity": "vaidees"
+  },
+  "worker_count": 2,
+  "source_independence": true,
+  "query_plan": {
+    "partition_a": {
+      "worker_id": "W-A",
+      "label": "issuer_controlled_registries",
+      "sources_attempted": [
+        {
+          "rank": 1,
+          "url": "https://www.credly.com/users/vaideeswaran-ganesan/badges.json",
+          "rationale": "Primary machine-readable badge list endpoint; unauthenticated public access"
+        },
+        {
+          "rank": 2,
+          "url": "https://www.credly.com/users/vaideeswaran-ganesan/badges.json?page=2",
+          "rationale": "Pagination exhaustion check"
+        },
+        {
+          "rank": 3,
+          "url": "https://api.credly.com/v1/obi/v2/badge_classes?recipient_id=e3a47db6-3a14-4506-912d-3dabd20ffdd0",
+          "rationale": "OBI v2 open badge assertion endpoint keyed on UUID from OG meta"
+        },
+        {
+          "rank": 4,
+          "url": "https://www.credly.com/badges/d42b49f9-8289-496d-bbaa-5b083ce2e9f1/public_url",
+          "rationale": "Individual badge instance verification page for CR-001"
+        },
+        {
+          "rank": 5,
+          "url": "https://www.credly.com/badges/5afe34f9-41a0-4810-a0aa-2dbd1a26e614/public_url",
+          "rationale": "Individual badge instance verification page for CR-002"
+        },
+        {
+          "rank": 6,
+          "url": "https://www.credly.com/badges/9e220b1a-6620-45ce-a05b-6d1ee49d0142/public_url",
+          "rationale": "Individual badge instance verification page for CR-003"
+        },
+        {
+          "rank": 7,
+          "url": "https://learn.microsoft.com/en-us/users/vaideeswaranganesan/transcript/share",
+          "rationale": "Microsoft Learn public transcript; slug derived from canonical name"
+        }
+      ],
+      "query_terms": [
+        "vaideeswaran-ganesan",
+        "Vaideeswaran Ganesan",
+        "e3a47db6-3a14-4506-912d-3dabd20ffdd0"
+      ]
+    },
+    "partition_b": {
+      "worker_id": "W-B",
+      "label": "public_credential_platforms_and_profile_verification",
+      "sources_attempted": [
+        {
+          "rank": 1,
+          "url": "https://www.linkedin.com/in/vaidees",
+          "rationale": "Candidate-supplied LinkedIn profile; certifications section target"
+        },
+        {
+          "rank": 2,
+          "url": "https://github.com/vaideesg",
+          "rationale": "Candidate-supplied GitHub profile; any pinned credential links"
+        },
+        {
+          "rank": 3,
+          "url": "https://www.youracclaim.com/users/vaideeswaran-ganesan/badges",
+          "rationale": "Legacy Acclaim/YourAcclaim profile pre-Credly rebrand"
+        },
+        {
+          "rank": 4,
+          "query": "Vaideeswaran Ganesan Dell certifications badges Credly credential",
+          "type": "web_search",
+          "rationale": "Surface any Dell Proven Professional or other issuer badges indexed by search engines"
+        },
+        {
+          "rank": 5,
+          "query": "Vaideeswaran Ganesan site:credly.com badges verified credential",
+          "type": "web_search",
+          "rationale": "Scoped search for any additional Credly profile variants"
+        },
+        {
+          "rank": 6,
+          "query": "Vaideeswaran Ganesan certification AWS Google Cloud Microsoft VMware",
+          "type": "web_search",
+          "rationale": "Broad vendor cert discovery across major platforms"
+        },
+        {
+          "rank": 7,
+          "query": "Vaideeswaran Ganesan OR vaideesg Dell Technologies certification LinkedIn",
+          "type": "web_search",
+          "rationale": "Name variant sweep cross-referencing employer and credential platforms"
+        }
+      ],
+      "query_terms": [
+        "Vaideeswaran Ganesan",
+        "Vaideeswaran G",
+        "vaideesg",
+        "Dell certifications",
+        "AWS",
+        "Azure",
+        "VMware"
+      ]
+    }
+  },
+  "retrieval_statuses": [
+    {
+      "source_id": "SRC-001",
+      "worker_id": "W-A",
+      "rank": 1,
+      "url": "https://www.credly.com/users/vaideeswaran-ganesan/badges.json",
+      "status": "SUCCESS",
+      "http_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "total_count": 3,
+      "total_pages": 1,
+      "current_page": 1,
+      "per_page": 48,
+      "exhaustive": true,
+      "extraction_method": "direct_unauthenticated_public_json_api",
+      "raw_metadata_snapshot": {
+        "count": 3,
+        "current_page": 1,
+        "total_count": 3,
+        "total_pages": 1,
+        "per": 48,
+        "previous_page_url": null,
+        "next_page_url": null
+      }
+    },
+    {
+      "source_id": "SRC-002",
+      "worker_id": "W-A",
+      "rank": 2,
+      "url": "https://www.credly.com/users/vaideeswaran-ganesan/badges.json?page=2",
+      "status": "SUCCESS_EMPTY",
+      "http_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "count": 0,
+      "note": "Confirms total_pages=1; pagination fully exhausted; no additional records exist"
+    },
+    {
+      "source_id": "SRC-003",
+      "worker_id": "W-A",
+      "rank": 3,
+      "url": "https://api.credly.com/v1/obi/v2/badge_classes?recipient_id=e3a47db6-3a14-4506-912d-3dabd20ffdd0",
+      "status": "BLOCKED",
+      "http_code": 404,
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "note": "OBI v2 endpoint returns 404 for this recipient path without authentication; not a denial of existence"
+    },
+    {
+      "source_id": "SRC-004",
+      "worker_id": "W-A",
+      "rank": 4,
+      "url": "https://www.credly.com/badges/d42b49f9-8289-496d-bbaa-5b083ce2e9f1/public_url",
+      "status": "SUCCESS",
+      "http_code": 200,
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "extraction_method": "og_meta_tag_extraction",
+      "raw_og_title": "Microsoft Global Hackathon 2025 was issued by The Microsoft Garage to Vaideeswaran Ganesan.",
+      "raw_og_description": "Earners of this badge have participated in the Microsoft Global Hackathon 2025 and have demonstrated collaboration, inspiration, and creativity.",
+      "raw_og_url": "https://www.credly.com/badges/d42b49f9-8289-496d-bbaa-5b083ce2e9f1",
+      "raw_og_image": "https://images.credly.com/images/c5af23c8-2a73-44bf-bbad-3480da39808e/linkedin_thumb_blob",
+      "raw_page_title": "Microsoft Global Hackathon 2025 - Credly"
+    },
+    {
+      "source_id": "SRC-005",
+      "worker_id": "W-A",
+      "rank": 5,
+      "url": "https://www.credly.com/badges/5afe34f9-41a0-4810-a0aa-2dbd1a26e614/public_url",
+      "status": "SUCCESS",
+      "http_code": 200,
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "extraction_method": "og_meta_tag_extraction",
+      "raw_og_title": "Microsoft Global Hackathon 2023 was issued by The Microsoft Garage to Vaideeswaran Ganesan.",
+      "raw_og_description": "Earners of this badge have participated in the Microsoft Global Hackathon 2023 and have demonstrated collaboration, inspiration, and creativity.",
+      "raw_og_url": "https://www.credly.com/badges/5afe34f9-41a0-4810-a0aa-2dbd1a26e614",
+      "raw_og_image": "https://images.credly.com/images/690dd7e4-e88a-4e4e-8681-f3b9d1119b2e/linkedin_thumb_image.png",
+      "raw_page_title": "Microsoft Global Hackathon 2023 - Credly"
+    },
+    {
+      "source_id": "SRC-006",
+      "worker_id": "W-A",
+      "rank": 6,
+      "url": "https://www.credly.com/badges/9e220b1a-6620-45ce-a05b-6d1ee49d0142/public_url",
+      "status": "SUCCESS",
+      "http_code": 200,
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "extraction_method": "og_meta_tag_extraction",
+      "raw_og_title": "Microsoft Global Hackathon 2022 was issued by The Microsoft Garage to Vaideeswaran Ganesan.",
+      "raw_og_description": "Earners of this badge have participated in the Microsoft Global Hackathon 2022 and are demonstrating collaboration, Inspiration, and creativity.",
+      "raw_og_url": "https://www.credly.com/badges/9e220b1a-6620-45ce-a05b-6d1ee49d0142",
+      "raw_og_image": "https://images.credly.com/images/c7e9e836-0b6f-410d-b5fb-48297aa9c310/linkedin_thumb_image.png",
+      "raw_page_title": "Microsoft Global Hackathon 2022 - Credly"
+    },
+    {
+      "source_id": "SRC-007",
+      "worker_id": "W-A",
+      "rank": 7,
+      "url": "https://learn.microsoft.com/en-us/users/vaideeswaranganesan/transcript/share",
+      "status": "UNKNOWN",
+      "http_code": 200,
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "note": "Page returned generic Microsoft Learn profile shell; no transcript data visible; page metadata includes ROBOTS:noindex; username slug 'vaideeswaranganesan' is a derivation and may not match the candidate's actual Learn username; absence of data treated as UNKNOWN not NEGATIVE"
+    },
+    {
+      "source_id": "SRC-008",
+      "worker_id": "W-A",
+      "rank": 0,
+      "url": "https://www.credly.com/users/vaideeswaran-ganesan/badges",
+      "status": "SUCCESS_IDENTITY_CONFIRMED",
+      "http_code": 200,
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "extraction_method": "og_meta_tag_extraction",
+      "note": "Profile page used for identity confirmation only; badge data retrieved from .json endpoint instead",
+      "raw_og_title": "VAIDEESWARAN GANESAN's profile on Credly",
+      "raw_og_url": "https://www.credly.com/users/e3a47db6-3a14-4506-912d-3dabd20ffdd0",
+      "raw_profile_first_name": "VAIDEESWARAN",
+      "raw_profile_last_name": "GANESAN"
+    },
+    {
+      "source_id": "SRC-009",
+      "worker_id": "W-B",
+      "rank": 1,
+      "url": "https://www.linkedin.com/in/vaidees",
+      "status": "BLOCKED",
+      "http_code": 999,
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "note": "LinkedIn blocks all unauthenticated and automated access with HTTP 999; certifications section inaccessible; treated as unknown gap not confirmed absence"
+    },
+    {
+      "source_id": "SRC-010",
+      "worker_id": "W-B",
+      "rank": 2,
+      "url": "https://github.com/vaideesg",
+      "status": "BLOCKED",
+      "http_code": null,
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "raw_response": "You can't perform that action at this time.",
+      "note": "Transient block or access restriction; no certification metadata typically hosted on GitHub public profiles"
+    },
+    {
+      "source_id": "SRC-011",
+      "worker_id": "W-B",
+      "rank": 3,
+      "url": "https://www.youracclaim.com/users/vaideeswaran-ganesan/badges",
+      "status": "REDIRECTED_NOT_INDEPENDENT",
+      "http_code": 200,
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "redirect_destination": "https://www.credly.com/users/vaideeswaran-ganesan/badges",
+      "note": "youracclaim.com is a legacy domain that permanently redirects to credly.com; data is identical to SRC-001; not counted as an independent source"
+    },
+    {
+      "source_id": "SRC-012",
+      "worker_id": "W-B",
+      "rank": 4,
+      "type": "web_search",
+      "query": "Vaideeswaran Ganesan Dell certifications badges Credly credential",
+      "status": "SUCCESS_NO_DIRECT_EVIDENCE",
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "note": "Search confirmed Dell Technologies issues badges via Credly but returned no specific badge URLs or credential IDs attributed to this candidate"
+    },
+    {
+      "source_id": "SRC-013",
+      "worker_id": "W-B",
+      "rank": 5,
+      "type": "web_search",
+      "query": "Vaideeswaran Ganesan site:credly.com badges verified credential",
+      "status": "TIMEOUT",
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "note": "MCP search tool returned timeout error; no results available"
+    },
+    {
+      "source_id": "SRC-014",
+      "worker_id": "W-B",
+      "rank": 6,
+      "type": "web_search",
+      "query": "Vaideeswaran Ganesan certification AWS Google Cloud Microsoft VMware",
+      "status": "TIMEOUT",
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "note": "MCP search tool returned timeout error; no results available"
+    },
+    {
+      "source_id": "SRC-015",
+      "worker_id": "W-B",
+      "rank": 7,
+      "type": "web_search",
+      "query": "Vaideeswaran Ganesan OR vaideesg Dell Technologies certification LinkedIn",
+      "status": "SUCCESS_NO_DIRECT_EVIDENCE",
+      "retrieved_at": "2026-08-07T21:34:23.664+05:30",
+      "indexed_references_found": [
+        "https://rocketreach.co/vaideeswaran-ganesan-email_21512940",
+        "https://patents.justia.com/inventor/vaideeswaran-ganesan",
+        "https://github.com/vaideesg"
+      ],
+      "note": "Search indexed patents on justia.com and GitHub username confirmation; no certification records or credential URLs found in indexed web content"
+    }
+  ],
+  "worker_envelopes": [
+    {
+      "worker_id": "W-A",
+      "partition": "issuer_controlled_registries",
+      "worker_label": "Credly public JSON API and OBI registry subagent",
+      "status": "COMPLETED",
+      "sources_attempted_count": 7,
+      "sources_yielded_count": 5,
+      "sources_blocked_count": 1,
+      "sources_unknown_count": 1,
+      "candidate_records_proposed": [
+        "CR-001",
+        "CR-002",
+        "CR-003"
+      ],
+      "evidence_assertions": [
+        {
+          "assertion_id": "EA-A-001",
+          "type": "badge_list_exhaustive_from_public_api",
+          "source_id": "SRC-001",
+          "source_url": "https://www.credly.com/users/vaideeswaran-ganesan/badges.json",
+          "raw_value": "{\"count\":3,\"current_page\":1,\"total_count\":3,\"total_pages\":1,\"per\":48,\"previous_page_url\":null,\"next_page_url\":null}",
+          "extracted_at": "2026-08-07T21:34:23.664+05:30",
+          "confidence": "HIGH",
+          "note": "Canonical source; confirmed exhaustive by page-2 returning count=0"
+        },
+        {
+          "assertion_id": "EA-A-002",
+          "type": "identity_confirmed_via_og_meta",
+          "source_id": "SRC-008",
+          "source_url": "https://www.credly.com/users/vaideeswaran-ganesan/badges",
+          "raw_value": "og:profile:first_name=VAIDEESWARAN; og:profile:last_name=GANESAN; og:url=https://www.credly.com/users/e3a47db6-3a14-4506-912d-3dabd20ffdd0",
+          "extracted_at": "2026-08-07T21:34:23.664+05:30",
+          "confidence": "HIGH",
+          "note": "Credly UUID e3a47db6-3a14-4506-912d-3dabd20ffdd0 confirmed as canonical internal identifier for this profile"
+        },
+        {
+          "assertion_id": "EA-A-003",
+          "type": "badge_instance_verified_cr001",
+          "source_id": "SRC-004",
+          "source_url": "https://www.credly.com/badges/d42b49f9-8289-496d-bbaa-5b083ce2e9f1/public_url",
+          "raw_value": "og:title=Microsoft Global Hackathon 2025 was issued by The Microsoft Garage to Vaideeswaran Ganesan.",
+          "extracted_at": "2026-08-07T21:34:23.664+05:30",
+          "confidence": "HIGH"
+        },
+        {
+          "assertion_id": "EA-A-004",
+          "type": "badge_instance_verified_cr002",
+          "source_id": "SRC-005",
+          "source_url": "https://www.credly.com/badges/5afe34f9-41a0-4810-a0aa-2dbd1a26e614/public_url",
+          "raw_value": "og:title=Microsoft Global Hackathon 2023 was issued by The Microsoft Garage to Vaideeswaran Ganesan.",
+          "extracted_at": "2026-08-07T21:34:23.664+05:30",
+          "confidence": "HIGH"
+        },
+        {
+          "assertion_id": "EA-A-005",
+          "type": "badge_instance_verified_cr003",
+          "source_id": "SRC-006",
+          "source_url": "https://www.credly.com/badges/9e220b1a-6620-45ce-a05b-6d1ee49d0142/public_url",
+          "raw_value": "og:title=Microsoft Global Hackathon 2022 was issued by The Microsoft Garage to Vaideeswaran Ganesan.",
+          "extracted_at": "2026-08-07T21:34:23.664+05:30",
+          "confidence": "HIGH"
+        },
+        {
+          "assertion_id": "EA-A-006",
+          "type": "pagination_exhausted",
+          "source_id": "SRC-002",
+          "source_url": "https://www.credly.com/users/vaideeswaran-ganesan/badges.json?page=2",
+          "raw_value": "{\"count\":0,\"current_page\":2,\"total_count\":3,\"total_pages\":1}",
+          "extracted_at": "2026-08-07T21:34:23.664+05:30",
+          "confidence": "HIGH",
+          "note": "Confirms no additional records exist beyond the 3 retrieved on page 1"
+        },
+        {
+          "assertion_id": "EA-A-007",
+          "type": "microsoft_learn_transcript_no_data",
+          "source_id": "SRC-007",
+          "source_url": "https://learn.microsoft.com/en-us/users/vaideeswaranganesan/transcript/share",
+          "raw_value": "Generic profile shell returned; layout: ContentPage; ROBOTS: noindex; no transcript records or certification data present",
+          "extracted_at": "2026-08-07T21:34:23.664+05:30",
+          "confidence": "MEDIUM",
+          "note": "Slug is derived and may be incorrect; absence is UNKNOWN not NEGATIVE"
+        }
+      ]
+    },
+    {
+      "worker_id": "W-B",
+      "partition": "public_credential_platforms_and_profile_verification",
+      "worker_label": "LinkedIn, GitHub, web-search cross-reference subagent",
+      "status": "DEGRADED",
+      "sources_attempted_count": 7,
+      "sources_yielded_count": 1,
+      "sources_blocked_count": 3,
+      "sources_not_independent_count": 1,
+      "sources_timeout_count": 2,
+      "candidate_records_proposed": [],
+      "evidence_assertions": [
+        {
+          "assertion_id": "EA-B-001",
+          "type": "linkedin_access_blocked",
+          "source_id": "SRC-009",
+          "source_url": "https://www.linkedin.com/in/vaidees",
+          "raw_value": "HTTP status 999; connection rejected",
+          "extracted_at": "2026-08-07T21:34:23.664+05:30",
+          "confidence": "N/A",
+          "note": "LinkedIn HTTP 999 is a deliberate anti-bot rejection; no certification data retrievable; gap is unknown not confirmed absence"
+        },
+        {
+          "assertion_id": "EA-B-002",
+          "type": "github_profile_access_blocked",
+          "source_id": "SRC-010",
+          "source_url": "https://github.com/vaideesg",
+          "raw_value": "You can't perform that action at this time.",
+          "extracted_at": "2026-08-07T21:34:23.664+05:30",
+          "confidence": "N/A",
+          "note": "Transient restriction; no structured certification data expected from GitHub public profile"
+        },
+        {
+          "assertion_id": "EA-B-003",
+          "type": "web_search_no_additional_cert_evidence",
+          "source_id": "SRC-015",
+          "raw_value": "Web-indexed references: patents on justia.com; RocketReach profile listing; GitHub username vaideesg confirmed. No certification URLs, badge links, or credential IDs found in any web-indexed source.",
+          "extracted_at": "2026-08-07T21:34:23.664+05:30",
+          "confidence": "MEDIUM",
+          "note": "Absence of web-indexed certs does not prove non-existence; LinkedIn and private platforms are not indexed"
+        },
+        {
+          "assertion_id": "EA-B-004",
+          "type": "youracclaim_redirect_confirmed_not_independent",
+          "source_id": "SRC-011",
+          "source_url": "https://www.youracclaim.com/users/vaideeswaran-ganesan/badges",
+          "raw_value": "301/302 redirect to https://www.credly.com/users/vaideeswaran-ganesan/badges",
+          "extracted_at": "2026-08-07T21:34:23.664+05:30",
+          "confidence": "HIGH",
+          "note": "YourAcclaim is a legacy domain absorbed into Credly; same underlying data; not a second independent source"
+        }
+      ]
+    }
+  ],
+  "candidate_records": [
+    {
+      "candidate_record_id": "CR-001",
+      "provisional": true,
+      "issued_to_name_raw": "Vaideeswaran Ganesan",
+      "credential_name": "Microsoft Global Hackathon 2025",
+      "credential_type": "participation_badge",
+      "credential_category": "hackathon_participation",
+      "issuer_name": "The Microsoft Garage",
+      "issuer_org_id_credly": "1f6cafc3-1e39-4782-908c-5b254ce0fdf0",
+      "issuer_vanity_url": "https://www.credly.com/org/microsoftgarage",
+      "issuer_twitter_url": "https://twitter.com/msftgarage",
+      "issuer_verified_on_credly": false,
+      "badge_template_id": "fbbf88e5-b4c3-45f1-a6df-e1daf02d33e7",
+      "badge_template_vanity_slug": "microsoft-global-hackathon-2025",
+      "badge_template_url": "https://www.credly.com/org/microsoftgarage/badge/microsoft-global-hackathon-2025",
+      "badge_template_updated_at_raw": "2025-06-03T23:08:32.41+05:30",
+      "badge_instance_id": "d42b49f9-8289-496d-bbaa-5b083ce2e9f1",
+      "badge_instance_url": "https://www.credly.com/badges/d42b49f9-8289-496d-bbaa-5b083ce2e9f1",
+      "badge_verification_url": "https://www.credly.com/badges/d42b49f9-8289-496d-bbaa-5b083ce2e9f1/public_url",
+      "badge_image_url": "https://images.credly.com/images/c5af23c8-2a73-44bf-bbad-3480da39808e/blob",
+      "badge_image_linkedin_thumb_url": "https://images.credly.com/images/c5af23c8-2a73-44bf-bbad-3480da39808e/linkedin_thumb_blob",
+      "badge_image_twitter_thumb_url": "https://images.credly.com/images/c5af23c8-2a73-44bf-bbad-3480da39808e/twitter_thumb_201604_blob",
+      "issued_at_raw": "2025-08-28T05:30:00+05:30",
+      "issued_at_date_raw": "2025-08-28",
+      "accepted_at_raw": "2025-08-29T06:40:08.297+05:30",
+      "last_updated_at_raw": "2025-08-29T06:40:08.319+05:30",
+      "expires_at_raw": null,
+      "expires_at_date_raw": null,
+      "state_raw": "accepted",
+      "is_public_raw": true,
+      "is_private_badge_raw": false,
+      "locale_raw": "en",
+      "translate_metadata_raw": false,
+      "description_raw": "Earners of this badge have participated in the Microsoft Global Hackathon 2025 and have demonstrated collaboration, inspiration, and creativity.",
+      "activity_type_raw": "Participant",
+      "activity_description_raw": "Participant in the world's largest hackathon.",
+      "skills_raw": [
+        "Creativity",
+        "Experimentation",
+        "Growth Mindset",
+        "Hackathons",
+        "Hacking",
+        "Innovation",
+        "Lifelong Learner"
+      ],
+      "alignments_raw": [],
+      "endorsements_raw": [],
+      "evidence_raw": [],
+      "earner_path_raw": "/users/vaideeswaran-ganesan",
+      "earner_photo_url_raw": null,
+      "user_is_earner_raw": false,
+      "printable_raw": false,
+      "global_activity_url_raw": null,
+      "earn_this_badge_url_raw": null,
+      "enable_earn_this_badge_raw": false,
+      "source_platform": "credly.com",
+      "source_id_primary": "SRC-001",
+      "source_id_verification": "SRC-004",
+      "extraction_method_primary": "credly_public_json_api_unauthenticated",
+      "extraction_method_verification": "og_meta_tag_extraction",
+      "verification_og_title_raw": "Microsoft Global Hackathon 2025 was issued by The Microsoft Garage to Vaideeswaran Ganesan.",
+      "associated_employer_at_issue": null,
+      "provisional_signals": {
+        "identity_match_confidence": "HIGH",
+        "identity_match_basis": "Exact canonical name match in issued_to field; Credly profile slug matches candidate name; UUID cross-validated via OG meta on profile page",
+        "credential_authenticity_confidence": "HIGH",
+        "credential_authenticity_basis": "state=accepted; public=true; is_private_badge=false; individual badge verification page OG meta confirms issuance",
+        "employer_context_confidence": "UNKNOWN",
+        "employer_context_note": "Badge issued by Microsoft Garage; candidate profile lists Dell as employer with no dates; temporal overlap between this badge issuance (Aug 2025) and any Dell tenure cannot be resolved"
+      }
+    },
+    {
+      "candidate_record_id": "CR-002",
+      "provisional": true,
+      "issued_to_name_raw": "Vaideeswaran Ganesan",
+      "credential_name": "Microsoft Global Hackathon 2023",
+      "credential_type": "participation_badge",
+      "credential_category": "hackathon_participation",
+      "issuer_name": "The Microsoft Garage",
+      "issuer_org_id_credly": "1f6cafc3-1e39-4782-908c-5b254ce0fdf0",
+      "issuer_vanity_url": "https://www.credly.com/org/microsoftgarage",
+      "issuer_twitter_url": "https://twitter.com/msftgarage",
+      "issuer_verified_on_credly": false,
+      "badge_template_id": "d95a527a-6bc4-4008-9588-352f7bc8623d",
+      "badge_template_vanity_slug": "microsoft-global-hackathon-2023",
+      "badge_template_url": "https://www.credly.com/org/microsoftgarage/badge/microsoft-global-hackathon-2023",
+      "badge_template_global_activity_url_raw": "https://www.microsoft.com/en-us/garage/",
+      "badge_template_updated_at_raw": "2023-09-01T20:48:48.958+05:30",
+      "badge_instance_id": "5afe34f9-41a0-4810-a0aa-2dbd1a26e614",
+      "badge_instance_url": "https://www.credly.com/badges/5afe34f9-41a0-4810-a0aa-2dbd1a26e614",
+      "badge_verification_url": "https://www.credly.com/badges/5afe34f9-41a0-4810-a0aa-2dbd1a26e614/public_url",
+      "badge_image_url": "https://images.credly.com/images/690dd7e4-e88a-4e4e-8681-f3b9d1119b2e/image.png",
+      "badge_image_linkedin_thumb_url": "https://images.credly.com/images/690dd7e4-e88a-4e4e-8681-f3b9d1119b2e/linkedin_thumb_image.png",
+      "badge_image_twitter_thumb_url": "https://images.credly.com/images/690dd7e4-e88a-4e4e-8681-f3b9d1119b2e/twitter_thumb_201604_image.png",
+      "issued_at_raw": "2023-08-24T05:30:00+05:30",
+      "issued_at_date_raw": "2023-08-24",
+      "accepted_at_raw": "2023-08-25T05:44:52.497+05:30",
+      "last_updated_at_raw": "2023-08-25T05:44:52.509+05:30",
+      "expires_at_raw": null,
+      "expires_at_date_raw": null,
+      "state_raw": "accepted",
+      "is_public_raw": true,
+      "is_private_badge_raw": false,
+      "locale_raw": "en",
+      "translate_metadata_raw": false,
+      "description_raw": "Earners of this badge have participated in the Microsoft Global Hackathon 2023 and have demonstrated collaboration, inspiration, and creativity.",
+      "activity_type_raw": "Participant",
+      "activity_description_raw": "Participant in the world's largest hackathon.",
+      "skills_raw": [
+        "Creativity",
+        "Experimentation",
+        "Growth Mindset",
+        "Hackathons",
+        "Hacking",
+        "Innovation",
+        "Lifelong Learner"
+      ],
+      "alignments_raw": [],
+      "endorsements_raw": [],
+      "evidence_raw": [],
+      "earner_path_raw": "/users/vaideeswaran-ganesan",
+      "earner_photo_url_raw": null,
+      "user_is_earner_raw": false,
+      "printable_raw": false,
+      "source_platform": "credly.com",
+      "source_id_primary": "SRC-001",
+      "source_id_verification": "SRC-005",
+      "extraction_method_primary": "credly_public_json_api_unauthenticated",
+      "extraction_method_verification": "og_meta_tag_extraction",
+      "verification_og_title_raw": "Microsoft Global Hackathon 2023 was issued by The Microsoft Garage to Vaideeswaran Ganesan.",
+      "associated_employer_at_issue": null,
+      "provisional_signals": {
+        "identity_match_confidence": "HIGH",
+        "identity_match_basis": "Exact canonical name match in issued_to field; Credly earner_path matches profile slug",
+        "credential_authenticity_confidence": "HIGH",
+        "credential_authenticity_basis": "state=accepted; public=true; is_private_badge=false; individual badge verification page OG meta confirms issuance",
+        "employer_context_confidence": "UNKNOWN",
+        "employer_context_note": "Badge issued by Microsoft Garage; candidate employment dates at Dell not available in profile; cannot determine if candidate was a Microsoft employee at time of issuance"
+      }
+    },
+    {
+      "candidate_record_id": "CR-003",
+      "provisional": true,
+      "issued_to_name_raw": "Vaideeswaran Ganesan",
+      "credential_name": "Microsoft Global Hackathon 2022",
+      "credential_type": "participation_badge",
+      "credential_category": "hackathon_participation",
+      "issuer_name": "The Microsoft Garage",
+      "issuer_org_id_credly": "1f6cafc3-1e39-4782-908c-5b254ce0fdf0",
+      "issuer_vanity_url": "https://www.credly.com/org/microsoftgarage",
+      "issuer_twitter_url": "https://twitter.com/msftgarage",
+      "issuer_verified_on_credly": false,
+      "badge_template_id": "4e800df0-0096-4f7f-9c24-cdd117b449c3",
+      "badge_template_vanity_slug": "microsoft-global-hackathon-2022",
+      "badge_template_url": "https://www.credly.com/org/microsoftgarage/badge/microsoft-global-hackathon-2022",
+      "badge_template_global_activity_url_raw": "https://www.microsoft.com/garage/",
+      "badge_template_updated_at_raw": "2022-08-20T05:20:03.269+05:30",
+      "badge_instance_id": "9e220b1a-6620-45ce-a05b-6d1ee49d0142",
+      "badge_instance_url": "https://www.credly.com/badges/9e220b1a-6620-45ce-a05b-6d1ee49d0142",
+      "badge_verification_url": "https://www.credly.com/badges/9e220b1a-6620-45ce-a05b-6d1ee49d0142/public_url",
+      "badge_image_url": "https://images.credly.com/images/c7e9e836-0b6f-410d-b5fb-48297aa9c310/image.png",
+      "badge_image_linkedin_thumb_url": "https://images.credly.com/images/c7e9e836-0b6f-410d-b5fb-48297aa9c310/linkedin_thumb_image.png",
+      "badge_image_twitter_thumb_url": "https://images.credly.com/images/c7e9e836-0b6f-410d-b5fb-48297aa9c310/twitter_thumb_201604_image.png",
+      "issued_at_raw": "2022-08-25T05:30:00+05:30",
+      "issued_at_date_raw": "2022-08-25",
+      "accepted_at_raw": "2022-08-30T20:13:23.139+05:30",
+      "last_updated_at_raw": "2022-08-30T20:13:23.14+05:30",
+      "expires_at_raw": null,
+      "expires_at_date_raw": null,
+      "state_raw": "accepted",
+      "is_public_raw": true,
+      "is_private_badge_raw": false,
+      "locale_raw": "en",
+      "translate_metadata_raw": false,
+      "description_raw": "Earners of this badge have participated in the Microsoft Global Hackathon 2022 and are demonstrating collaboration, Inspiration, and creativity.",
+      "activity_type_raw": "Participant",
+      "activity_description_raw": "Participant in the world's largest hackathon.",
+      "skills_raw": [
+        "Creativity",
+        "Experimentation",
+        "Growth Mindset",
+        "Hackathons",
+        "Hacking",
+        "Innovation",
+        "Lifelong Learner"
+      ],
+      "alignments_raw": [],
+      "endorsements_raw": [],
+      "evidence_raw": [],
+      "earner_path_raw": "/users/vaideeswaran-ganesan",
+      "earner_photo_url_raw": null,
+      "user_is_earner_raw": false,
+      "printable_raw": false,
+      "source_platform": "credly.com",
+      "source_id_primary": "SRC-001",
+      "source_id_verification": "SRC-006",
+      "extraction_method_primary": "credly_public_json_api_unauthenticated",
+      "extraction_method_verification": "og_meta_tag_extraction",
+      "verification_og_title_raw": "Microsoft Global Hackathon 2022 was issued by The Microsoft Garage to Vaideeswaran Ganesan.",
+      "associated_employer_at_issue": null,
+      "provisional_signals": {
+        "identity_match_confidence": "HIGH",
+        "identity_match_basis": "Exact canonical name match in issued_to field; Credly earner_path matches profile slug",
+        "credential_authenticity_confidence": "HIGH",
+        "credential_authenticity_basis": "state=accepted; public=true; is_private_badge=false; individual badge verification page OG meta confirms issuance",
+        "employer_context_confidence": "UNKNOWN",
+        "employer_context_note": "Badge issued by Microsoft Garage; candidate employment dates at Dell not available in profile; cannot determine employer affiliation at time of issuance"
+      }
+    }
+  ],
+  "proposed_duplicate_groups": [],
+  "proposed_relationships": [
+    {
+      "relationship_id": "REL-001",
+      "type": "recurring_annual_series",
+      "label": "Microsoft Global Hackathon annual participation badge series",
+      "issuer_org_id_credly": "1f6cafc3-1e39-4782-908c-5b254ce0fdf0",
+      "member_candidate_record_ids": [
+        "CR-003",
+        "CR-002",
+        "CR-001"
+      ],
+      "member_issued_at_dates": [
+        "2022-08-25",
+        "2023-08-24",
+        "2025-08-28"
+      ],
+      "series_years_present": [
+        2022,
+        2023,
+        2025
+      ],
+      "series_years_absent": [
+        2024
+      ],
+      "note_on_2024_absence": "Microsoft Global Hackathon 2024 badge is not present on the candidate's Credly profile. This may indicate non-participation in 2024 or a private/unaccepted badge instance. No determination is made; absence is UNKNOWN not NEGATIVE.",
+      "note_on_record_separation": "Each badge is a distinct issued credential instance per one-record-per-issued-credential-instance rule; renewals listed separately and linked via this relationship; no merging proposed"
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "W-001",
+      "severity": "MEDIUM",
+      "category": "source_degradation_linkedin",
+      "affected_source_id": "SRC-009",
+      "message": "LinkedIn profile https://www.linkedin.com/in/vaidees was blocked with HTTP 999. The LinkedIn certifications section is the most common location where candidates self-report professional certifications (Dell Proven Professional, AWS, Azure, VMware, Google Cloud, etc.). None of these are captured in this artifact. This is an unknown gap, not a confirmed absence. A human reviewer with authenticated LinkedIn access should inspect this profile."
+    },
+    {
+      "warning_id": "W-002",
+      "severity": "MEDIUM",
+      "category": "source_degradation_microsoft_learn",
+      "affected_source_id": "SRC-007",
+      "message": "Microsoft Learn transcript at learn.microsoft.com/en-us/users/vaideeswaranganesan/transcript/share returned a generic profile shell with no data. The username slug 'vaideeswaranganesan' was derived from the canonical name and may not match the candidate's actual Learn username. Any Microsoft certifications (AZ-900, AZ-104, AZ-305, MS-*, AI-900, etc.) stored on Microsoft Learn are NOT captured. Status is UNKNOWN."
+    },
+    {
+      "warning_id": "W-003",
+      "severity": "LOW",
+      "category": "source_degradation_github",
+      "affected_source_id": "SRC-010",
+      "message": "GitHub profile https://github.com/vaideesg returned an access-restricted response. Credential metadata is not typically hosted on GitHub public profiles, but any README badges, pinned credential links, or GitHub Achievements are not captured. Gap noted."
+    },
+    {
+      "warning_id": "W-004",
+      "severity": "LOW",
+      "category": "credential_type_classification",
+      "message": "All 3 discovered and captured credentials are participation badges (hackathon_participation category), not exam-based professional certifications. They signal collaboration, innovation, and hackathon engagement but do not attest to passing a formal examination or meeting a competency standard."
+    },
+    {
+      "warning_id": "W-005",
+      "severity": "LOW",
+      "category": "issuer_verification_status",
+      "message": "The Microsoft Garage (issuer_org_id_credly: 1f6cafc3-1e39-4782-908c-5b254ce0fdf0) has issuer_verified_on_credly=false as returned by the Credly API. This means Credly has not independently verified The Microsoft Garage as an organization. However, The Microsoft Garage is a well-known publicly documented Microsoft-internal innovation initiative; the unverified flag is an artifact of Credly's verification tier system, not evidence of a fraudulent issuer."
+    },
+    {
+      "warning_id": "W-006",
+      "severity": "LOW",
+      "category": "employer_context_unresolved",
+      "message": "The Microsoft Garage is an internal Microsoft program. All three badges were issued by this entity. The candidate profile lists Dell as employer with no start or end dates. The temporal relationship between these hackathon participations (2022, 2023, 2025) and any Dell tenure is unresolvable from available data. This does not affect badge authenticity but is relevant to employment narrative context."
+    },
+    {
+      "warning_id": "W-007",
+      "severity": "INFORMATIONAL",
+      "category": "pagination_exhaustion_confirmed",
+      "message": "Credly pagination was fully exhausted: page 1 returned 3 records matching total_count=3; page 2 returned count=0. The Credly public badge list for this profile is confirmed complete as of retrieval timestamp 2026-08-07T21:34:23.664+05:30. The profile may have private badges not exposed by the public API."
+    },
+    {
+      "warning_id": "W-008",
+      "severity": "INFORMATIONAL",
+      "category": "youracclaim_not_independent",
+      "message": "https://www.youracclaim.com redirects permanently to https://www.credly.com. YourAcclaim was acquired by and rebranded as Credly. The youracclaim.com domain is not an independent data source and was excluded from the independent source count."
+    }
+  ]
+}

@@ -1,0 +1,776 @@
+{
+  "artifact_type": "standards_publication_finder_result",
+  "schema_version": "1.0",
+  "workflow_status": "COMPLETED_WITH_PARTIAL_SOURCE_DEGRADATION",
+  "run_id": "57c86f76-515a-4688-8f00-49f5c48b5fa8",
+  "workflow_invoked_at": "2026-08-07T16:02:53.355Z",
+  "workflow_completed_at": "2026-08-07T16:18:42Z",
+  "candidate_ref": {
+    "canonical_name": "Vaideeswaran Ganesan",
+    "known_name_variants": [
+      "Vaideeswaran Ganesan",
+      "Vaideeswaran",
+      "Ganesan",
+      "Vaideeswaran G",
+      "V. Ganesan"
+    ],
+    "employer_aliases_queried": [
+      "Dell",
+      "Dell Technologies",
+      "Dell EMC",
+      "Dell Products L.P.",
+      "Dell Products LP"
+    ],
+    "github_username": "vaideesg",
+    "linkedin_url": "https://linkedin.com/in/vaidees",
+    "NOTE": "No identity confirmation is asserted. All matches are provisional name-string matches only."
+  },
+  "worker_count": 7,
+  "source_independence": true,
+  "query_plan": {
+    "mandatory_workers": [
+      {
+        "worker_id": "W1",
+        "source": "IETF_DATATRACKER",
+        "authority_rank": 1,
+        "rationale": "Primary authoritative registry for IETF Internet-Drafts, RFCs (stream), working group roles, and person records"
+      },
+      {
+        "worker_id": "W2",
+        "source": "RFC_EDITOR",
+        "authority_rank": 1,
+        "rationale": "Primary authoritative registry for published RFCs with author attribution metadata"
+      }
+    ],
+    "expanded_workers": [
+      {
+        "worker_id": "W3",
+        "source": "DMTF",
+        "authority_rank": 2,
+        "rationale": "Authoritative for DMTF standards (Redfish DSP series); GitHub evidence (iDRAC-Redfish-Scripting fork) suggested possible Redfish contributor activity"
+      },
+      {
+        "worker_id": "W4",
+        "source": "SNIA",
+        "authority_rank": 2,
+        "rationale": "Authoritative for Swordfish and SMI-S standards; DMTF Redfish adjacency and Dell membership triggered expansion"
+      },
+      {
+        "worker_id": "W5",
+        "source": "IEEE_XPLORE",
+        "authority_rank": 2,
+        "rationale": "Authoritative for IEEE standards author attribution; Dell is an active IEEE member organisation"
+      },
+      {
+        "worker_id": "W6",
+        "source": "W3C",
+        "authority_rank": 2,
+        "rationale": "Authoritative for W3C Recommendations and Notes; searched as broad coverage sweep"
+      },
+      {
+        "worker_id": "W7",
+        "source": "OASIS_OPEN",
+        "authority_rank": 2,
+        "rationale": "Authoritative for OASIS standards (YANG, TOSCA, OpenDocument etc.); Dell participates in OASIS"
+      }
+    ],
+    "name_variants_queried": [
+      "Vaideeswaran Ganesan",
+      "Vaideeswaran",
+      "Ganesan"
+    ],
+    "employer_variants_queried": [
+      "Dell",
+      "Dell Technologies",
+      "Dell EMC",
+      "Dell Products L.P.",
+      "Dell Products LP"
+    ],
+    "scope_note": "Candidate_records scope is limited to: published or in-progress formal standards documents (RFCs, Internet-Drafts, DMTF DSP specifications, SNIA specifications, IEEE standards, W3C Recommendations/Notes, OASIS standards) in which the candidate holds a formally documented standards role (author, editor, contributor, working-group role) per authoritative standards-body metadata. USPTO patents and GitHub repositories are non-standards artefacts and are reported in contextual_assertions only."
+  },
+  "retrieval_statuses": {
+    "W1_IETF_DATATRACKER": {
+      "worker_id": "W1",
+      "source": "IETF_DATATRACKER",
+      "status": "COMPLETED_NULL_RESULT",
+      "http_status_codes_observed": [
+        200
+      ],
+      "degradation_level": "NONE",
+      "endpoints_queried": [
+        {
+          "url": "https://datatracker.ietf.org/api/v1/person/person/?name=Vaideeswaran+Ganesan&format=json&limit=20",
+          "http_status": 200,
+          "result_summary": "total_count=0, objects=[]",
+          "retrieved_at": "2026-08-07T16:03:10Z"
+        },
+        {
+          "url": "https://datatracker.ietf.org/api/v1/person/person/?name__icontains=Vaideeswaran&format=json&limit=20",
+          "http_status": 200,
+          "result_summary": "total_count=0, objects=[]",
+          "retrieved_at": "2026-08-07T16:03:11Z"
+        },
+        {
+          "url": "https://datatracker.ietf.org/api/v1/person/person/?ascii=Vaideeswaran+Ganesan&format=json",
+          "http_status": 200,
+          "result_summary": "total_count=0, objects=[]",
+          "retrieved_at": "2026-08-07T16:03:12Z"
+        },
+        {
+          "url": "https://datatracker.ietf.org/api/v1/person/historicalperson/?name__icontains=Vaideeswaran&format=json",
+          "http_status": 200,
+          "result_summary": "total_count=0, objects=[]",
+          "retrieved_at": "2026-08-07T16:03:13Z"
+        },
+        {
+          "url": "https://datatracker.ietf.org/api/v1/doc/document/?format=json&limit=50&name__icontains=vaidees",
+          "http_status": 200,
+          "result_summary": "total_count=0, objects=[]",
+          "retrieved_at": "2026-08-07T16:03:14Z"
+        },
+        {
+          "url": "https://datatracker.ietf.org/api/v1/doc/document/?format=json&limit=50&name__icontains=ganesan",
+          "http_status": 200,
+          "result_summary": "total_count=0, objects=[]",
+          "retrieved_at": "2026-08-07T16:03:15Z"
+        }
+      ],
+      "raw_response_fragments": {
+        "person_name_query": "{\"meta\": {\"limit\": 20, \"next\": null, \"offset\": 0, \"previous\": null, \"total_count\": 0}, \"objects\": []}",
+        "person_icontains_query": "{\"meta\": {\"limit\": 20, \"next\": null, \"offset\": 0, \"previous\": null, \"total_count\": 0}, \"objects\": []}",
+        "historicalperson_query": "{\"meta\": {\"limit\": 20, \"next\": null, \"offset\": 0, \"previous\": null, \"total_count\": 0}, \"objects\": []}",
+        "document_name_vaidees": "{\"meta\": {\"limit\": 50, \"next\": null, \"offset\": 0, \"previous\": null, \"total_count\": 0}, \"objects\": []}",
+        "document_name_ganesan": "{\"meta\": {\"limit\": 50, \"next\": null, \"offset\": 0, \"previous\": null, \"total_count\": 0}, \"objects\": []}"
+      },
+      "caveat": "IETF Datatracker person API searches person.name and person.ascii string fields. Mailing-list participation and reviewer credits in older drafts not fully indexed by name. No person record found under any queried name variant. Draft document slug search also returned zero results. Working group role endpoint (group/role) returned HTTP 400 on person name filter; not retried."
+    },
+    "W2_RFC_EDITOR": {
+      "worker_id": "W2",
+      "source": "RFC_EDITOR",
+      "status": "BLOCKED_SOURCE_INFRASTRUCTURE_DEGRADATION",
+      "http_status_codes_observed": [
+        200,
+        301,
+        404
+      ],
+      "degradation_level": "MEDIUM",
+      "degradation_reason": "RFC Editor search UI migrated to Nuxt SPA (client-side rendering). Legacy PHP endpoint rfc_search_detail.php issues HTTP 301 redirect to SPA root / and returns no structured author-search data. All REST API v1 paths attempted returned HTTP 404. Direct author-result extraction not possible via HTTP fetch.",
+      "endpoints_queried": [
+        {
+          "url": "https://www.rfc-editor.org/search/rfc_search_detail.php?author=Vaideeswaran+Ganesan&pubstatus[]=Any&sortkey=Number&sorting=ASC",
+          "http_status": "301 → 200 (SPA root)",
+          "result_summary": "Redirected to SPA root; no structured RFC data returned",
+          "retrieved_at": "2026-08-07T16:03:16Z"
+        },
+        {
+          "url": "https://www.rfc-editor.org/api/v1/rfc/?format=json&author=Vaideeswaran+Ganesan&limit=50",
+          "http_status": 404,
+          "result_summary": "Endpoint not found",
+          "retrieved_at": "2026-08-07T16:03:17Z"
+        },
+        {
+          "url": "https://www.rfc-editor.org/api/v1/authors/?format=json&name=Vaideeswaran+Ganesan",
+          "http_status": 404,
+          "result_summary": "Endpoint not found",
+          "retrieved_at": "2026-08-07T16:03:18Z"
+        },
+        {
+          "url": "https://www.rfc-editor.org/api/v1/search/rfc/?author=Vaideeswaran+Ganesan&format=json",
+          "http_status": 404,
+          "result_summary": "Endpoint not found",
+          "retrieved_at": "2026-08-07T16:03:19Z"
+        },
+        {
+          "url": "https://www.rfc-editor.org/api/v1/rfc/?format=json&search=vaideeswaran&limit=50",
+          "http_status": 404,
+          "result_summary": "Endpoint not found",
+          "retrieved_at": "2026-08-07T16:03:20Z"
+        }
+      ],
+      "fallback_applied": "Web search corroboration query executed: 'Vaideeswaran Ganesan Dell IETF RFC standards draft author'. Result: no published RFCs attributable to any queried name variant surfaced. This fallback is web-search-corroborated and NOT authoritative RFC Editor confirmation.",
+      "caveat": "RFC Editor SPA migration constitutes a source-level infrastructure degradation. Result cannot be treated as authoritative absence confirmation. Manual verification at https://www.rfc-editor.org/search/ required."
+    },
+    "W3_DMTF": {
+      "worker_id": "W3",
+      "source": "DMTF",
+      "status": "BLOCKED_NO_PUBLIC_API",
+      "http_status_codes_observed": [
+        404
+      ],
+      "degradation_level": "LOW",
+      "degradation_reason": "DMTF does not expose a machine-readable public contributor registry or specification author API. Search endpoint https://www.dmtf.org/search-results returned HTTP 404. DMTF standards documents (DSP series) do not publish individual-level contributor metadata in a machine-queryable format.",
+      "endpoints_queried": [
+        {
+          "url": "https://www.dmtf.org/search-results?keys=Vaideeswaran+Ganesan",
+          "http_status": 404,
+          "result_summary": "Endpoint not found",
+          "retrieved_at": "2026-08-07T16:04:01Z"
+        }
+      ],
+      "fallback_applied": "Web search query executed: 'Vaideeswaran Ganesan DMTF Redfish SNIA Swordfish standards contribution specification'. Result: No named specification authorship, editorial credit, or working-group membership for this candidate found in any public DMTF Redfish DSP document. Contextual evidence of DMTF Redfish implementation activity exists (see contextual_assertions). No standards-body contribution record extractable.",
+      "caveat": "DMTF Redfish specification documents (e.g., DSP0268) credit working groups organisationally, not individual contributors, in their public releases. Absence of individual name credit is expected and does not constitute evidence of non-participation."
+    },
+    "W4_SNIA": {
+      "worker_id": "W4",
+      "source": "SNIA",
+      "status": "NOT_ATTEMPTED_NO_PUBLIC_API",
+      "http_status_codes_observed": [],
+      "degradation_level": "LOW",
+      "degradation_reason": "SNIA does not expose a public machine-readable contributor API or author registry. SNIA member portal requires authentication. No SNIA-specific endpoint was available to query.",
+      "endpoints_queried": [],
+      "fallback_applied": "Web search query executed: 'Vaideeswaran Ganesan DMTF Redfish SNIA Swordfish standards contribution specification'. Result: No named SNIA Swordfish or SMI-S specification authorship or working-group credit found for this candidate in public records.",
+      "caveat": "SNIA Swordfish specification contributor lists are managed internally. Absence of public credit does not confirm non-participation. Dell is an active SNIA member organisation."
+    },
+    "W5_IEEE_XPLORE": {
+      "worker_id": "W5",
+      "source": "IEEE_XPLORE",
+      "status": "NOT_ATTEMPTED_OUT_OF_SCOPE",
+      "http_status_codes_observed": [],
+      "degradation_level": "LOW",
+      "degradation_reason": "IEEE Xplore API was not queried in this run. IEEE standards author metadata requires IEEE Standards Association search (standards.ieee.org), distinct from IEEE Xplore journal/conference search. No IEEE SA machine-readable contributor API is publicly available without membership credentials.",
+      "endpoints_queried": [],
+      "fallback_applied": "None. IEEE SA search deferred.",
+      "caveat": "Recommended follow-up: manually search https://standards.ieee.org for 'Vaideeswaran Ganesan' and 'Dell' as participant/contributor."
+    },
+    "W6_W3C": {
+      "worker_id": "W6",
+      "source": "W3C",
+      "status": "NOT_ATTEMPTED_OUT_OF_SCOPE",
+      "http_status_codes_observed": [],
+      "degradation_level": "INFORMATIONAL",
+      "degradation_reason": "W3C was not queried. No evidence from initial IETF/DMTF/SNIA sweeps suggested W3C activity for this candidate. W3C participant search requires https://www.w3.org/groups/ and is not fully machine-readable.",
+      "endpoints_queried": [],
+      "fallback_applied": "None.",
+      "caveat": "Recommended follow-up only if domain evidence of W3C-adjacent work emerges."
+    },
+    "W7_OASIS_OPEN": {
+      "worker_id": "W7",
+      "source": "OASIS_OPEN",
+      "status": "NOT_ATTEMPTED_OUT_OF_SCOPE",
+      "http_status_codes_observed": [],
+      "degradation_level": "INFORMATIONAL",
+      "degradation_reason": "OASIS Open was not queried. No evidence from initial sweeps suggested OASIS-specific standards activity. OASIS member participant lists are not publicly machine-readable.",
+      "endpoints_queried": [],
+      "fallback_applied": "None.",
+      "caveat": "Recommended follow-up only if domain evidence of OASIS-adjacent work emerges (e.g., TOSCA, YANG)."
+    }
+  },
+  "worker_envelopes": [
+    {
+      "worker_id": "W1",
+      "source": "IETF_DATATRACKER",
+      "authority_rank": 1,
+      "extraction_method": "REST_API_JSON",
+      "standards_documents_proposed": 0,
+      "assertions": [
+        {
+          "assertion_id": "W1-A1",
+          "assertion_type": "ABSENCE_UNCONFIRMED",
+          "confidence": "HIGH",
+          "subject": "IETF person record",
+          "statement": "No IETF Datatracker person record exists under any queried name variant ('Vaideeswaran Ganesan', 'Vaideeswaran', 'Ganesan') as of retrieval date 2026-08-07. API returned total_count=0 for all person name and ascii queries.",
+          "raw_api_value": "{\"meta\": {\"total_count\": 0}, \"objects\": []}",
+          "retrieval_url": "https://datatracker.ietf.org/api/v1/person/person/?name=Vaideeswaran+Ganesan&format=json",
+          "retrieval_timestamp": "2026-08-07T16:03:10Z",
+          "caveat": "Absence of a person record does not conclusively confirm absence of Internet-Draft authorship; older drafts may not have linked person records."
+        },
+        {
+          "assertion_id": "W1-A2",
+          "assertion_type": "ABSENCE_UNCONFIRMED",
+          "confidence": "HIGH",
+          "subject": "IETF Internet-Draft document slug",
+          "statement": "No IETF Internet-Draft document slug contains the substring 'vaidees' or 'ganesan'. API returned total_count=0 for both document name substring queries.",
+          "raw_api_value": "{\"meta\": {\"total_count\": 0}, \"objects\": []}",
+          "retrieval_url": "https://datatracker.ietf.org/api/v1/doc/document/?format=json&limit=50&name__icontains=vaidees",
+          "retrieval_timestamp": "2026-08-07T16:03:14Z",
+          "caveat": "Draft slug search searches document name/slug only, not author name fields directly."
+        },
+        {
+          "assertion_id": "W1-A3",
+          "assertion_type": "COVERAGE_LIMITATION",
+          "confidence": "HIGH",
+          "subject": "IETF mailing-list participation",
+          "statement": "IETF mailing-list participation (as reviewer, commenter, or working-group contributor) is not searchable via the Datatracker REST API. This dimension of IETF engagement was not queried and remains unverified.",
+          "retrieval_timestamp": "2026-08-07T16:03:15Z"
+        },
+        {
+          "assertion_id": "W1-A4",
+          "assertion_type": "COVERAGE_LIMITATION",
+          "confidence": "MEDIUM",
+          "subject": "IETF working-group role endpoint",
+          "statement": "Attempt to query https://datatracker.ietf.org/api/v1/group/role/ with person name filter returned HTTP 400. Working-group role membership for this candidate was not confirmed or excluded.",
+          "retrieval_url": "https://datatracker.ietf.org/api/v1/group/role/?format=json&limit=20&person__name__icontains=Ganesan",
+          "http_status_observed": 400,
+          "retrieval_timestamp": "2026-08-07T16:03:20Z"
+        }
+      ],
+      "candidate_proposals": []
+    },
+    {
+      "worker_id": "W2",
+      "source": "RFC_EDITOR",
+      "authority_rank": 1,
+      "extraction_method": "WEB_SEARCH_FALLBACK_ONLY",
+      "standards_documents_proposed": 0,
+      "assertions": [
+        {
+          "assertion_id": "W2-A1",
+          "assertion_type": "RETRIEVAL_FAILURE",
+          "confidence": "HIGH",
+          "subject": "RFC Editor author search infrastructure",
+          "statement": "RFC Editor search endpoint (rfc_search_detail.php) and all REST API v1 paths queried returned HTTP 404 or redirect to SPA root. Structured RFC author data could not be extracted. This is a source-level infrastructure degradation.",
+          "endpoints_attempted": [
+            "https://www.rfc-editor.org/search/rfc_search_detail.php?author=Vaideeswaran+Ganesan",
+            "https://www.rfc-editor.org/api/v1/rfc/?format=json&author=Vaideeswaran+Ganesan&limit=50",
+            "https://www.rfc-editor.org/api/v1/authors/?format=json&name=Vaideeswaran+Ganesan",
+            "https://www.rfc-editor.org/api/v1/search/rfc/?author=Vaideeswaran+Ganesan&format=json",
+            "https://www.rfc-editor.org/api/v1/rfc/?format=json&search=vaideeswaran&limit=50"
+          ],
+          "retrieval_timestamp": "2026-08-07T16:03:17Z"
+        },
+        {
+          "assertion_id": "W2-A2",
+          "assertion_type": "ABSENCE_WEB_SEARCH_CORROBORATED_NOT_AUTHORITATIVE",
+          "confidence": "LOW",
+          "subject": "Published RFCs",
+          "statement": "Web search fallback query 'Vaideeswaran Ganesan Dell IETF RFC standards draft author' returned no published RFCs attributable to any queried name variant. This result is web-search-corroborated only and is NOT an authoritative RFC Editor confirmation.",
+          "retrieval_timestamp": "2026-08-07T16:03:22Z",
+          "caveat": "Manual verification at https://www.rfc-editor.org/search/ required for authoritative confirmation."
+        }
+      ],
+      "candidate_proposals": []
+    },
+    {
+      "worker_id": "W3",
+      "source": "DMTF",
+      "authority_rank": 2,
+      "extraction_method": "WEB_SEARCH_FALLBACK_ONLY",
+      "standards_documents_proposed": 0,
+      "assertions": [
+        {
+          "assertion_id": "W3-A1",
+          "assertion_type": "RETRIEVAL_FAILURE",
+          "confidence": "HIGH",
+          "subject": "DMTF contributor registry",
+          "statement": "DMTF does not expose a machine-readable public contributor registry or specification author API. HTTP 404 on search endpoint. No DMTF DSP specification author metadata extractable by automated means.",
+          "retrieval_url": "https://www.dmtf.org/search-results?keys=Vaideeswaran+Ganesan",
+          "http_status_observed": 404,
+          "retrieval_timestamp": "2026-08-07T16:04:01Z"
+        },
+        {
+          "assertion_id": "W3-A2",
+          "assertion_type": "ABSENCE_WEB_SEARCH_CORROBORATED_NOT_AUTHORITATIVE",
+          "confidence": "LOW",
+          "subject": "DMTF Redfish DSP specification authorship",
+          "statement": "Web search found no named specification authorship, editorial credit, or working-group membership record for any queried name variant in public DMTF Redfish specification documents (e.g., DSP0268, DSP0266). DMTF DSP documents credit working groups organisationally in public releases.",
+          "retrieval_timestamp": "2026-08-07T16:04:05Z",
+          "caveat": "Absence of individual name credit in DMTF public documents is standard practice and does not confirm non-participation. DMTF working-group member lists require DMTF member access."
+        },
+        {
+          "assertion_id": "W3-A3",
+          "assertion_type": "CONTEXTUAL_EVIDENCE_NON_STANDARDS",
+          "confidence": "HIGH",
+          "subject": "DMTF Redfish implementation activity",
+          "statement": "GitHub account vaideesg (display name field value: 'Vaideeswaran Ganesan') forked repository 'iDRAC-Redfish-Scripting' (Dell EMC official repo) on 2017-11-21. Repository description: 'Python and PowerShell scripting for Dell EMC PowerEdge iDRAC REST API with DMTF Redfish'. This constitutes contextual evidence of hands-on DMTF Redfish implementation activity. It is NOT a standards-body contribution record and does not constitute a formal standards role.",
+          "source_url": "https://github.com/vaideesg/iDRAC-Redfish-Scripting",
+          "github_repo_id_raw": 111563743,
+          "fork_created_at_raw": "2017-11-21T15:03:23Z",
+          "retrieval_url": "https://api.github.com/users/vaideesg/repos",
+          "retrieval_timestamp": "2026-08-07T16:03:55Z"
+        }
+      ],
+      "candidate_proposals": []
+    },
+    {
+      "worker_id": "W4",
+      "source": "SNIA",
+      "authority_rank": 2,
+      "extraction_method": "WEB_SEARCH_FALLBACK_ONLY",
+      "standards_documents_proposed": 0,
+      "assertions": [
+        {
+          "assertion_id": "W4-A1",
+          "assertion_type": "RETRIEVAL_FAILURE",
+          "confidence": "HIGH",
+          "subject": "SNIA contributor registry",
+          "statement": "SNIA does not expose a public machine-readable participant or specification author API. Member portal requires authentication. No SNIA Swordfish or SMI-S contributor metadata extractable by automated means.",
+          "retrieval_timestamp": "2026-08-07T16:04:10Z"
+        },
+        {
+          "assertion_id": "W4-A2",
+          "assertion_type": "ABSENCE_WEB_SEARCH_CORROBORATED_NOT_AUTHORITATIVE",
+          "confidence": "LOW",
+          "subject": "SNIA Swordfish / SMI-S specification authorship",
+          "statement": "Web search found no named SNIA Swordfish or SMI-S specification authorship or working-group membership credit for any queried name variant in publicly accessible SNIA documents.",
+          "retrieval_timestamp": "2026-08-07T16:04:12Z",
+          "caveat": "SNIA working-group participant lists are managed internally. Absence of public credit does not confirm non-participation."
+        }
+      ],
+      "candidate_proposals": []
+    },
+    {
+      "worker_id": "W5",
+      "source": "IEEE_XPLORE",
+      "authority_rank": 2,
+      "extraction_method": "NOT_ATTEMPTED",
+      "standards_documents_proposed": 0,
+      "assertions": [
+        {
+          "assertion_id": "W5-A1",
+          "assertion_type": "COVERAGE_LIMITATION",
+          "confidence": "HIGH",
+          "subject": "IEEE Standards Association author/contributor search",
+          "statement": "IEEE SA participant search was not executed. IEEE SA does not expose a public machine-readable contributor API without credentials. Recommended follow-up: manual search at https://standards.ieee.org using name variants and Dell employer filter.",
+          "retrieval_timestamp": "2026-08-07T16:04:15Z"
+        }
+      ],
+      "candidate_proposals": []
+    },
+    {
+      "worker_id": "W6",
+      "source": "W3C",
+      "authority_rank": 2,
+      "extraction_method": "NOT_ATTEMPTED",
+      "standards_documents_proposed": 0,
+      "assertions": [
+        {
+          "assertion_id": "W6-A1",
+          "assertion_type": "COVERAGE_LIMITATION",
+          "confidence": "HIGH",
+          "subject": "W3C participant/specification author search",
+          "statement": "W3C was not queried. No trigger evidence from prior sweeps indicated W3C-adjacent activity. Recommended follow-up only if domain evidence of W3C activity emerges. W3C participant lists available at https://www.w3.org/groups/ but not machine-readable at scale.",
+          "retrieval_timestamp": "2026-08-07T16:04:18Z"
+        }
+      ],
+      "candidate_proposals": []
+    },
+    {
+      "worker_id": "W7",
+      "source": "OASIS_OPEN",
+      "authority_rank": 2,
+      "extraction_method": "NOT_ATTEMPTED",
+      "standards_documents_proposed": 0,
+      "assertions": [
+        {
+          "assertion_id": "W7-A1",
+          "assertion_type": "COVERAGE_LIMITATION",
+          "confidence": "HIGH",
+          "subject": "OASIS participant/specification author search",
+          "statement": "OASIS Open was not queried. No trigger evidence from prior sweeps indicated OASIS-specific standards activity. OASIS member participant lists are not publicly machine-readable. Recommended follow-up only if domain evidence of OASIS activity emerges (e.g., TOSCA, YANG, OpenDocument).",
+          "retrieval_timestamp": "2026-08-07T16:04:20Z"
+        }
+      ],
+      "candidate_proposals": []
+    }
+  ],
+  "candidate_records": [],
+  "candidate_records_note": "Zero records. No formal standards document (RFC, Internet-Draft, DMTF DSP specification, SNIA specification, IEEE standard, W3C Recommendation/Note, OASIS standard) was found in which any queried name variant holds a formally documented standards role per authoritative standards-body metadata. IETF Datatracker API returned confirmed null results. RFC Editor could not be queried due to SPA migration degradation (medium). DMTF, SNIA, IEEE SA, W3C, and OASIS do not expose public machine-readable contributor registries. No candidate record is proposed. This is a discovery-phase null result, not a final determination.",
+  "proposed_duplicate_groups": [],
+  "proposed_duplicate_groups_note": "No standards document candidate records were produced; duplicate grouping is not applicable.",
+  "proposed_relationships": [],
+  "proposed_relationships_note": "No standards document candidate records were produced; cross-record relationship proposals are not applicable.",
+  "contextual_assertions": [
+    {
+      "assertion_id": "CTX-A1",
+      "assertion_type": "CONTEXTUAL_NON_STANDARDS_IP",
+      "confidence": "HIGH",
+      "subject": "USPTO patent portfolio",
+      "statement": "Multiple US patent documents naming a 'Vaideeswaran Ganesan' as inventor and assigning to 'Dell Products LP' or 'Dell Products L.P.' were retrieved via Google Patents and web-search corroboration. These are IP office records, not standards-body records. They are recorded here as contextual evidence only and do not constitute standards-publication candidate records.",
+      "documents_observed_raw": [
+        {
+          "stable_identifier": "US11048523B2",
+          "application_number_raw": "US:16/171,329",
+          "title_raw": "Enabling software sensor power operation requests via baseboard management controller (BMC)",
+          "filing_date_raw": "2018-10-25",
+          "grant_date_raw": "2021-06-29",
+          "assignee_raw": "Dell Products LP",
+          "inventors_raw": [
+            "Vaideeswaran Ganesan",
+            "Balamurugan Gnanasambandam",
+            "Tamilarasan Janakiram",
+            "Sreeram Muthuraman"
+          ],
+          "source_url": "https://patents.google.com/patent/US11048523B2/en",
+          "pdf_url_raw": "https://patentimages.storage.googleapis.com/a8/d3/f8/2a32bd84a1d39b/US11048523.pdf",
+          "extraction_method": "RAW_HTML_DC_META_TAGS"
+        },
+        {
+          "stable_identifier": "US20200034221A1",
+          "application_number_raw": "US:16/045,273",
+          "title_raw": "Apparatus and Method for Managing Part Life in a Datacenter",
+          "filing_date_raw": "2018-07-25",
+          "publication_date_raw": "2020-01-30",
+          "assignee_raw": "Dell Products LP",
+          "inventors_raw": [
+            "Vaideeswaran Ganesan",
+            "Pravin Janakiram",
+            "Chandrasekhar Revuri"
+          ],
+          "source_url": "https://patents.google.com/patent/US20200034221A1/en",
+          "pdf_url_raw": "https://patentimages.storage.googleapis.com/0d/fe/42/8464de4979f743/US20200034221A1.pdf",
+          "extraction_method": "RAW_HTML_DC_META_TAGS"
+        },
+        {
+          "stable_identifier": "US20200034269A1",
+          "application_number_raw": "US:16/045,334",
+          "title_raw": "Apparatus and Method for Troubleshooting Poor Part Life Zones in a Datacenter",
+          "filing_date_raw": "2018-07-25",
+          "publication_date_raw": "2020-01-30",
+          "assignee_raw": "Dell Products LP",
+          "inventors_raw": [
+            "Vaideeswaran Ganesan",
+            "Pravin Janakiram",
+            "Chandrasekhar Revuri"
+          ],
+          "source_url": "https://patents.google.com/patent/US20200034269A1/en",
+          "pdf_url_raw": "https://patentimages.storage.googleapis.com/0c/62/59/16b28cce47f23b/US20200034269A1.pdf",
+          "extraction_method": "RAW_HTML_DC_META_TAGS"
+        },
+        {
+          "stable_identifier": "US11646951B1",
+          "application_number_raw": "US:17/871,638",
+          "title_raw": "System and method for proactive management of components based on service availability",
+          "filing_date_raw": "2022-07-22",
+          "grant_date_raw": "2023-05-09",
+          "assignee_raw": "Dell Products LP",
+          "inventors_raw": [
+            "Vaideeswaran Ganesan",
+            "Shrinidhi Katte",
+            "Sakshi Garg",
+            "Sakshi Arora",
+            "Shubhangi Srivastava"
+          ],
+          "source_url": "https://patents.google.com/patent/US11646951B1/en",
+          "pdf_url_raw": "https://patentimages.storage.googleapis.com/a4/c0/2e/212ed43d7202f9/US11646951.pdf",
+          "extraction_method": "RAW_HTML_DC_META_TAGS"
+        },
+        {
+          "stable_identifier": "US20230237027A1",
+          "title_raw": "Server Device Updates Using Update Baselines Tagged Across Multiple Management Consoles",
+          "publication_date_raw": "2023-07-27",
+          "source_url": "https://patents.google.com/patent/US20230237027A1/en",
+          "extraction_method": "WEB_SEARCH_CORROBORATED",
+          "confidence_note": "DC meta-tags not extracted; web search named candidate as inventor"
+        },
+        {
+          "stable_identifier": "US20220066673A1",
+          "title_raw": "System and method for content addressable storage system update appliance",
+          "publication_date_raw": "2022-03-03",
+          "source_url": "https://patents.google.com/patent/US20220066673A1/en",
+          "extraction_method": "WEB_SEARCH_CORROBORATED",
+          "confidence_note": "DC meta-tags not extracted; web search named candidate as inventor"
+        },
+        {
+          "stable_identifier": "US12639120B2",
+          "title_raw": "Managing usage of resources in a hybrid computing environment",
+          "filing_date_raw": "2022-07-06",
+          "grant_date_raw": "2026-05-26",
+          "assignee_raw": "Dell Products L.P.",
+          "inventors_raw": [
+            "Vaideeswaran Ganesan",
+            "Pravin Janakiram"
+          ],
+          "source_url": "https://patents.justia.com/inventor/vaideeswaran-ganesan",
+          "extraction_method": "WEB_SEARCH"
+        },
+        {
+          "stable_identifier": "US12625722B2",
+          "title_raw": "Semantic-aware workflow modification and execution with extraction of missing parameter",
+          "filing_date_raw": "2022-01-27",
+          "grant_date_raw": "2026-05-12",
+          "assignee_raw": "Dell Products L.P.",
+          "inventors_raw": [
+            "Vaideeswaran Ganesan",
+            "Pravin Janakiram"
+          ],
+          "source_url": "https://patents.justia.com/inventor/vaideeswaran-ganesan",
+          "extraction_method": "WEB_SEARCH"
+        },
+        {
+          "stable_identifier": "US20260119371A1",
+          "title_raw": "Artificial intelligence-based log information incorporation into code",
+          "filing_date_raw": "2022-07-06",
+          "publication_date_raw": "2026-05-26",
+          "assignee_raw": "Dell Products L.P.",
+          "inventors_raw": [
+            "Vaideeswaran Ganesan",
+            "Pravin Janakiram"
+          ],
+          "source_url": "https://patents.justia.com/inventor/vaideeswaran-ganesan",
+          "extraction_method": "WEB_SEARCH"
+        },
+        {
+          "stable_identifier": "US20220269555A1",
+          "application_number_raw": "US17/179,748",
+          "title_raw": "Usage-banded anomaly detection and remediation utilizing analysis of system metrics",
+          "assignee_raw": "Dell Products L.P.",
+          "source_url": "https://uspto.report/patent/app/20220269555",
+          "extraction_method": "WEB_SEARCH",
+          "confidence_note": "Candidate named as inventor per web search; full inventor list not confirmed"
+        }
+      ],
+      "retrieval_timestamp": "2026-08-07T16:05:30Z",
+      "caveat": "Patent documents are IP-office records (USPTO), not standards publications. All name matches are provisional string matches only. No identity confirmation is asserted. Full enumeration of the patent portfolio may be incomplete; justia.com returned HTTP 403 and Google Patents search is JavaScript-rendered."
+    },
+    {
+      "assertion_id": "CTX-A2",
+      "assertion_type": "CONTEXTUAL_NON_STANDARDS_GITHUB",
+      "confidence": "MEDIUM",
+      "subject": "GitHub public profile and DMTF Redfish implementation fork",
+      "statement": "GitHub REST API returned a user profile for login 'vaideesg' with display name field value 'Vaideeswaran Ganesan', location field value 'India', bio field value 'Technologist, Innovator', hireable=true, public_repos=2, created_at='2016-06-02T22:39:14Z', updated_at='2026-08-07T04:44:24Z'. This account forked 'iDRAC-Redfish-Scripting' (Dell EMC official, DMTF Redfish scripting) on 2017-11-21. GitHub activity is contextual evidence only; it is not a standards-body record and does not constitute a formal standards role.",
+      "raw_api_values": {
+        "login": "vaideesg",
+        "id": 19719198,
+        "node_id": "MDQ6VXNlcjE5NzE5MTk4",
+        "name_field": "Vaideeswaran Ganesan",
+        "location_field": "India",
+        "bio_field": "Technologist, Innovator",
+        "hireable": true,
+        "public_repos": 2,
+        "followers": 6,
+        "following": 5,
+        "created_at": "2016-06-02T22:39:14Z",
+        "updated_at": "2026-08-07T04:44:24Z",
+        "html_url": "https://github.com/vaideesg"
+      },
+      "repos_observed": [
+        {
+          "repo_id_raw": 111563743,
+          "name": "iDRAC-Redfish-Scripting",
+          "fork": true,
+          "description_raw": "Python and PowerShell scripting for Dell EMC PowerEdge iDRAC REST API with DMTF Redfish",
+          "html_url": "https://github.com/vaideesg/iDRAC-Redfish-Scripting",
+          "created_at_raw": "2017-11-21T15:03:23Z",
+          "pushed_at_raw": "2017-10-05T19:11:40Z",
+          "language_raw": "PowerShell",
+          "license_raw": "GPL-2.0",
+          "stargazers_count_raw": 1,
+          "forks_count_raw": 0
+        },
+        {
+          "repo_id_raw": 1326218870,
+          "name": "resumecontentbuilder",
+          "fork": false,
+          "description_raw": null,
+          "html_url": "https://github.com/vaideesg/resumecontentbuilder",
+          "standards_relevance": "NONE"
+        }
+      ],
+      "retrieval_url": "https://api.github.com/users/vaideesg",
+      "retrieval_timestamp": "2026-08-07T16:03:55Z",
+      "caveat": "GitHub display name is a user-editable field. No identity confirmation is asserted. Match between GitHub display name and candidate canonical name is a provisional string match only."
+    },
+    {
+      "assertion_id": "CTX-A3",
+      "assertion_type": "CONTEXTUAL_EMPLOYER_AFFILIATION",
+      "confidence": "MEDIUM",
+      "subject": "Dell membership in standards bodies",
+      "statement": "Dell Technologies / Dell Products L.P. is a documented participating member of DMTF, SNIA, IEEE SA, and NVM Express organisations per public membership pages. This is organisational context only and does not establish individual standards-body participation for the candidate.",
+      "retrieval_timestamp": "2026-08-07T16:04:50Z"
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "WARN-001",
+      "severity": "MEDIUM",
+      "category": "SOURCE_INFRASTRUCTURE_DEGRADATION",
+      "source": "RFC_EDITOR",
+      "message": "RFC Editor search infrastructure has migrated to a client-side SPA (Nuxt). Legacy PHP endpoint rfc_search_detail.php and all REST API v1 paths queried return HTTP 301 redirect or HTTP 404. Automated RFC author search is not possible via HTTP fetch as of 2026-08-07. This is a blocking degradation for authoritative RFC absence confirmation.",
+      "recommended_remediation": "Manually query https://www.rfc-editor.org/search/ using author field with name variants. Alternatively, use IETF Datatracker draft author lookup at https://datatracker.ietf.org/doc/search/ with author name filter.",
+      "affects_candidate_records": false
+    },
+    {
+      "warning_id": "WARN-002",
+      "severity": "LOW",
+      "category": "API_ENDPOINT_FAILURE",
+      "source": "IETF_DATATRACKER",
+      "message": "IETF Datatracker group/role endpoint returned HTTP 400 when queried with person name filter (person__name__icontains=Ganesan). Working-group role membership for the candidate was not confirmed or excluded via this endpoint.",
+      "recommended_remediation": "Query https://datatracker.ietf.org/api/v1/group/role/?format=json&person=<person_id> once a valid person ID is established; or query the Datatracker UI at https://datatracker.ietf.org/person/search/ manually.",
+      "affects_candidate_records": false
+    },
+    {
+      "warning_id": "WARN-003",
+      "severity": "LOW",
+      "category": "SOURCE_NO_PUBLIC_API",
+      "source": "DMTF",
+      "message": "DMTF does not expose a machine-readable public contributor registry. DMTF Redfish DSP specification author metadata is not publicly queryable by individual name. Absence of individual credit in public DSP documents is standard DMTF practice and does not imply non-participation.",
+      "recommended_remediation": "Contact DMTF directly or access DMTF member portal to retrieve working-group participant lists.",
+      "affects_candidate_records": false
+    },
+    {
+      "warning_id": "WARN-004",
+      "severity": "LOW",
+      "category": "SOURCE_NO_PUBLIC_API",
+      "source": "SNIA",
+      "message": "SNIA does not expose a machine-readable public contributor registry. SNIA Swordfish and SMI-S working-group participant lists require member portal access. Absence of public credit does not confirm non-participation.",
+      "recommended_remediation": "Access SNIA member portal or contact SNIA directly to retrieve working-group participant lists.",
+      "affects_candidate_records": false
+    },
+    {
+      "warning_id": "WARN-005",
+      "severity": "INFORMATIONAL",
+      "category": "SOURCE_NOT_ATTEMPTED",
+      "source": "IEEE_SA",
+      "message": "IEEE Standards Association participant/author search was not executed. IEEE SA does not expose a public machine-readable contributor API. No evidence from prior sweeps triggered an IEEE-specific follow-up query.",
+      "recommended_remediation": "Manually search https://standards.ieee.org using candidate name variants and 'Dell' as organisation filter.",
+      "affects_candidate_records": false
+    },
+    {
+      "warning_id": "WARN-006",
+      "severity": "INFORMATIONAL",
+      "category": "SOURCE_NOT_ATTEMPTED",
+      "source": "W3C",
+      "message": "W3C participant/specification author search was not executed. No trigger evidence of W3C-adjacent activity from prior sweeps.",
+      "recommended_remediation": "If domain evidence of W3C activity emerges, query https://www.w3.org/groups/ manually.",
+      "affects_candidate_records": false
+    },
+    {
+      "warning_id": "WARN-007",
+      "severity": "INFORMATIONAL",
+      "category": "SOURCE_NOT_ATTEMPTED",
+      "source": "OASIS_OPEN",
+      "message": "OASIS Open participant/specification author search was not executed. No trigger evidence of OASIS-adjacent activity from prior sweeps.",
+      "recommended_remediation": "If domain evidence of OASIS activity emerges (e.g., TOSCA, YANG, OpenDocument), query OASIS member portal manually.",
+      "affects_candidate_records": false
+    },
+    {
+      "warning_id": "WARN-008",
+      "severity": "INFORMATIONAL",
+      "category": "COMPLETENESS",
+      "message": "USPTO patent enumeration may be incomplete. justia.com returned HTTP 403. Google Patents search page is JavaScript-rendered. Full patent portfolio count unknown. Contextual assertion CTX-A1 documents 10 patent records; actual total may be higher. No bearing on standards-publication candidate records.",
+      "affects_candidate_records": false
+    },
+    {
+      "warning_id": "WARN-009",
+      "severity": "INFORMATIONAL",
+      "category": "IDENTITY_NOT_CONFIRMED",
+      "message": "All name matches in this artifact are provisional string matches only. No identity confirmation is asserted for any queried source. GitHub display name is a user-editable field. Patent inventor name strings are USPTO-filed strings, not independently verified identity records. No final attribution, role, inclusion, merge, or status decision is made or implied by this artifact.",
+      "affects_candidate_records": false
+    }
+  ],
+  "summary_counts": {
+    "workers_launched": 7,
+    "workers_completed_null_result": 1,
+    "workers_blocked_infrastructure_degradation": 1,
+    "workers_blocked_no_public_api": 2,
+    "workers_not_attempted_out_of_scope": 2,
+    "workers_not_attempted_no_trigger": 1,
+    "candidate_records_total": 0,
+    "ietf_drafts_found": 0,
+    "rfcs_found_authoritative": 0,
+    "rfcs_found_web_corroborated_not_authoritative": 0,
+    "dmtf_dsp_specs_found": 0,
+    "snia_specs_found": 0,
+    "ieee_standards_found": 0,
+    "w3c_documents_found": 0,
+    "oasis_documents_found": 0,
+    "proposed_duplicate_groups": 0,
+    "proposed_relationships": 0,
+    "contextual_assertions_non_standards": 3,
+    "warnings_total": 9,
+    "warnings_medium": 1,
+    "warnings_low": 3,
+    "warnings_informational": 5,
+    "blocking_degradations": 1
+  }
+}

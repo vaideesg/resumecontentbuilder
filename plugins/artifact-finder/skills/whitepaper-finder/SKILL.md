@@ -37,6 +37,11 @@ topics. Include exact-name, reversed-name, initials, `filetype:pdf`, title-page/
 publisher-library, DOI/document-ID, and revision/version strategies. Record the plan in
 `query-plan.json`; do not put candidate data in skill files.
 
+For every configured employer alias, issue exact-name queries combining the canonical name and
+each configured name variant with `white paper`, `technical white paper`, `technical paper`, and
+`reference architecture`. These exact author-and-document-type queries are mandatory even when
+broader publisher or topic searches return no candidates.
+
 ### 2. Run multiple discovery agents
 
 Launch at least three agents, concurrently when tools permit:
@@ -46,7 +51,9 @@ Launch at least three agents, concurrently when tools permit:
 - **Repository/index agent:** institutional repositories, digital libraries, DOI/Crossref, and
   document-ID searches.
 - **PDF/mirror agent:** public PDF search, CDN and mirror discovery, title-page extraction, and
-  revision comparison.
+  revision comparison. Search document-hosting and archival platforms such as Scribd, Internet
+  Archive, conference repositories, vendor-community attachments, and cached document viewers
+  when the publisher copy is missing or blocked.
 
 At least two agents must run even if only one provider is available; partition them by query
 strategy and report that source independence was not achieved. Each agent returns a worker
@@ -57,6 +64,16 @@ authority rank, `retrieval_status`, assertions, and warnings. Allowed statuses a
 Agents must preserve raw values and extraction methods. Rank-5 snippets may discover a candidate
 but cannot establish authorship, publication, or identity.
 
+When a publisher portal is blocked, search indexed PDF text, canonical document URLs,
+support/manual landing pages, revision identifiers, and public mirrors. A blocked publisher plus
+an empty broad search is incomplete coverage, not a completed zero-result search.
+
+Search exact combinations of candidate name variants with likely body-text labels including
+`Author`, `Authors`, `Author(s)`, `Written by`, `Contributors`, `Enterprise Solutions Group`,
+configured employer aliases, and `Technical White Paper`. Include older vendor terminology and
+third-party platform names appearing in the candidate's technical history; do not restrict
+discovery to current product brands or current publisher portals.
+
 ### 3. Extract and normalize evidence
 
 For every candidate PDF:
@@ -66,6 +83,19 @@ For every candidate PDF:
 - Prefer embedded text; use OCR only when needed and label it `ocr`.
 - Record PDF metadata separately. Metadata alone is weak evidence and must never establish
   authorship.
+- If PDF bytes are available but direct text extraction is unavailable, use multiple independent
+  indexes to locate exact body-text bylines and retain the result as a provisional candidate.
+  Do not reject it merely because the PDF metadata author is an organization. Record indexed
+  byline text as indirect evidence and require higher-layer supervision before inclusion.
+- For HTML document viewers, inspect accessible text layers, structured data, accessibility text,
+  page transcripts, and OCR output. Treat exact document-body title, byline, role, copyright,
+  revision, and date text as evidence while recording the viewer as a mirror.
+- Distinguish the document uploader or hosting-account owner from the intellectual-work author.
+  Fields such as Scribd `schema.org.author`, `Uploaded by`, or archive depositor identify the
+  mirror uploader unless the document body independently names that person as an author.
+- A mirror-only candidate may proceed to supervision when the accessible document body contains
+  an exact creator byline plus publisher, role/affiliation, and publication or revision evidence.
+  Add `canonical_publisher_url_unavailable` and retain the mirror URL rather than discarding it.
 - Distinguish `author` or explicit `contributor` from `acknowledged`, `quoted`, `reviewer`, or
   `mentioned_person`. Non-creator roles are not compatibility candidates.
 - Hash the retrieved PDF bytes for `content_hash`; a mirror may have a different wrapper or URL,
@@ -88,9 +118,18 @@ Merge landing pages, repository copies, and PDF mirrors for the same edition whi
 source evidence. Use DOI/document ID first, then normalized title, author set, publisher, date, and
 content hash. Never merge on title alone.
 
+When no publisher URL survives, use the most complete public mirror as `website`, preserve all
+known historical or failed publisher URLs in evidence, and leave the canonical publisher URL
+unknown. Discovery from a mirror must not be excluded solely because the original vendor URL has
+disappeared.
+
 Keep materially revised editions as separate records. Give them distinct canonical keys and add
 `supersedes`/`superseded_by` links in `fields`. Cosmetic rehosting or byte-identical mirrors remain
 one record. Put unresolved merge/split cases in `dedup-decisions.jsonl` and warnings.
+
+Product-versioned or revision-numbered PDFs with the same title and author set must first be
+treated as editions of one intellectual work. Preserve every revision URL and date. Emit separate
+records only when content or publisher evidence establishes a materially distinct edition.
 
 ### 5. Mandatory higher-layer identity supervision
 
@@ -142,10 +181,12 @@ Report one of `COMPLETE`, `COMPLETE_DEGRADED`, `PARTIAL`, or `FAILED`.
 - `FAILED`: missing consent; no authoritative source and no usable cache; unrecoverable corrupt
   checkpoint; normalized-record, CSV-schema, or verification failure.
 - `COMPLETE_DEGRADED`: optional source blocked/unavailable, rate-limited coverage, stale evidence,
-  one-provider-only discovery, or unresolved identity/revision grouping that does not invalidate
-  the verified output.
+  one-provider-only discovery, mirror-only evidence, unavailable canonical publisher URL, or
+  unresolved identity/revision grouping that does not invalidate the verified output.
 - `PARTIAL`: some planned searches or records could not be completed, but verified records exist.
 - A completed authoritative search with zero candidates is a valid empty result, not a failure.
   Distinguish it from a blocked, timed-out, or otherwise incomplete search.
+- Do not report a completed zero-result when the primary publisher is blocked and the mandatory
+  exact author-and-document-type query matrix has not been exhausted.
 
 Never promote weak candidates to hide degraded coverage.

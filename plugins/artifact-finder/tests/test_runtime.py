@@ -158,6 +158,7 @@ class PipelineTests(unittest.TestCase):
                 records,
                 output,
                 consent_confirmed=True,
+                portfolio_dir=root,
             )
 
             self.assertEqual(1, manifest["included_records"])
@@ -169,6 +170,18 @@ class PipelineTests(unittest.TestCase):
             self.assertTrue((output / "query-plan.json").exists())
             self.assertTrue((output / "run-report.json").exists())
             self.assertTrue((output / "source-snapshots").is_dir())
+            portfolio = Path(manifest["portfolio_file"])
+            self.assertTrue(portfolio.exists())
+            portfolio_text = portfolio.read_text(encoding="utf-8")
+            candidate = load_candidate_config(PLUGIN_ROOT / "candidate.config.json")["candidate"]
+            self.assertIn(f"# {candidate['canonical_name']}", portfolio_text)
+            self.assertEqual("vaideeswaran-ganesan.md", portfolio.name)
+            self.assertIn("## Patents", portfolio_text)
+            self.assertIn("Example patent", portfolio_text)
+            self.assertNotIn("Run status", portfolio_text)
+            self.assertNotIn("Evidence snapshot", portfolio_text)
+            self.assertNotIn("## Methodology", portfolio_text)
+            self.assertNotIn("## Articles", portfolio_text)
             with (output / "patents.csv").open(encoding="utf-8", newline="") as handle:
                 rows = list(csv.DictReader(handle))
             self.assertEqual("12345678", rows[0]["Patent Number"])

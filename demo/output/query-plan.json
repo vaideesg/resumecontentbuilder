@@ -1,0 +1,12 @@
+{
+  "artifact_types": [
+    "certifications",
+    "community-contributions",
+    "patents",
+    "white-papers"
+  ],
+  "candidate_config": "demo\\vaideeswaran-ganesan-config.json",
+  "input_records": 28,
+  "offline": false,
+  "schema_version": "1.0"
+}

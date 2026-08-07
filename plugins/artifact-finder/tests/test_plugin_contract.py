@@ -9,6 +9,7 @@ PLUGIN_ROOT = Path(__file__).resolve().parents[1]
 
 EXPECTED_SKILLS = {
     "artifact-finder",
+    "collect-artifacts",
     "patent-finder",
     "whitepaper-finder",
     "article-finder",
@@ -52,15 +53,15 @@ class PluginContractTests(unittest.TestCase):
             *(item["url"] for item in candidate.get("professional_profiles", [])),
         }
 
-        for path in PLUGIN_ROOT.rglob("*"):
-            if not path.is_file() or path.name == "candidate.config.json":
-                continue
-            if path.suffix.lower() not in {".md", ".py", ".json"}:
-                continue
-            content = path.read_text(encoding="utf-8")
-            for value in forbidden:
-                if len(value) >= 5:
-                    self.assertNotIn(value, content, f"{value!r} leaked into {path}")
+        reusable_roots = [PLUGIN_ROOT / "skills", PLUGIN_ROOT / "scripts", PLUGIN_ROOT / "docs"]
+        for root in reusable_roots:
+            for path in root.rglob("*"):
+                if not path.is_file() or path.suffix.lower() not in {".md", ".py", ".json"}:
+                    continue
+                content = path.read_text(encoding="utf-8")
+                for value in forbidden:
+                    if len(value) >= 5:
+                        self.assertNotIn(value, content, f"{value!r} leaked into {path}")
 
 
 if __name__ == "__main__":

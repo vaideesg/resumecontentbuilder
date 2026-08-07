@@ -16,6 +16,14 @@ def main() -> int:
     parser.add_argument("--candidate-config", required=True)
     parser.add_argument("--records", required=True, help="Normalized JSONL records from discovery agents.")
     parser.add_argument("--output-dir", required=True)
+    parser.add_argument(
+        "--portfolio-dir",
+        help="Directory for the consolidated candidate Markdown file. Defaults to --output-dir.",
+    )
+    parser.add_argument(
+        "--portfolio-file",
+        help="Markdown filename for the portfolio. Defaults to a slug of the canonical name.",
+    )
     parser.add_argument("--consent-confirmed", action="store_true")
     parser.add_argument("--include-possible", action="store_true")
     args = parser.parse_args()
@@ -27,6 +35,8 @@ def main() -> int:
             args.output_dir,
             consent_confirmed=args.consent_confirmed,
             include_possible=args.include_possible,
+            portfolio_dir=args.portfolio_dir,
+            portfolio_file=args.portfolio_file,
         )
     except (OSError, ValueError) as exc:
         print(f"artifact-finder: {exc}", file=sys.stderr)

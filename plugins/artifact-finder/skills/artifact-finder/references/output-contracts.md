@@ -34,5 +34,5 @@ python plugins/artifact-finder/scripts/run.py \
   --consent-confirmed
 ```
 
-Outputs include compatibility CSVs, enriched CSVs, `identity-decisions.jsonl`, and
-`run-manifest.json`.
+Outputs include `<canonical-name-slug>.md`, compatibility CSVs, enriched CSVs,
+`identity-decisions.jsonl`, and `run-manifest.json`.

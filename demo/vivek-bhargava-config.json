@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "candidate": {
+    "canonical_name": "Vivek Bhargava",
+    "known_name_variants": [ ],
+    "employment": [
+      {
+        "company": "Dell",
+        "aliases": [
+          "Dell Technologies",
+          "Dell EMC",
+          "Dell Products L.P."
+        ],
+        "start_date": null,
+        "end_date": null
+      }
+    ],
+    "professional_profiles": [
+      {
+        "type": "linkedin",
+        "url": "https://in.linkedin.com/in/vivek-bhargava"
+      }
+    ],
+    "known_collaborators": []
+  }
+}

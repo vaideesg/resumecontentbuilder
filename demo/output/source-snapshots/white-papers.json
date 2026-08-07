@@ -1,0 +1,116 @@
+{
+  "artifact_type": "white-papers",
+  "schema_version": "1.0",
+  "workflow_status": "COMPLETE_DEGRADED_NO_CANDIDATES",
+  "generated_at": "2026-08-07T16:04:22Z",
+  "worker_count": 3,
+  "source_independence": true,
+  "retrieval_statuses": {
+    "publisher_employer_portals": "partial",
+    "repositories_indexes_doi": "partial",
+    "pdf_mirror_title_page": "partial"
+  },
+  "query_plan": {
+    "strategies": [
+      "publisher and employer publication portals",
+      "academic repositories, indexes, DOI, and author archives",
+      "public PDF, mirror, title-page, and revision discovery"
+    ],
+    "sources": [
+      "Dell Technologies Info Hub",
+      "Dell public document library",
+      "arXiv",
+      "Semantic Scholar",
+      "ACM Digital Library",
+      "IEEE Xplore",
+      "ResearchGate",
+      "GitHub"
+    ]
+  },
+  "worker_envelopes": [
+    {
+      "worker_id": "WP-WORKER-1",
+      "partition": "publisher_employer_portals",
+      "retrieval_status": "partial",
+      "assertions": [
+        {
+          "evidence_id": "wp-001",
+          "source_url": "https://dl.dell.com/manuals/all-products/esuprt_solutions_int/esuprt_solutions_int_solutions_resources/dell-management-solution-resources_White-Papers10_en-us.pdf",
+          "retrieved_at": "2026-08-07T16:04:22Z",
+          "authority_rank": 1,
+          "field": "creator_role",
+          "raw_value": "Organizational authorship metadata; candidate not named in retrievable metadata",
+          "normalized_value": "not_attributable",
+          "extraction_method": "pdf_metadata"
+        },
+        {
+          "evidence_id": "wp-002",
+          "source_url": "https://dl.dell.com/manuals/common/dell-emc-poweredge-server-mgmt-idrac-api.pdf",
+          "retrieved_at": "2026-08-07T16:04:22Z",
+          "authority_rank": 1,
+          "field": "creator_role",
+          "raw_value": "Organizational authorship metadata; candidate not named in retrievable metadata",
+          "normalized_value": "not_attributable",
+          "extraction_method": "pdf_metadata"
+        }
+      ],
+      "warnings": [
+        "Dell Info Hub returned HTTP 403",
+        "PDF title-page bodies were not fully extractable"
+      ]
+    },
+    {
+      "worker_id": "WP-WORKER-2",
+      "partition": "repositories_indexes_doi",
+      "retrieval_status": "not_found",
+      "assertions": [
+        {
+          "evidence_id": "wp-003",
+          "source_url": "https://www.semanticscholar.org/",
+          "retrieved_at": "2026-08-07T16:04:22Z",
+          "authority_rank": 2,
+          "field": "authorship",
+          "raw_value": "No domain-aligned attributable white paper surfaced across scholarly indexes",
+          "normalized_value": "",
+          "extraction_method": "search"
+        }
+      ],
+      "warnings": [
+        "A same-name HRM academic result was identified as a separate identity cluster"
+      ]
+    },
+    {
+      "worker_id": "WP-WORKER-3",
+      "partition": "pdf_mirror_title_page",
+      "retrieval_status": "partial",
+      "assertions": [
+        {
+          "evidence_id": "wp-004",
+          "source_url": "https://github.com/vaideesg",
+          "retrieved_at": "2026-08-07T16:04:22Z",
+          "authority_rank": 3,
+          "field": "creator_role",
+          "raw_value": "Public account context did not expose an authored white paper",
+          "normalized_value": "",
+          "extraction_method": "search"
+        }
+      ],
+      "warnings": [
+        "Topic proximity to Dell iDRAC and Redfish material was not treated as authorship"
+      ]
+    }
+  ],
+  "candidate_records": [],
+  "proposed_duplicate_groups": [],
+  "proposed_relationships": [
+    {
+      "relationship_id": "wp-rel-001",
+      "type": "name_collision",
+      "description": "A domain-incompatible HRM academic with the same name was kept separate"
+    }
+  ],
+  "warnings": [
+    "No public white paper with verified creator-role attribution was found",
+    "Blocked publisher indexes and incomplete PDF body extraction degraded coverage"
+  ]
+}

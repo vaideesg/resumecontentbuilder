@@ -1,0 +1,13 @@
+{
+  "candidate_config": "demo\\vaideeswaran-ganesan-config.json",
+  "candidate_name": "Vaideeswaran Ganesan",
+  "consent_confirmed": true,
+  "generated_at": "2026-08-07T17:40:00Z",
+  "include_possible": false,
+  "included_records": 28,
+  "input_records": 28,
+  "portfolio_file": "demo\\vaideeswaran-ganesan.md",
+  "reconciled_records": 28,
+  "schema_version": "1.0",
+  "status": "COMPLETE_DEGRADED"
+}

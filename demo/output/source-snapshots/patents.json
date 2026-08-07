@@ -1,0 +1,1699 @@
+{
+  "artifact_type": "patent_discovery_artifact",
+  "workflow_status": "COMPLETE_WITH_DEGRADATION",
+  "generated_at_utc": "2026-08-07T16:19:47Z",
+  "candidate": {
+    "canonical_name": "Vaideeswaran Ganesan",
+    "known_name_variants": [
+      "Vaideeswaran Ganesan",
+      "Vaideeswaran G",
+      "V. Ganesan",
+      "Ganesan Vaideeswaran"
+    ],
+    "employer_canonical": "Dell Products L.P.",
+    "employer_aliases": [
+      "Dell Technologies",
+      "Dell EMC",
+      "Dell Products L.P."
+    ]
+  },
+  "worker_count": 2,
+  "source_independence": true,
+  "retrieval_statuses": {
+    "USPTO_Patent_Public_Search": {
+      "status": "NOT_DIRECTLY_FETCHED",
+      "reason": "All direct fetch attempts to uspto.gov endpoints blocked or not attempted; data inferred through web search aggregator snippets only",
+      "url_attempted": "https://www.uspto.gov/patents/search/patent-public-search",
+      "retrieval_timestamp_utc": "2026-08-07T16:04:23Z"
+    },
+    "Google_Patents_direct_fetch": {
+      "status": "PARTIAL",
+      "reason": "Direct fetches for patent number URLs (e.g. /patent/US12639120) returned HTTP 404; full text successfully fetched for two records via canonical /en path",
+      "urls_succeeded": [
+        "https://patents.google.com/patent/US11646951B1/en",
+        "https://patents.google.com/patent/US11947825B2/en",
+        "https://patents.google.com/patent/US20200034268A1/en",
+        "https://patents.google.com/patent/US20230027027A1/en"
+      ],
+      "urls_failed_http404": [
+        "https://patents.google.com/patent/US12639120",
+        "https://patents.google.com/patent/US12625722"
+      ],
+      "retrieval_timestamp_utc": "2026-08-07T16:04:23Z"
+    },
+    "Justia_Patents": {
+      "status": "BLOCKED",
+      "reason": "HTTP 403 on all direct fetch attempts to patents.justia.com",
+      "urls_attempted": [
+        "https://patents.justia.com/inventor/vaideeswaran-ganesan",
+        "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=2",
+        "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=3",
+        "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=4",
+        "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=5",
+        "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=6",
+        "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=7"
+      ],
+      "note": "Justia URL confirmed as existing and indexing this inventor; data from this source arrived only via web search aggregator snippet citations",
+      "retrieval_timestamp_utc": "2026-08-07T16:04:23Z"
+    },
+    "USPTO_Report": {
+      "status": "BLOCKED",
+      "reason": "HTTP 403",
+      "urls_attempted": [
+        "https://uspto.report/patent/app/20200034221",
+        "https://uspto.report/patent/app/20220291856"
+      ],
+      "retrieval_timestamp_utc": "2026-08-07T16:04:23Z"
+    },
+    "Lens_org": {
+      "status": "NOT_FETCHED",
+      "reason": "DNS resolution failure on API endpoint; search URL also returned HTTP 404",
+      "urls_attempted": [
+        "https://patentsearch.lens.org/api/patent/search",
+        "https://lens.org/search?q=inventor%3A%22Vaideeswaran+Ganesan%22"
+      ],
+      "retrieval_timestamp_utc": "2026-08-07T16:04:23Z"
+    },
+    "WIPO_PATENTSCOPE": {
+      "status": "NOT_DIRECTLY_QUERIED",
+      "reason": "No direct PATENTSCOPE query executed; one Indian priority application surfaced passively via cross-reference in fetched full text of US20230027027A1",
+      "retrieval_timestamp_utc": "2026-08-07T16:04:23Z"
+    },
+    "EPO_Espacenet": {
+      "status": "NOT_DIRECTLY_QUERIED",
+      "reason": "No direct Espacenet query executed; mentioned in aggregator guidance as recommended follow-up source",
+      "retrieval_timestamp_utc": "2026-08-07T16:04:23Z"
+    },
+    "Web_Search_Aggregator": {
+      "status": "SUCCESS",
+      "note": "Primary data source for 14 of 16 candidate records; six independent searches executed via Bing-backed AI search aggregator",
+      "retrieval_timestamp_utc": "2026-08-07T16:04:23Z"
+    }
+  },
+  "query_plan": {
+    "worker_A_bibliographic": {
+      "worker_id": "worker_A",
+      "role": "BIBLIOGRAPHIC_USPTO_GOOGLE_PATENTS",
+      "queries_executed": [
+        {
+          "seq": 1,
+          "type": "web_search",
+          "query": "Vaideeswaran Ganesan Dell patent inventor site:patents.google.com OR site:patents.justia.com OR site:lens.org",
+          "executed_at_utc": "2026-08-07T16:04:10Z"
+        },
+        {
+          "seq": 2,
+          "type": "web_search",
+          "query": "inventor:\"Vaideeswaran Ganesan\" Dell Technologies patent application publication",
+          "executed_at_utc": "2026-08-07T16:04:10Z"
+        },
+        {
+          "seq": 3,
+          "type": "web_search",
+          "query": "Vaideeswaran Ganesan Dell patent all filings 2018 2019 2020 2021 2022 2023 2024 inventor list",
+          "executed_at_utc": "2026-08-07T16:04:35Z"
+        },
+        {
+          "seq": 4,
+          "type": "web_search",
+          "query": "site:patents.google.com Vaideeswaran Ganesan Dell inventor",
+          "executed_at_utc": "2026-08-07T16:04:35Z"
+        },
+        {
+          "seq": 5,
+          "type": "direct_fetch",
+          "url": "https://patents.google.com/patent/US11646951B1/en",
+          "http_status": 200,
+          "content_chars_retrieved": 15000,
+          "executed_at_utc": "2026-08-07T16:05:10Z"
+        },
+        {
+          "seq": 6,
+          "type": "direct_fetch",
+          "url": "https://patents.google.com/patent/US11947825B2/en",
+          "http_status": 200,
+          "content_chars_retrieved": 15000,
+          "executed_at_utc": "2026-08-07T16:05:10Z"
+        },
+        {
+          "seq": 7,
+          "type": "direct_fetch",
+          "url": "https://patents.google.com/patent/US20200034268A1/en",
+          "http_status": 200,
+          "content_chars_retrieved": 5000,
+          "executed_at_utc": "2026-08-07T16:06:40Z"
+        },
+        {
+          "seq": 8,
+          "type": "direct_fetch",
+          "url": "https://patents.google.com/patent/US20230027027A1/en",
+          "http_status": 200,
+          "content_chars_retrieved": 5000,
+          "executed_at_utc": "2026-08-07T16:06:40Z"
+        }
+      ]
+    },
+    "worker_B_prosecution": {
+      "worker_id": "worker_B",
+      "role": "PROSECUTION_CONTINUITY_STATUS",
+      "queries_executed": [
+        {
+          "seq": 1,
+          "type": "web_search",
+          "query": "Vaideeswaran Ganesan Dell patent \"12639120\" OR \"12625722\" OR \"20260119371\" filing date claims abstract",
+          "executed_at_utc": "2026-08-07T16:04:10Z"
+        },
+        {
+          "seq": 2,
+          "type": "web_search",
+          "query": "Vaideeswaran Ganesan Dell patent \"16/045273\" OR \"17/828416\" prosecution status continuity",
+          "executed_at_utc": "2026-08-07T16:04:10Z"
+        },
+        {
+          "seq": 3,
+          "type": "web_search",
+          "query": "Vaideeswaran Ganesan Dell patent \"11954181\" OR \"11646951\" OR \"20220043598\" OR \"20220019378\" inventors filing date status",
+          "executed_at_utc": "2026-08-07T16:04:55Z"
+        },
+        {
+          "seq": 4,
+          "type": "web_search",
+          "query": "Vaideeswaran Ganesan Dell patent \"20230023869\" OR \"20230027027\" OR warranty bot collaborative filtering filing details",
+          "executed_at_utc": "2026-08-07T16:04:55Z"
+        },
+        {
+          "seq": 5,
+          "type": "web_search",
+          "query": "Vaideeswaran Ganesan Dell patent detecting poor component life OR dynamically moving virtual machine OR proactive management 2020 2021 inventors abstract",
+          "executed_at_utc": "2026-08-07T16:05:50Z"
+        },
+        {
+          "seq": 6,
+          "type": "web_search",
+          "query": "Vaideeswaran Ganesan Dell patent \"10877539\" OR \"10860078\" OR apparatus method managing part life details filing inventors abstract",
+          "executed_at_utc": "2026-08-07T16:05:50Z"
+        }
+      ]
+    }
+  },
+  "worker_envelopes": {
+    "worker_A": {
+      "worker_id": "worker_A",
+      "role": "BIBLIOGRAPHIC_USPTO_GOOGLE_PATENTS",
+      "sources_queried": [
+        "Google Patents (direct fetch)",
+        "Justia Patents (via aggregator)",
+        "Web search aggregator"
+      ],
+      "assertions": [
+        "Vaideeswaran Ganesan is a confirmed Dell Products L.P. inventor appearing on multiple US patent publications spanning 2018 to 2026.",
+        "Earliest confirmed filing date: 2018-04-23 (US10877539B2).",
+        "Latest confirmed grant date: 2026-05-26 (US12639120).",
+        "Subject matter clusters identified: (1) datacenter component lifecycle and part-life management, (2) power management and cluster operations, (3) VM migration and storage, (4) content addressable storage update appliance, (5) warranty intelligence and recommendation, (6) hybrid cloud resource optimization, (7) semantic workflow automation, (8) AI-driven log incorporation.",
+        "Primary recurring co-inventor: Pravin Janakiram (confirmed on CR-003, CR-004, CR-005, CR-010, CR-014, CR-015).",
+        "Other recurring co-inventors: Chandrasekhar Revuri (CR-003, CR-004, CR-005), Viswanathan Balakrishnan (CR-008, CR-009), Deepaganesh Paulraj (CR-006, CR-007), Hemant Gaikwad (CR-010).",
+        "Justia inventor profile at https://patents.justia.com/inventor/vaideeswaran-ganesan confirmed as existing and multi-page (pages 2 through 7 cited in aggregator snippets).",
+        "No WIPO PCT application numbers directly identified; one Indian priority application found via cross-reference."
+      ],
+      "normalized_candidate_proposal_ids": [
+        "CR-001",
+        "CR-002",
+        "CR-003",
+        "CR-004",
+        "CR-005",
+        "CR-006",
+        "CR-007",
+        "CR-008",
+        "CR-009",
+        "CR-010",
+        "CR-011",
+        "CR-012",
+        "CR-013",
+        "CR-014",
+        "CR-015",
+        "CR-016"
+      ]
+    },
+    "worker_B": {
+      "worker_id": "worker_B",
+      "role": "PROSECUTION_CONTINUITY_STATUS",
+      "sources_queried": [
+        "Google Patents cross-references (direct fetch)",
+        "USPTO Patent Center (indirect via aggregator)",
+        "Web search aggregator"
+      ],
+      "assertions": [
+        "US11947825B2 (CR-010) is a continuation of US App Ser. No. 17/005,102 filed 2020-08-07 — confirmed via explicit cross-reference statement in directly fetched full text of https://patents.google.com/patent/US11947825B2/en.",
+        "US20230027027A1 (CR-013) claims priority to Indian Patent Application No. 202111033261 filed 2021-07-23 — confirmed via explicit priority claim statement in directly fetched full text of https://patents.google.com/patent/US20230027027A1/en.",
+        "US20200034268A1 (CR-004) cross-references two co-pending sibling applications on its face: DC-110296 ('Apparatus and Method for Managing Part Life in a Datacenter') and DC-110299 ('Apparatus and Method for Troubleshooting Poor Part Life Zones in a Datacenter'), both filed of even date — confirmed in directly fetched full text.",
+        "US11646951B1 (CR-011) status GRANTED — confirmed via direct fetch of full text.",
+        "US11947825B2 (CR-010) status GRANTED — confirmed via direct fetch of full text.",
+        "US11954181B2 (CR-008) filing date 2020-12-16, grant date 2024-04-09 — sourced from aggregator, authority rank SECONDARY.",
+        "US12639120 (CR-015) filing date 2022-07-06, grant date 2026-05-26 — sourced from aggregator, authority rank SECONDARY.",
+        "US12625722 (CR-014) filing date 2022-01-27, grant date 2026-05-12 — sourced from aggregator, authority rank SECONDARY.",
+        "US20260119371A1 (CR-016) status PUBLISHED APPLICATION as of retrieval date — sourced from aggregator, authority rank SECONDARY.",
+        "App 17/828416 listed in one early aggregator result with filing date 2022-09-15; confirmed patent number US11947825B2 granted 2024-04-02 with filing date 2022-05-31 in a later aggregator result — discrepancy flagged as warning W-011.",
+        "Grant/abandonment status not confirmed for CR-006, CR-007, CR-009, CR-012, CR-013 — last known state is PUBLISHED APPLICATION."
+      ]
+    }
+  },
+  "candidate_records": [
+    {
+      "candidate_record_id": "CR-001",
+      "jurisdiction": "US",
+      "record_type": "GRANTED_PATENT",
+      "patent_number": {
+        "value": "US10877539B2",
+        "raw_value": "10877539",
+        "aggregator_only": true
+      },
+      "application_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "publication_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "title": {
+        "value": "System and method to prevent power supply failures based on data center environmental behavior",
+        "aggregator_only": true
+      },
+      "filing_date": {
+        "value": "2018-04-23",
+        "aggregator_only": true
+      },
+      "grant_date": {
+        "value": "2020-12-29",
+        "aggregator_only": true
+      },
+      "publication_date": {
+        "value": null
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": true
+      },
+      "inventors_raw": {
+        "value": [
+          "Santosh Kumar Sahu",
+          "Rama R. Bisa",
+          "Sunil Lingappa",
+          "Ajaya K. Senapati",
+          "Vaideeswaran Ganesan"
+        ],
+        "aggregator_only": true,
+        "completeness": "ASSUMED_COMPLETE"
+      },
+      "candidate_inventor_position": 5,
+      "abstract_excerpt": {
+        "value": "Information handling system includes first and second power supplies and a management controller. Controller activates first power supply during normal operation and shuts down the second. In test mode roles are reversed to verify second power supply operates within limits; non-compliance indicates failure.",
+        "aggregator_only": true
+      },
+      "provisional_confidence": "HIGH",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=5",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:05:50Z"
+        }
+      ],
+      "extraction_method": "web_search_aggregator_snippet",
+      "authority_rank": "SECONDARY_AGGREGATOR"
+    },
+    {
+      "candidate_record_id": "CR-002",
+      "jurisdiction": "US",
+      "record_type": "GRANTED_PATENT",
+      "patent_number": {
+        "value": "US10860078B2",
+        "raw_value": "10860078",
+        "aggregator_only": true
+      },
+      "application_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "publication_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "title": {
+        "value": "Managing power request during cluster operations",
+        "aggregator_only": true
+      },
+      "filing_date": {
+        "value": "2018-10-25",
+        "aggregator_only": true
+      },
+      "grant_date": {
+        "value": "2020-12-08",
+        "aggregator_only": true
+      },
+      "publication_date": {
+        "value": null
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": true
+      },
+      "inventors_raw": {
+        "value": [
+          "Vaideeswaran Ganesan",
+          "Balamurugan Gnanasambandam",
+          "Tamilarasan Janakiram",
+          "Sreeram Muthuraman"
+        ],
+        "aggregator_only": true,
+        "completeness": "ASSUMED_COMPLETE"
+      },
+      "candidate_inventor_position": 1,
+      "abstract_excerpt": {
+        "value": "Controller for managing power requests within an IHS during cluster operations; transfers any active delegated process to another resource before allowing a power operation such as shutdown or reboot, preventing process interruption or failure.",
+        "aggregator_only": true
+      },
+      "provisional_confidence": "HIGH",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH",
+        "LEAD_INVENTOR_POSITION"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=5",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:05:50Z"
+        },
+        {
+          "url": "https://patents.justia.com/patent/10860078",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:05:50Z"
+        },
+        {
+          "url": "https://patents.google.com/patent/US10860078B2/zh",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:05:50Z"
+        }
+      ],
+      "extraction_method": "web_search_aggregator_snippet",
+      "authority_rank": "SECONDARY_AGGREGATOR"
+    },
+    {
+      "candidate_record_id": "CR-003",
+      "jurisdiction": "US",
+      "record_type": "PUBLISHED_APPLICATION",
+      "patent_number": {
+        "value": null,
+        "note": "No grant confirmed"
+      },
+      "application_number": {
+        "value": "16/045273",
+        "raw_value": "16/045273",
+        "aggregator_only": true,
+        "note": "Warning W-004 — possible transposition with pub number; verify at USPTO"
+      },
+      "publication_number": {
+        "value": "US20200034221A1",
+        "raw_value": "20200034221",
+        "aggregator_only": true
+      },
+      "title": {
+        "value": "Apparatus and Method for Managing Part Life in a Datacenter",
+        "aggregator_only": true
+      },
+      "filing_date": {
+        "value": "2020-01-30",
+        "aggregator_only": true,
+        "note": "Listed as filing date in some results; may also be publication date — verify at USPTO"
+      },
+      "grant_date": {
+        "value": null
+      },
+      "publication_date": {
+        "value": "2020-01-30",
+        "aggregator_only": true
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": true
+      },
+      "inventors_raw": {
+        "value": [
+          "Vaideeswaran Ganesan",
+          "Pravin Janakiram",
+          "Chandrasekhar Revuri"
+        ],
+        "aggregator_only": true,
+        "completeness": "ASSUMED_COMPLETE"
+      },
+      "candidate_inventor_position": 1,
+      "abstract_excerpt": {
+        "value": "Component includes error indications associated with aging, a predefined error threshold, and a warranty duration. Component life manager receives error indications, fits them to a curve, determines end-of-life estimate and date, calculates loss of life, and assigns a component life score.",
+        "aggregator_only": true
+      },
+      "provisional_confidence": "HIGH",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH",
+        "LEAD_INVENTOR_POSITION"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.justia.com/inventor/vaideeswaran-ganesan",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:04:10Z"
+        },
+        {
+          "url": "https://uspto.report/patent/app/20200034221",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "http_status_on_direct_fetch": 403,
+          "retrieval_timestamp_utc": "2026-08-07T16:04:35Z"
+        }
+      ],
+      "extraction_method": "web_search_aggregator_snippet",
+      "authority_rank": "SECONDARY_AGGREGATOR",
+      "continuity_notes": "Sibling to CR-004 (US20200034268A1, DC-110296) and CR-005 (US20200034269A1, DC-110299); all three filed same date with identical inventors per cross-reference confirmed in CR-004 direct fetch"
+    },
+    {
+      "candidate_record_id": "CR-004",
+      "jurisdiction": "US",
+      "record_type": "PUBLISHED_APPLICATION",
+      "patent_number": {
+        "value": null,
+        "note": "No grant confirmed"
+      },
+      "application_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "publication_number": {
+        "value": "US20200034268A1",
+        "raw_value": "20200034268",
+        "aggregator_only": false,
+        "note": "Confirmed via direct fetch"
+      },
+      "title": {
+        "value": "Apparatus and Method for Detecting Poor Component Life Zones in a Datacenter",
+        "aggregator_only": false
+      },
+      "filing_date": {
+        "value": "2020-01-30",
+        "aggregator_only": true,
+        "note": "Cross-reference in full text states 'filed of even date herewith' relative to sibling apps; treat as publication date floor"
+      },
+      "grant_date": {
+        "value": null
+      },
+      "publication_date": {
+        "value": "2020-01-30",
+        "aggregator_only": true
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": true
+      },
+      "inventors_raw": {
+        "value": [
+          "Vaideeswaran Ganesan",
+          "Pravin Janakiram",
+          "Chandrasekhar Revuri"
+        ],
+        "aggregator_only": true,
+        "completeness": "ASSUMED_COMPLETE"
+      },
+      "candidate_inventor_position": 1,
+      "abstract_excerpt": {
+        "value": "System determines zones within a datacenter that exhibit poor component life. Components provide error indications and have error thresholds and warranty durations. Component life manager determines zone life scores based on average component life scores and provides an indication when a zone life score falls below the datacenter life score by more than a threshold.",
+        "aggregator_only": false,
+        "source": "direct_fetch_US20200034268A1_en"
+      },
+      "provisional_confidence": "HIGH",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH",
+        "LEAD_INVENTOR_POSITION"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.google.com/patent/US20200034268A1/en",
+          "authority_rank": "PRIMARY_ISSUING_AUTHORITY_AGGREGATOR",
+          "retrieval_method": "direct_fetch_full_text",
+          "http_status": 200,
+          "retrieval_timestamp_utc": "2026-08-07T16:06:40Z"
+        }
+      ],
+      "extraction_method": "direct_fetch_full_text",
+      "authority_rank": "PRIMARY_ISSUING_AUTHORITY_AGGREGATOR",
+      "continuity_notes": "Full text explicitly cross-references co-pending app DC-110296 ('Apparatus and Method for Managing Part Life in a Datacenter', CR-003) and DC-110299 ('Apparatus and Method for Troubleshooting Poor Part Life Zones in a Datacenter', CR-005), both filed of even date"
+    },
+    {
+      "candidate_record_id": "CR-005",
+      "jurisdiction": "US",
+      "record_type": "PUBLISHED_APPLICATION",
+      "patent_number": {
+        "value": null,
+        "note": "No grant confirmed"
+      },
+      "application_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "publication_number": {
+        "value": "US20200034269A1",
+        "raw_value": "20200034269",
+        "aggregator_only": true
+      },
+      "title": {
+        "value": "Apparatus and Method for Troubleshooting Poor Part Life Zones in a Datacenter",
+        "aggregator_only": true
+      },
+      "filing_date": {
+        "value": "2020-01-30",
+        "aggregator_only": true,
+        "note": "Inferred from sibling cross-reference in CR-004 direct fetch"
+      },
+      "grant_date": {
+        "value": null
+      },
+      "publication_date": {
+        "value": "2020-01-30",
+        "aggregator_only": true
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": true
+      },
+      "inventors_raw": {
+        "value": [
+          "Vaideeswaran Ganesan",
+          "Pravin Janakiram",
+          "Chandrasekhar Revuri"
+        ],
+        "aggregator_only": true,
+        "completeness": "ASSUMED_COMPLETE",
+        "note": "Inferred from sibling applications with identical inventor sets"
+      },
+      "candidate_inventor_position": 1,
+      "abstract_excerpt": {
+        "value": "Analyzes zones in datacenter to identify and troubleshoot areas exhibiting poor hardware component lifespan using error thresholds and warranty durations.",
+        "aggregator_only": true
+      },
+      "provisional_confidence": "HIGH",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH",
+        "LEAD_INVENTOR_POSITION"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=6",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:05:50Z"
+        },
+        {
+          "url": "https://patents.google.com/patent/US20200034268A1/en",
+          "authority_rank": "PRIMARY_ISSUING_AUTHORITY_AGGREGATOR",
+          "retrieval_method": "cross_reference_in_sibling_direct_fetch",
+          "note": "CR-005 identity inferred from DC-110299 cross-reference in CR-004 full text",
+          "retrieval_timestamp_utc": "2026-08-07T16:06:40Z"
+        }
+      ],
+      "extraction_method": "web_search_aggregator_snippet_plus_cross_reference",
+      "authority_rank": "SECONDARY_AGGREGATOR",
+      "continuity_notes": "DC-110299 — sibling to CR-003 (DC-110296) and CR-004; all three filed same date with same inventor set per CR-004 direct fetch cross-reference"
+    },
+    {
+      "candidate_record_id": "CR-006",
+      "jurisdiction": "US",
+      "record_type": "PUBLISHED_APPLICATION",
+      "patent_number": {
+        "value": null,
+        "note": "No grant confirmed"
+      },
+      "application_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "publication_number": {
+        "value": "US20220043598A1",
+        "raw_value": "20220043598",
+        "aggregator_only": true
+      },
+      "title": {
+        "value": "Network-Wide Identification of Trusted Disk Group Clusters",
+        "aggregator_only": true
+      },
+      "filing_date": {
+        "value": "2020-08-04",
+        "aggregator_only": true
+      },
+      "grant_date": {
+        "value": null
+      },
+      "publication_date": {
+        "value": "2022-02-10",
+        "aggregator_only": true,
+        "note": "Estimated from publication number range; not confirmed from primary source"
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": true
+      },
+      "inventors_raw": {
+        "value": [
+          "Vaideeswaran Ganesan",
+          "Deepaganesh Paulraj",
+          "Vinod P S",
+          "Ankit Singh"
+        ],
+        "aggregator_only": true,
+        "completeness": "ASSUMED_COMPLETE"
+      },
+      "candidate_inventor_position": 1,
+      "abstract_excerpt": {
+        "value": "Network-wide identification of trusted disk group clusters.",
+        "aggregator_only": true,
+        "note": "Full abstract not retrieved; title-level summary only"
+      },
+      "provisional_confidence": "MEDIUM",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH",
+        "LEAD_INVENTOR_POSITION"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=4",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:04:35Z"
+        }
+      ],
+      "extraction_method": "web_search_aggregator_snippet",
+      "authority_rank": "SECONDARY_AGGREGATOR",
+      "continuity_notes": "Filed same date as CR-007 (2020-08-04) with overlapping inventor set — possible sibling application; status (granted or abandoned) not confirmed"
+    },
+    {
+      "candidate_record_id": "CR-007",
+      "jurisdiction": "US",
+      "record_type": "PUBLISHED_APPLICATION",
+      "patent_number": {
+        "value": null,
+        "note": "No grant confirmed"
+      },
+      "application_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "publication_number": {
+        "value": "US20220019378A1",
+        "raw_value": "20220019378",
+        "aggregator_only": true
+      },
+      "title": {
+        "value": "One-Touch Migration of Virtual Assets",
+        "aggregator_only": true
+      },
+      "filing_date": {
+        "value": "2020-07-17",
+        "aggregator_only": true
+      },
+      "grant_date": {
+        "value": null
+      },
+      "publication_date": {
+        "value": "2022-01-20",
+        "aggregator_only": true,
+        "note": "Estimated from publication number range; not confirmed from primary source"
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": true
+      },
+      "inventors_raw": {
+        "value": [
+          "Vaideeswaran Ganesan",
+          "Deepaganesh Paulraj",
+          "Ankit Singh",
+          "Vinod P S"
+        ],
+        "aggregator_only": true,
+        "completeness": "ASSUMED_COMPLETE"
+      },
+      "candidate_inventor_position": 1,
+      "abstract_excerpt": {
+        "value": "One-touch migration of virtual assets.",
+        "aggregator_only": true,
+        "note": "Full abstract not retrieved; title-level summary only"
+      },
+      "provisional_confidence": "MEDIUM",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH",
+        "LEAD_INVENTOR_POSITION"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=4",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:04:35Z"
+        }
+      ],
+      "extraction_method": "web_search_aggregator_snippet",
+      "authority_rank": "SECONDARY_AGGREGATOR",
+      "continuity_notes": "Status (granted or abandoned) not confirmed"
+    },
+    {
+      "candidate_record_id": "CR-008",
+      "jurisdiction": "US",
+      "record_type": "GRANTED_PATENT",
+      "patent_number": {
+        "value": "US11954181B2",
+        "raw_value": "11954181",
+        "aggregator_only": true
+      },
+      "application_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "publication_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "title": {
+        "value": "System and Method for Managing Virtual Hardware Licenses of Hardware Resources Accessed via Application Instances",
+        "aggregator_only": true
+      },
+      "filing_date": {
+        "value": "2020-12-16",
+        "aggregator_only": true
+      },
+      "grant_date": {
+        "value": "2024-04-09",
+        "aggregator_only": true
+      },
+      "publication_date": {
+        "value": null
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": true
+      },
+      "inventors_raw": {
+        "value": [
+          "Vaideeswaran Ganesan",
+          "Viswanathan Balakrishnan"
+        ],
+        "aggregator_only": true,
+        "completeness": "ASSUMED_COMPLETE"
+      },
+      "candidate_inventor_position": 1,
+      "abstract_excerpt": {
+        "value": "Method to manage hardware resource licenses for virtual instances, including verifying license requests and granting access with detailed documentation.",
+        "aggregator_only": true
+      },
+      "provisional_confidence": "HIGH",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH",
+        "LEAD_INVENTOR_POSITION"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=2",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:04:55Z"
+        }
+      ],
+      "extraction_method": "web_search_aggregator_snippet",
+      "authority_rank": "SECONDARY_AGGREGATOR",
+      "continuity_notes": "Filed same date as CR-009 (2020-12-16) with identical inventors — probable sibling application"
+    },
+    {
+      "candidate_record_id": "CR-009",
+      "jurisdiction": "US",
+      "record_type": "PUBLISHED_APPLICATION",
+      "patent_number": {
+        "value": null,
+        "note": "No grant patent number confirmed despite 'Granted April 9, 2024' appearing in one aggregator result alongside CR-008 — treat as ambiguous; verify at USPTO"
+      },
+      "application_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "publication_number": {
+        "value": "US20240029016A1",
+        "raw_value": "20240029016",
+        "aggregator_only": true
+      },
+      "title": {
+        "value": "System and Method for Proactive Management of Components Based on Predicted Component Failures",
+        "aggregator_only": true
+      },
+      "filing_date": {
+        "value": "2020-12-16",
+        "aggregator_only": true
+      },
+      "grant_date": {
+        "value": null,
+        "note": "One aggregator result stated 'Granted April 9, 2024' but this likely refers to the sibling CR-008 (US11954181B2); no distinct patent number for this record confirmed"
+      },
+      "publication_date": {
+        "value": "2024-01-25",
+        "aggregator_only": true,
+        "note": "Estimated from publication number range"
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": true
+      },
+      "inventors_raw": {
+        "value": [
+          "Vaideeswaran Ganesan",
+          "Viswanathan Balakrishnan"
+        ],
+        "aggregator_only": true,
+        "completeness": "ASSUMED_COMPLETE"
+      },
+      "candidate_inventor_position": 1,
+      "abstract_excerpt": {
+        "value": "Methods and systems to manage data processing by proactively predicting hardware failures; scheduled actions take into account service personnel availability to reduce risks of downtime.",
+        "aggregator_only": true
+      },
+      "provisional_confidence": "HIGH",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH",
+        "LEAD_INVENTOR_POSITION"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=2",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:04:55Z"
+        }
+      ],
+      "extraction_method": "web_search_aggregator_snippet",
+      "authority_rank": "SECONDARY_AGGREGATOR",
+      "continuity_notes": "Filed same date as CR-008 (2020-12-16) with identical inventors; possible sibling or continuation; grant status ambiguous — see warning W-012"
+    },
+    {
+      "candidate_record_id": "CR-010",
+      "jurisdiction": "US",
+      "record_type": "GRANTED_PATENT",
+      "patent_number": {
+        "value": "US11947825B2",
+        "raw_value": "11947825",
+        "aggregator_only": false,
+        "note": "Confirmed via direct fetch"
+      },
+      "application_number": {
+        "value": "17/828416",
+        "raw_value": "17/828416",
+        "aggregator_only": true,
+        "note": "Sourced from aggregator; discrepancy in filing date across two aggregator results — see warning W-011"
+      },
+      "publication_number": {
+        "value": "US20220291856A1",
+        "raw_value": "20220291856",
+        "aggregator_only": true
+      },
+      "title": {
+        "value": "System and Method for Content Addressable Storage System Update Appliance",
+        "aggregator_only": false,
+        "note": "Confirmed via direct fetch"
+      },
+      "filing_date": {
+        "value": "2022-05-31",
+        "aggregator_only": true,
+        "note": "One aggregator result gave 2022-09-15 (possibly the publication date); 2022-05-31 appears in a separate aggregator result as filing date — treat as unverified; see warning W-011"
+      },
+      "grant_date": {
+        "value": "2024-04-02",
+        "aggregator_only": true
+      },
+      "publication_date": {
+        "value": "2022-09-15",
+        "aggregator_only": true
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": false,
+        "note": "Confirmed via direct fetch"
+      },
+      "inventors_raw": {
+        "value": [
+          "Hemant Gaikwad",
+          "Vaideeswaran Ganesan",
+          "Pravin Janakiram"
+        ],
+        "aggregator_only": false,
+        "note": "Confirmed via direct fetch",
+        "completeness": "ASSUMED_COMPLETE"
+      },
+      "candidate_inventor_position": 2,
+      "abstract_excerpt": {
+        "value": "System update appliance includes a processor and memory device with a Content Addressable Storage (CAS) space and a location addressable storage space partitioned into object storage and device storage. Stores device entries associated with external devices including component entries with descriptions and pointers to CAS records. Manages BIOS/UEFI/firmware/driver/OS/application updates across heterogeneous datacenter equipment via content-addressed metadata records (CUMRs) indexed by hash.",
+        "aggregator_only": false,
+        "source": "direct_fetch_US11947825B2_en"
+      },
+      "provisional_confidence": "HIGH",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.google.com/patent/US11947825B2/en",
+          "authority_rank": "PRIMARY_ISSUING_AUTHORITY_AGGREGATOR",
+          "retrieval_method": "direct_fetch_full_text",
+          "http_status": 200,
+          "retrieval_timestamp_utc": "2026-08-07T16:05:10Z"
+        },
+        {
+          "url": "https://uspto.report/patent/app/20220291856",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "http_status_on_direct_fetch": 403,
+          "retrieval_timestamp_utc": "2026-08-07T16:04:35Z"
+        }
+      ],
+      "extraction_method": "direct_fetch_full_text",
+      "authority_rank": "PRIMARY_ISSUING_AUTHORITY_AGGREGATOR",
+      "continuity_notes": "Confirmed continuation of US App Ser. No. 17/005,102 filed 2020-08-07 titled 'System and Method for Content Addressable Storage System Update Appliance'; parent application incorporated by reference in full — statement found in first paragraph of fetched full text"
+    },
+    {
+      "candidate_record_id": "CR-011",
+      "jurisdiction": "US",
+      "record_type": "GRANTED_PATENT",
+      "patent_number": {
+        "value": "US11646951B1",
+        "raw_value": "11646951",
+        "aggregator_only": false,
+        "note": "Confirmed via direct fetch"
+      },
+      "application_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "publication_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "title": {
+        "value": "System and Method for Proactive Management of Components Based on Service Availability",
+        "aggregator_only": false,
+        "note": "Confirmed via direct fetch"
+      },
+      "filing_date": {
+        "value": "2022-07-22",
+        "aggregator_only": true
+      },
+      "grant_date": {
+        "value": "2023-05-09",
+        "aggregator_only": true,
+        "note": "B1 suffix indicates no pre-grant publication — only grant; USPTO verification recommended for exact date"
+      },
+      "publication_date": {
+        "value": null,
+        "note": "B1 designation — no pre-grant publication"
+      },
+      "assignee": {
+        "value": "Dell Products LP",
+        "aggregator_only": false,
+        "note": "Confirmed via direct fetch"
+      },
+      "inventors_raw": {
+        "value": [
+          "Vaideeswaran Ganesan",
+          "Shrinidhi Katte",
+          "Sakshi Garg",
+          "Sakshi Arora",
+          "Shubhangi Srivastava"
+        ],
+        "aggregator_only": false,
+        "note": "Confirmed via direct fetch of Google Patents abstract page",
+        "completeness": "ASSUMED_COMPLETE"
+      },
+      "candidate_inventor_position": 1,
+      "abstract_excerpt": {
+        "value": "Managing data processing systems through proactive servicing by predicting hardware component failures using a trained inference model, scheduling predicted services ahead of predicted failure deadlines, balancing service load across available service periods, and rank-ordering services by failure likelihood. Identifies cycle periods, service periods, available services per period based on service professional count and estimated service rate, and schedules or remediates over-subscribed periods.",
+        "aggregator_only": false,
+        "source": "direct_fetch_US11646951B1_en"
+      },
+      "provisional_confidence": "HIGH",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH",
+        "LEAD_INVENTOR_POSITION"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.google.com/patent/US11646951B1/en",
+          "authority_rank": "PRIMARY_ISSUING_AUTHORITY_AGGREGATOR",
+          "retrieval_method": "direct_fetch_full_text",
+          "http_status": 200,
+          "retrieval_timestamp_utc": "2026-08-07T16:05:10Z"
+        }
+      ],
+      "extraction_method": "direct_fetch_full_text",
+      "authority_rank": "PRIMARY_ISSUING_AUTHORITY_AGGREGATOR"
+    },
+    {
+      "candidate_record_id": "CR-012",
+      "jurisdiction": "US",
+      "record_type": "PUBLISHED_APPLICATION",
+      "patent_number": {
+        "value": null,
+        "note": "No grant confirmed"
+      },
+      "application_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "publication_number": {
+        "value": "US20230023869A1",
+        "raw_value": "20230023869",
+        "aggregator_only": true
+      },
+      "title": {
+        "value": "System and Method for Providing Intelligent Assistance Using a Warranty Bot",
+        "aggregator_only": true
+      },
+      "filing_date": {
+        "value": "2021-07-23",
+        "aggregator_only": true,
+        "note": "Estimated; typical for this publication range. Aggregator stated '2021-2022'; exact date requires USPTO verification"
+      },
+      "grant_date": {
+        "value": null
+      },
+      "publication_date": {
+        "value": "2023-01-26",
+        "aggregator_only": true
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": true
+      },
+      "inventors_raw": {
+        "value": [
+          "Vaideeswaran Ganesan",
+          "Chandrasekhar R",
+          "Nidhi Kant Arora"
+        ],
+        "aggregator_only": true,
+        "completeness": "POSSIBLY_INCOMPLETE",
+        "note": "Aggregator cited 'et al.' — additional inventors may exist"
+      },
+      "candidate_inventor_position": 1,
+      "abstract_excerpt": {
+        "value": "Warranty bot system with warranty interpreter that converts complex warranty language, a situation analyzer that scans component logs to identify coverage applicability, assessment guidance processing that anticipates user queries, and a solution advisor using historical data and collaborative filtering to recommend resolution times and operational status.",
+        "aggregator_only": true
+      },
+      "provisional_confidence": "HIGH",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH",
+        "LEAD_INVENTOR_POSITION"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.google.com/patent/US20230023869A1/en",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:04:55Z"
+        },
+        {
+          "url": "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=7",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:04:55Z"
+        }
+      ],
+      "extraction_method": "web_search_aggregator_snippet",
+      "authority_rank": "SECONDARY_AGGREGATOR"
+    },
+    {
+      "candidate_record_id": "CR-013",
+      "jurisdiction": "US",
+      "record_type": "PUBLISHED_APPLICATION",
+      "patent_number": {
+        "value": null,
+        "note": "No grant confirmed"
+      },
+      "application_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "publication_number": {
+        "value": "US20230027027A1",
+        "raw_value": "20230027027",
+        "aggregator_only": false,
+        "note": "Confirmed via direct fetch"
+      },
+      "title": {
+        "value": "Systems and Methods for Warranty Recommendation Using Multi-Level Collaborative Filtering",
+        "aggregator_only": false,
+        "note": "Confirmed via direct fetch"
+      },
+      "filing_date": {
+        "value": "2022-07-23",
+        "aggregator_only": true,
+        "note": "Estimated from Indian priority date 2021-07-23 plus 12-month Paris Convention window; exact US filing date not retrieved from primary source"
+      },
+      "grant_date": {
+        "value": null
+      },
+      "publication_date": {
+        "value": "2023-01-26",
+        "aggregator_only": true
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": true
+      },
+      "inventors_raw": {
+        "value": [
+          "Vaideeswaran Ganesan",
+          "Praveen Lalgoudar"
+        ],
+        "aggregator_only": true,
+        "completeness": "POSSIBLY_INCOMPLETE",
+        "note": "Aggregator cited 'et al.' — additional inventors may exist; direct fetch did not retrieve inventor list section"
+      },
+      "candidate_inventor_position": 1,
+      "abstract_excerpt": {
+        "value": "Warranty recommendations for users selected based on warranty selections of peer users, expert user advice, and cost-based impact assessment. Users clustered into peer groups by industry or market segment using primary variables (workload type, market segment) and secondary variables (VM size, cluster size, cost, downtime). New users matched to top similar user via vector distance; current warranty of top similar user recommended. Expert star ratings and cost-based impact assessments also incorporated.",
+        "aggregator_only": false,
+        "source": "direct_fetch_US20230027027A1_en"
+      },
+      "provisional_confidence": "HIGH",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH",
+        "LEAD_INVENTOR_POSITION"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.google.com/patent/US20230027027A1/en",
+          "authority_rank": "PRIMARY_ISSUING_AUTHORITY_AGGREGATOR",
+          "retrieval_method": "direct_fetch_full_text",
+          "http_status": 200,
+          "retrieval_timestamp_utc": "2026-08-07T16:06:40Z"
+        },
+        {
+          "url": "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=3",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:04:55Z"
+        }
+      ],
+      "extraction_method": "direct_fetch_full_text",
+      "authority_rank": "PRIMARY_ISSUING_AUTHORITY_AGGREGATOR",
+      "continuity_notes": "Claims priority to Indian Patent Application No. 202111033261 filed 2021-07-23 titled 'Systems and Methods for Warranty Recommendation Using Multi-Level Collaborative Filtering' — confirmed via explicit cross-reference in first paragraph of fetched full text. This is the only non-US application directly surfaced in this workflow."
+    },
+    {
+      "candidate_record_id": "CR-014",
+      "jurisdiction": "US",
+      "record_type": "GRANTED_PATENT",
+      "patent_number": {
+        "value": "US12625722",
+        "raw_value": "12625722",
+        "aggregator_only": true,
+        "note": "Very recently issued May 2026; Google Patents direct fetch returned HTTP 404 — number may not yet be indexed at canonical URL"
+      },
+      "application_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "publication_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "title": {
+        "value": "Semantic-Aware Workflow Modification and Execution with Extraction of Missing Parameter",
+        "aggregator_only": true
+      },
+      "filing_date": {
+        "value": "2022-01-27",
+        "aggregator_only": true
+      },
+      "grant_date": {
+        "value": "2026-05-12",
+        "aggregator_only": true
+      },
+      "publication_date": {
+        "value": null
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": true
+      },
+      "inventors_raw": {
+        "value": [
+          "Vaideeswaran Ganesan",
+          "Pravin Janakiram"
+        ],
+        "aggregator_only": true,
+        "completeness": "ASSUMED_COMPLETE"
+      },
+      "candidate_inventor_position": 1,
+      "abstract_excerpt": {
+        "value": "Techniques for semantic-aware workflow creation and execution: obtaining a semantic-aware workflow, identifying objects in it, extracting parameters for those objects using an attribute registry, selecting parameters that are themselves objects, and adding operations to the workflow using the identified objects and their parameters.",
+        "aggregator_only": true
+      },
+      "provisional_confidence": "HIGH",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH",
+        "LEAD_INVENTOR_POSITION"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.justia.com/inventor/vaideeswaran-ganesan",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:04:10Z"
+        }
+      ],
+      "extraction_method": "web_search_aggregator_snippet",
+      "authority_rank": "SECONDARY_AGGREGATOR"
+    },
+    {
+      "candidate_record_id": "CR-015",
+      "jurisdiction": "US",
+      "record_type": "GRANTED_PATENT",
+      "patent_number": {
+        "value": "US12639120",
+        "raw_value": "12639120",
+        "aggregator_only": true,
+        "note": "Very recently issued May 2026; Google Patents direct fetch returned HTTP 404 — number may not yet be indexed at canonical URL"
+      },
+      "application_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "publication_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "title": {
+        "value": "Managing Usage of Resources in a Hybrid Computing Environment",
+        "aggregator_only": true
+      },
+      "filing_date": {
+        "value": "2022-07-06",
+        "aggregator_only": true
+      },
+      "grant_date": {
+        "value": "2026-05-26",
+        "aggregator_only": true
+      },
+      "publication_date": {
+        "value": null
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": true
+      },
+      "inventors_raw": {
+        "value": [
+          "Vaideeswaran Ganesan",
+          "Pravin Janakiram"
+        ],
+        "aggregator_only": true,
+        "completeness": "ASSUMED_COMPLETE"
+      },
+      "candidate_inventor_position": 1,
+      "abstract_excerpt": {
+        "value": "Optimizes active and inactive components and resources in a hybrid computing system blending private and public resources to minimize costs and maximize performance. A learning model analyzes past and present usage metrics versus performance or cost criteria. Cost factors incorporate wear: higher wear equates to less preferred use due to reliability and warranty costs. When activating a private system component, deactivation of a high-wear component is delayed to allow integration; public resources may be used during this delay.",
+        "aggregator_only": true
+      },
+      "provisional_confidence": "HIGH",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH",
+        "LEAD_INVENTOR_POSITION"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.justia.com/inventor/vaideeswaran-ganesan",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:04:10Z"
+        }
+      ],
+      "extraction_method": "web_search_aggregator_snippet",
+      "authority_rank": "SECONDARY_AGGREGATOR"
+    },
+    {
+      "candidate_record_id": "CR-016",
+      "jurisdiction": "US",
+      "record_type": "PUBLISHED_APPLICATION",
+      "patent_number": {
+        "value": null,
+        "note": "No grant confirmed"
+      },
+      "application_number": {
+        "value": null,
+        "note": "Not retrieved"
+      },
+      "publication_number": {
+        "value": "US20260119371A1",
+        "raw_value": "20260119371",
+        "aggregator_only": true
+      },
+      "title": {
+        "value": "Artificial Intelligence-Based Log Information Incorporation Into Code",
+        "aggregator_only": true
+      },
+      "filing_date": {
+        "value": null,
+        "estimated_value": "2025-10-15",
+        "aggregator_only": true,
+        "note": "ESTIMATED — filing date not confirmed from any source; value derived heuristically from publication number range and 18-month publication lag. Treat as placeholder only."
+      },
+      "grant_date": {
+        "value": null
+      },
+      "publication_date": {
+        "value": "2026-04-10",
+        "aggregator_only": true,
+        "note": "ESTIMATED from publication number range; not confirmed from primary source"
+      },
+      "assignee": {
+        "value": "Dell Products, L.P.",
+        "aggregator_only": true
+      },
+      "inventors_raw": {
+        "value": [
+          "Vaideeswaran Ganesan"
+        ],
+        "aggregator_only": true,
+        "completeness": "POSSIBLY_INCOMPLETE",
+        "note": "Only one inventor listed in aggregator snippet; additional inventors may exist"
+      },
+      "candidate_inventor_position": 1,
+      "abstract_excerpt": {
+        "value": "AI-driven methods for processing source code for web-based applications; uses APIs to identify target locations for log information insertion based on learned patterns and criteria; modifies or inserts log statements automatically.",
+        "aggregator_only": true
+      },
+      "provisional_confidence": "MEDIUM",
+      "identity_signals": [
+        "NAME_EXACT_MATCH",
+        "EMPLOYER_MATCH",
+        "LEAD_INVENTOR_POSITION"
+      ],
+      "source_urls": [
+        {
+          "url": "https://patents.justia.com/inventor/vaideeswaran-ganesan",
+          "authority_rank": "SECONDARY_AGGREGATOR",
+          "retrieval_method": "web_search_aggregator_citation",
+          "retrieval_timestamp_utc": "2026-08-07T16:04:10Z"
+        }
+      ],
+      "extraction_method": "web_search_aggregator_snippet",
+      "authority_rank": "SECONDARY_AGGREGATOR"
+    }
+  ],
+  "proposed_duplicate_groups": [
+    {
+      "group_id": "DG-001",
+      "type": "CONTINUATION_CHAIN_NOT_DUPLICATE",
+      "rationale": "US11947825B2 (CR-010, granted, app 17/828416) is a continuation of parent US App 17/005,102 (filed 2020-08-07, same title). Both are non-provisional applications in the same family. Under one-application-per-grain model these are distinct records, NOT duplicates. Relationship captured in REL-001. Parent app 17/005,102 was not elevated to a full candidate record due to insufficient bibliographic data retrieved.",
+      "members": [
+        "CR-010"
+      ],
+      "parent_application_not_in_records": {
+        "application_number": "17/005102",
+        "filing_date": "2020-08-07",
+        "title": "System and Method for Content Addressable Storage System Update Appliance",
+        "note": "Recommend adding as CR-017 after USPTO verification"
+      },
+      "recommended_action": "DEFER_TO_MAIN_AGENT — do not merge CR-010 with parent; create separate record for parent after verification"
+    }
+  ],
+  "proposed_relationships": [
+    {
+      "relationship_id": "REL-001",
+      "type": "CONTINUATION",
+      "confidence": "HIGH",
+      "evidence_type": "CONFIRMED_DIRECT_FETCH",
+      "evidence_quote": "This application is a Continuation of U.S. patent application Ser. No. 17/005,102 entitled 'SYSTEM AND METHOD FOR CONTENT ADDRESSABLE STORAGE SYSTEM UPDATE APPLIANCE' filed Aug. 7, 2020, the disclosure of which is hereby expressly incorporated by reference in its entirety.",
+      "evidence_source_url": "https://patents.google.com/patent/US11947825B2/en",
+      "evidence_retrieval_timestamp_utc": "2026-08-07T16:05:10Z",
+      "parent": {
+        "application_number": "17/005102",
+        "filing_date": "2020-08-07",
+        "jurisdiction": "US",
+        "title": "System and Method for Content Addressable Storage System Update Appliance",
+        "in_candidate_records": false
+      },
+      "child": {
+        "candidate_record_id": "CR-010",
+        "patent_number": "US11947825B2",
+        "application_number": "17/828416",
+        "jurisdiction": "US"
+      }
+    },
+    {
+      "relationship_id": "REL-002",
+      "type": "SIBLING_CLUSTER_SAME_DATE_CROSS_REFERENCED",
+      "confidence": "HIGH",
+      "evidence_type": "CONFIRMED_DIRECT_FETCH",
+      "evidence_quote": "Related subject matter is contained in co-pending U.S. patent application Ser. No. 15/_____ (DC-110296) entitled 'Apparatus and Method for Managing Part Life in a Datacenter,' filed of even date herewith ... Related subject matter is contained in co-pending U.S. patent application Ser. No. 15/_____ (DC-110299) entitled 'Apparatus and Method for Troubleshooting Poor Part Life Zones in a Datacenter,' filed of even date herewith",
+      "evidence_source_url": "https://patents.google.com/patent/US20200034268A1/en",
+      "evidence_retrieval_timestamp_utc": "2026-08-07T16:06:40Z",
+      "members": [
+        {
+          "candidate_record_id": "CR-003",
+          "publication_number": "US20200034221A1",
+          "docket": "DC-110296"
+        },
+        {
+          "candidate_record_id": "CR-004",
+          "publication_number": "US20200034268A1",
+          "docket": "ANCHOR_RECORD"
+        },
+        {
+          "candidate_record_id": "CR-005",
+          "publication_number": "US20200034269A1",
+          "docket": "DC-110299"
+        }
+      ],
+      "common_filing_date": "2020-01-30",
+      "common_inventors": [
+        "Vaideeswaran Ganesan",
+        "Pravin Janakiram",
+        "Chandrasekhar Revuri"
+      ]
+    },
+    {
+      "relationship_id": "REL-003",
+      "type": "FOREIGN_PRIORITY_CLAIM",
+      "confidence": "HIGH",
+      "evidence_type": "CONFIRMED_DIRECT_FETCH",
+      "evidence_quote": "This patent application claims priority to co-pending, commonly assigned Indian Patent Application No. 202111033261, filed Jul. 23, 2021 and entitled 'Systems and Methods for Warranty Recommendation Using Multi-Level Collaborative Filtering,' the entire contents of which are incorporated by reference herein.",
+      "evidence_source_url": "https://patents.google.com/patent/US20230027027A1/en",
+      "evidence_retrieval_timestamp_utc": "2026-08-07T16:06:40Z",
+      "us_application": {
+        "candidate_record_id": "CR-013",
+        "publication_number": "US20230027027A1"
+      },
+      "foreign_application": {
+        "jurisdiction": "IN",
+        "application_number": "202111033261",
+        "filing_date": "2021-07-23",
+        "title": "Systems and Methods for Warranty Recommendation Using Multi-Level Collaborative Filtering",
+        "in_candidate_records": false,
+        "note": "Indian application; WIPO PATENTSCOPE query recommended to check for PCT filing in this family"
+      }
+    },
+    {
+      "relationship_id": "REL-004",
+      "type": "SIBLING_CLUSTER_SAME_DATE_INFERRED",
+      "confidence": "MEDIUM",
+      "evidence_type": "AGGREGATOR_INFERRED",
+      "rationale": "CR-008 (US11954181B2) and CR-009 (US20240029016A1) share identical filing date 2020-12-16 and identical inventor pair (Ganesan, Balakrishnan); adjacent subject matter (virtual hardware licensing vs. proactive component failure management). Possible sibling applications. No cross-reference statement confirmed — inferred only.",
+      "members": [
+        {
+          "candidate_record_id": "CR-008",
+          "patent_number": "US11954181B2"
+        },
+        {
+          "candidate_record_id": "CR-009",
+          "publication_number": "US20240029016A1"
+        }
+      ],
+      "common_filing_date": "2020-12-16",
+      "common_inventors": [
+        "Vaideeswaran Ganesan",
+        "Viswanathan Balakrishnan"
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "W-001",
+      "severity": "HIGH",
+      "message": "All primary patent authority endpoints (USPTO Patent Public Search, Justia, USPTO Report) returned HTTP 403 or were not directly fetched. 12 of 16 candidate records rely exclusively on web search aggregator snippets. Bibliographic fields for these records (title, filing date, grant date, inventors, assignee) are UNVERIFIED against primary USPTO or EPO records.",
+      "affected_records": [
+        "CR-001",
+        "CR-002",
+        "CR-003",
+        "CR-005",
+        "CR-006",
+        "CR-007",
+        "CR-008",
+        "CR-009",
+        "CR-012",
+        "CR-014",
+        "CR-015",
+        "CR-016"
+      ],
+      "recommended_action": "Verify all fields against USPTO Patent Center (https://patentcenter.uspto.gov/) or Patent Public Search before any downstream decision."
+    },
+    {
+      "warning_id": "W-002",
+      "severity": "HIGH",
+      "message": "Patent numbers US12625722 (CR-014) and US12639120 (CR-015) are very recently issued (May 2026). Direct Google Patents fetches for these numbers returned HTTP 404, suggesting indexing lag. Patent numbers sourced from aggregator only.",
+      "affected_records": [
+        "CR-014",
+        "CR-015"
+      ],
+      "recommended_action": "Verify via USPTO Patent Center using exact patent numbers; allow 1-4 week indexing delay for Google Patents."
+    },
+    {
+      "warning_id": "W-003",
+      "severity": "HIGH",
+      "message": "CR-016 (US20260119371A1) filing date is a heuristic estimate only (estimated 2025-10-15 based on 18-month publication lag). No primary source confirms this value. Publication date also estimated from number range.",
+      "affected_records": [
+        "CR-016"
+      ],
+      "recommended_action": "Query USPTO Patent Public Search for publication number 20260119371 to retrieve actual filing date."
+    },
+    {
+      "warning_id": "W-004",
+      "severity": "MEDIUM",
+      "message": "Application number 16/045273 for CR-003 (US20200034221A1) appeared in one aggregator result but may be a transposition of the publication number (20200034221). USPTO verification required.",
+      "affected_records": [
+        "CR-003"
+      ],
+      "recommended_action": "Search USPTO Patent Center for publication number 20200034221 to retrieve actual application number."
+    },
+    {
+      "warning_id": "W-005",
+      "severity": "MEDIUM",
+      "message": "Co-inventor lists for CR-012, CR-013, and CR-016 are marked 'et al.' by aggregator sources. Full inventor rosters may be incomplete.",
+      "affected_records": [
+        "CR-012",
+        "CR-013",
+        "CR-016"
+      ],
+      "recommended_action": "Retrieve full bibliographic records from USPTO or Google Patents to confirm complete inventor lists."
+    },
+    {
+      "warning_id": "W-006",
+      "severity": "MEDIUM",
+      "message": "No WIPO PCT application numbers positively identified for Vaideeswaran Ganesan. Indian priority application IN/202111033261 is the only non-US application surfaced, found via cross-reference in CR-013. WIPO PATENTSCOPE was not directly queried.",
+      "affected_records": [
+        "CR-013"
+      ],
+      "recommended_action": "Execute WIPO PATENTSCOPE search for inventor 'Vaideeswaran Ganesan' and Espacenet search for inventor 'Ganesan Vaideeswaran' to identify any PCT or EP family members."
+    },
+    {
+      "warning_id": "W-007",
+      "severity": "MEDIUM",
+      "message": "Parent application US 17/005,102 (parent of CR-010) was not elevated to a full candidate record. Insufficient bibliographic data was retrieved to populate a complete grain. Only title and filing date are known.",
+      "affected_records": [
+        "CR-010"
+      ],
+      "recommended_action": "Query USPTO Patent Center for application 17/005102 and add as CR-017 if appropriate."
+    },
+    {
+      "warning_id": "W-008",
+      "severity": "MEDIUM",
+      "message": "Grant or abandonment status not confirmed for CR-006 (US20220043598A1). Last known state is PUBLISHED APPLICATION (2022). A grant patent number may exist.",
+      "affected_records": [
+        "CR-006"
+      ],
+      "recommended_action": "Query USPTO Patent Center for publication 20220043598 to retrieve current legal status."
+    },
+    {
+      "warning_id": "W-009",
+      "severity": "MEDIUM",
+      "message": "Grant or abandonment status not confirmed for CR-007 (US20220019378A1). Last known state is PUBLISHED APPLICATION (2022). A grant patent number may exist.",
+      "affected_records": [
+        "CR-007"
+      ],
+      "recommended_action": "Query USPTO Patent Center for publication 20220019378 to retrieve current legal status."
+    },
+    {
+      "warning_id": "W-010",
+      "severity": "MEDIUM",
+      "message": "Grant or abandonment status not confirmed for CR-012 (US20230023869A1). Last known state is PUBLISHED APPLICATION (January 2023). A grant patent number may exist.",
+      "affected_records": [
+        "CR-012"
+      ],
+      "recommended_action": "Query USPTO Patent Center for publication 20230023869 to retrieve current legal status."
+    },
+    {
+      "warning_id": "W-011",
+      "severity": "MEDIUM",
+      "message": "Discrepancy in filing date for CR-010 (US11947825B2): one aggregator result stated filing date 2022-09-15 (which matches the publication date in another result); a separate aggregator result stated filing date 2022-05-31. The 2022-05-31 date is used as the more plausible filing date, but both are unverified.",
+      "affected_records": [
+        "CR-010"
+      ],
+      "recommended_action": "Verify application 17/828416 at USPTO Patent Center for actual filing date."
+    },
+    {
+      "warning_id": "W-012",
+      "severity": "LOW",
+      "message": "One aggregator result stated 'Granted April 9, 2024' adjacent to CR-009 (US20240029016A1) — this grant date likely belongs to the sibling CR-008 (US11954181B2) filed the same date. CR-009 has no confirmed grant patent number and is retained as PUBLISHED_APPLICATION.",
+      "affected_records": [
+        "CR-009"
+      ],
+      "recommended_action": "Query USPTO Patent Center for publication 20240029016 to determine whether a grant issued."
+    },
+    {
+      "warning_id": "W-013",
+      "severity": "LOW",
+      "message": "Grant or abandonment status not confirmed for CR-013 (US20230027027A1). Last known state is PUBLISHED APPLICATION (January 2023). A grant patent number may exist.",
+      "affected_records": [
+        "CR-013"
+      ],
+      "recommended_action": "Query USPTO Patent Center for publication 20230027027 to retrieve current legal status."
+    },
+    {
+      "warning_id": "W-014",
+      "severity": "LOW",
+      "message": "CR-001 (US10877539B2): Vaideeswaran Ganesan appears in position 5 of 5 inventors. Identity match is based on name and employer only; no other corroborating signal. Possibility of a different Vaideeswaran Ganesan at Dell exists but is considered low given employer match and co-inventor overlap with other confirmed records.",
+      "affected_records": [
+        "CR-001"
+      ],
+      "recommended_action": "Verify inventor address or assignee docket at USPTO to confirm identity."
+    },
+    {
+      "warning_id": "W-015",
+      "severity": "INFO",
+      "message": "Justia inventor profile at https://patents.justia.com/inventor/vaideeswaran-ganesan appears to span at least pages 2 through 7 per aggregator citations. Additional records beyond the 16 surfaced here may exist on pages not covered by executed queries. Justia direct fetch was blocked (HTTP 403) so exhaustive enumeration was not possible.",
+      "affected_records": [],
+      "recommended_action": "Attempt Justia profile fetch from a non-blocked environment, or cross-reference against USPTO full-text inventor search for 'Vaideeswaran Ganesan' with assignee 'Dell'."
+    }
+  ]
+}

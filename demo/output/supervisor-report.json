@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-07T16:26:40Z",
+  "supervisor": {
+    "id": "artifact-finder-authoritative-identity-supervisor-01",
+    "role": "exactly-one authoritative higher-layer identity supervisor",
+    "singleton_for_run": true
+  },
+  "corpus_file_hashes": [
+    {
+      "path": "C:\\Users\\vaganesan\\.copilot\\session-state\\57c86f76-515a-4688-8f00-49f5c48b5fa8\\files\\artifact-workers\\patents.json",
+      "sha256": "4937366e2c14ced1ee03f951368a9f2aeacb751f9d2373d75f64cac2336b7988",
+      "bytes": 70588
+    },
+    {
+      "path": "C:\\Users\\vaganesan\\.copilot\\session-state\\57c86f76-515a-4688-8f00-49f5c48b5fa8\\files\\artifact-workers\\standards-publications.json",
+      "sha256": "2ed79d11f804d32e6ec7139891b7b09ba5e99a21ced52a558ec61899e158e468",
+      "bytes": 42878
+    },
+    {
+      "path": "C:\\Users\\vaganesan\\.copilot\\session-state\\57c86f76-515a-4688-8f00-49f5c48b5fa8\\files\\artifact-workers\\white-papers.json",
+      "sha256": "dc5f8a9e824cd3a34cdbacb0ddbcafa557e375ba71ac6ae9d560bff70551562f",
+      "bytes": 4122
+    },
+    {
+      "path": "C:\\Users\\vaganesan\\.copilot\\session-state\\57c86f76-515a-4688-8f00-49f5c48b5fa8\\files\\artifact-workers\\articles.json",
+      "sha256": "2892f3a062b5378909e02483028ca88fe3b62f61ca5964f4c1b2381a78a4f452",
+      "bytes": 25396
+    },
+    {
+      "path": "C:\\Users\\vaganesan\\.copilot\\session-state\\57c86f76-515a-4688-8f00-49f5c48b5fa8\\files\\artifact-workers\\tech-talks.json",
+      "sha256": "6d8e04985a222ef9437474e23bbfdaed6ee880f506c4e1a6e5201f18a9ecdcbc",
+      "bytes": 3158
+    },
+    {
+      "path": "C:\\Users\\vaganesan\\.copilot\\session-state\\57c86f76-515a-4688-8f00-49f5c48b5fa8\\files\\artifact-workers\\certifications.json",
+      "sha256": "5d40bd2ae9461fa86850041b79622e61e63d42aea27a88fd099af685a0409964",
+      "bytes": 37892
+    },
+    {
+      "path": "C:\\Users\\vaganesan\\.copilot\\session-state\\57c86f76-515a-4688-8f00-49f5c48b5fa8\\files\\artifact-workers\\community-contributions.json",
+      "sha256": "f784621b83c46659f21cdc2b7d052ce8b647b0cc1ff4000a3ab159d2a28af1e6",
+      "bytes": 26529
+    }
+  ],
+  "counts": {
+    "decisions_total": 31,
+    "normalized_records_total": 26,
+    "decisions_by_artifact_type": {
+      "patents": {
+        "include": 22,
+        "exclude": 0,
+        "uncertain": 1,
+        "merge": 0,
+        "split": 0,
+        "targeted_research": 0
+      },
+      "standards-publications": {
+        "include": 0,
+        "exclude": 0,
+        "uncertain": 0,
+        "merge": 0,
+        "split": 0,
+        "targeted_research": 0
+      },
+      "white-papers": {
+        "include": 0,
+        "exclude": 0,
+        "uncertain": 0,
+        "merge": 0,
+        "split": 0,
+        "targeted_research": 0
+      },
+      "articles": {
+        "include": 0,
+        "exclude": 0,
+        "uncertain": 0,
+        "merge": 0,
+        "split": 0,
+        "targeted_research": 0
+      },
+      "tech-talks": {
+        "include": 0,
+        "exclude": 0,
+        "uncertain": 0,
+        "merge": 0,
+        "split": 0,
+        "targeted_research": 0
+      },
+      "certifications": {
+        "include": 3,
+        "exclude": 0,
+        "uncertain": 0,
+        "merge": 0,
+        "split": 0,
+        "targeted_research": 0
+      },
+      "community-contributions": {
+        "include": 1,
+        "exclude": 3,
+        "uncertain": 1,
+        "merge": 0,
+        "split": 0,
+        "targeted_research": 0
+      }
+    },
+    "normalized_records_by_artifact_type": {
+      "patents": 22,
+      "standards-publications": 0,
+      "white-papers": 0,
+      "articles": 0,
+      "tech-talks": 0,
+      "certifications": 3,
+      "community-contributions": 1
+    }
+  },
+  "targeted_research_performed": [
+    {
+      "cluster": "patents:vaideeswaran-ganesan-inventor-cluster",
+      "rounds": 1,
+      "scope": "Exact frozen-corpus patent identifiers and titles only",
+      "sources": [
+        "Google Patents direct structured pages"
+      ],
+      "outcome": "Verified and reconciled 22 US non-provisional applications; corrected several dates, inventor rosters, application identities, and grant representations. One recent claimed grant remained unsupported."
+    },
+    {
+      "cluster": "certifications:credly-vaideeswaran-ganesan",
+      "rounds": 1,
+      "scope": "Public Credly identity metadata and candidate GitHub search for a profile bridge",
+      "sources": [
+        "Credly public profile and JSON",
+        "GitHub public code search"
+      ],
+      "outcome": "Confirmed three public issued badge instances; no external profile bridge was found. The instances were released as probable using non-name topic, timeline, and participant-role corroboration."
+    }
+  ],
+  "unresolved_clusters": [
+    {
+      "cluster": "patents:CR-014",
+      "decision": "uncertain",
+      "reason": "Recent claimed grant lacks verified application identity in an authoritative source or established index."
+    },
+    {
+      "cluster": "community-contributions:CR-008",
+      "decision": "uncertain",
+      "reason": "Unverified Stack Overflow spelling variant has no stable profile bridge."
+    }
+  ],
+  "reconciliation_notes": [
+    "Patent grain is one US non-provisional application; A1 publications and B1/B2 grants for the same application were merged into fields.",
+    "Continuation applications US17/005,102 and US17/828,416 remain separate linked records.",
+    "Cross-category contextual patent evidence was promoted only after direct established-index verification.",
+    "The three Microsoft Global Hackathon badges remain separate issued participation-badge instances.",
+    "GitHub profile, repository, commit-history, and event candidates were reconciled into one project-level community contribution.",
+    "The passive fork, zero-result PR search, and portfolio-level patent summary were excluded from community output.",
+    "Standards publications, white papers, articles, and technical talks remain empty because their frozen candidate lists were empty."
+  ],
+  "degradation_summary": {
+    "final_state": "COMPLETE_DEGRADED",
+    "reasons": [
+      "One recent patent candidate remains unverified after its single bounded research round.",
+      "The Stack Overflow identity remains unresolved and unreleased.",
+      "Credly records have probable identity confidence with coverage below the confirmed threshold and no independent profile bridge.",
+      "Several frozen discovery sources were blocked, partial, or unavailable; unknown evidence was not converted to negative evidence.",
+      "Patent status labels are based on an established index rather than an issuing-authority legal-status service."
+    ],
+    "empty_categories": [
+      "standards-publications",
+      "white-papers",
+      "articles",
+      "tech-talks"
+    ]
+  },
+  "output_checksums": {
+    "identity-decisions.jsonl": "a185ed81a21992bfaf8c9a09a0106ff92e7beff10a7f56ecfde0fb3823b40e56",
+    "normalized-records.jsonl": "7792eec91b786694c0ed07e7b8288d756a4f0ecce26f678d51fba0b3cd7cdff2"
+  },
+  "validation": {
+    "jsonl_parse": "passed",
+    "artifact_type_allowlist": "passed",
+    "canonical_key_uniqueness": "passed",
+    "required_record_fields": "passed",
+    "private_or_contact_data_omitted": true,
+    "runtime_model_parse": "passed",
+    "formal_candidate_coverage": "passed",
+    "continuation_links": "passed"
+  }
+}

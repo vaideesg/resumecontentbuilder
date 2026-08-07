@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "candidate": {
+    "canonical_name": "Vaideeswaran Ganesan",
+    "known_name_variants": [
+      "Vaideeswaran",
+      "Ganesan",
+      "Vaideeswaran G",
+      "V. Ganesan"
+    ],
+    "employment": [
+      {
+        "company": "Dell",
+        "aliases": [
+          "Dell Technologies",
+          "Dell EMC",
+          "Dell Products L.P."
+        ],
+        "start_date": null,
+        "end_date": null
+      }
+    ],
+    "professional_profiles": [
+      {
+        "type": "linkedin",
+        "url": "https://linkedin.com/in/vaidees"
+      },
+      {
+        "type": "github",
+        "url": "https://github.com/vaideesg",
+        "username": "vaideesg"
+      }
+    ],
+    "known_collaborators": []
+  }
+}

@@ -1,0 +1,614 @@
+{
+  "artifact_type": "community-contributions",
+  "schema_version": "1.0",
+  "workflow_status": "completed_with_partial_degradation",
+  "generated_at": "2026-08-07T21:42:48.112+05:30",
+  "worker_count": 2,
+  "source_independence": true,
+  "retrieval_statuses": {
+    "github_api_user": "ok",
+    "github_api_repos": "ok",
+    "github_api_commits": "ok",
+    "github_api_events": "ok",
+    "github_api_issues_prs": "ok",
+    "github_api_orgs": "ok",
+    "github_search_code": "ok_zero_results",
+    "patents_justia": "blocked_403",
+    "uspto_report": "blocked_403",
+    "patents_google_US12639120": "not_found_404",
+    "patents_google_US10200242": "ok_partial",
+    "web_search_patents": "ok",
+    "web_search_community": "ok",
+    "stackoverflow": "unverified_candidate_variant"
+  },
+  "query_plan": {
+    "partition_A_forge_profile_repository_history": {
+      "description": "GitHub forge: profile metadata, repo inventory, commit history, fork ancestry, event log, PR/issue search, org memberships, code-search",
+      "sources": [
+        "https://api.github.com/users/vaideesg",
+        "https://api.github.com/users/vaideesg/repos?per_page=100&sort=updated",
+        "https://api.github.com/repos/vaideesg/resumecontentbuilder/commits?per_page=100",
+        "https://api.github.com/users/vaideesg/events?per_page=100",
+        "https://api.github.com/repos/vaideesg/iDRAC-Redfish-Scripting",
+        "https://api.github.com/repos/dell/iDRAC-Redfish-Scripting",
+        "https://api.github.com/search/issues?q=author:vaideesg+type:pr&per_page=50",
+        "https://api.github.com/search/issues?q=author:vaideesg+type:issue&per_page=50",
+        "https://api.github.com/users/vaideesg/orgs",
+        "github_mcp_search_code:author:vaideesg"
+      ]
+    },
+    "partition_B_registries_community_qa": {
+      "description": "Patents/IP registries, community Q&A (Stack Overflow), web/professional presence",
+      "sources": [
+        "https://patents.justia.com/inventor/vaideeswaran-ganesan",
+        "https://uspto.report/company/Vaideeswaran-Ganesan",
+        "https://patents.google.com/patent/US12639120B2/en",
+        "https://patents.google.com/patent/US10200242B2/en",
+        "web_search:vaideeswaran ganesan patents redfish idrac",
+        "web_search:vaideeswaran ganesan stackoverflow linkedin publications"
+      ]
+    }
+  },
+  "worker_envelopes": [
+    {
+      "worker_id": "W1",
+      "partition": "forge_profile_repository_history",
+      "status": "completed",
+      "records_emitted": 5,
+      "degradations": [
+        "github_search_code returned total_count=0 for author:vaideesg — no cross-repo code contributions indexed as of retrieval",
+        "PR search returned total_count=0 — no public PRs filed from this account on any repository",
+        "Issue search returned total_count=0 — no public issue activity detected",
+        "iDRAC-Redfish-Scripting fork: author-filtered commit query returned empty array — fork is a passive mirror with no divergent contributions by vaideesg"
+      ]
+    },
+    {
+      "worker_id": "W2",
+      "partition": "registries_community_qa",
+      "status": "completed_degraded",
+      "records_emitted": 3,
+      "degradations": [
+        "patents.justia.com returned HTTP 403 — direct patent list unavailable; patent data sourced from web-search inference only, confidence medium",
+        "uspto.report returned HTTP 403 — direct USPTO filing list unavailable",
+        "patents.google.com US12639120B2 returned HTTP 404 — patent number may be incorrect or not yet indexed at time of retrieval",
+        "Stack Overflow user display_name=Vaitheeswaran (ID 11216073) is an unverified spelling variant — not confirmed as same individual; flagged low-confidence and excluded from primary signals",
+        "LinkedIn profile https://linkedin.com/in/vaidees not fetched — no authenticated LinkedIn access tool available"
+      ]
+    }
+  ],
+  "candidate_records": [
+    {
+      "candidate_record_id": "CR-001",
+      "source": "github_api",
+      "source_url": "https://api.github.com/users/vaideesg",
+      "retrieved_at": "2026-08-07T16:04:23Z",
+      "record_type": "github_profile",
+      "stable_account_id": "github_user:19719198",
+      "node_id": "MDQ6VXNlcjE5NzE5MTk4",
+      "account_login": "vaideesg",
+      "display_name": "Vaideeswaran Ganesan",
+      "profile_url": "https://github.com/vaideesg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19719198?v=4",
+      "location": "India",
+      "bio": "Technologist, Innovator",
+      "hireable": true,
+      "company_field_raw": null,
+      "blog": "",
+      "twitter_username": null,
+      "public_repos": 2,
+      "public_gists": 0,
+      "followers": 6,
+      "following": 5,
+      "account_created_at": "2016-06-02T22:39:14Z",
+      "account_updated_at": "2026-08-07T04:44:24Z",
+      "org_memberships_public": [],
+      "email_fields_on_profile": null,
+      "provisional_signals": {
+        "name_match_canonical": "exact",
+        "account_age_years": 10.2,
+        "activity_recent": true,
+        "company_field_blank": true,
+        "hireable": true
+      }
+    },
+    {
+      "candidate_record_id": "CR-002",
+      "source": "github_api",
+      "source_url": "https://api.github.com/repos/vaideesg/resumecontentbuilder",
+      "retrieved_at": "2026-08-07T16:04:23Z",
+      "record_type": "github_repository_owned",
+      "stable_repo_id": "github_repo:1326218870",
+      "node_id": "R_kgDOTwx-dg",
+      "repo_full_name": "vaideesg/resumecontentbuilder",
+      "repo_url": "https://github.com/vaideesg/resumecontentbuilder",
+      "clone_url": "https://github.com/vaideesg/resumecontentbuilder.git",
+      "is_fork": false,
+      "fork_parent": null,
+      "description": null,
+      "primary_language": "Python",
+      "languages": {
+        "Python": 43070
+      },
+      "license_spdx": "MIT",
+      "stars": 0,
+      "watchers": 0,
+      "forks": 0,
+      "open_issues": 0,
+      "size_kb": 82,
+      "topics": [],
+      "created_at": "2026-08-07T04:45:02Z",
+      "updated_at": "2026-08-07T12:22:57Z",
+      "pushed_at": "2026-08-07T12:22:32Z",
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "visibility": "public",
+      "provisional_signals": {
+        "repo_is_active_project": true,
+        "copilot_coauthored": true,
+        "sole_author": true,
+        "subject_domain": "resume_builder_tooling",
+        "age_days": 0
+      }
+    },
+    {
+      "candidate_record_id": "CR-003",
+      "source": "github_api",
+      "source_url": "https://api.github.com/repos/vaideesg/resumecontentbuilder/commits?per_page=100",
+      "retrieved_at": "2026-08-07T16:04:23Z",
+      "record_type": "github_commit_history",
+      "repo_full_name": "vaideesg/resumecontentbuilder",
+      "total_commits_observed": 7,
+      "page_exhausted": true,
+      "commits": [
+        {
+          "sha": "463a924cfadb328ee95616eb64f8f8396b59d6c2",
+          "commit_url": "https://github.com/vaideesg/resumecontentbuilder/commit/463a924cfadb328ee95616eb64f8f8396b59d6c2",
+          "committed_at": "2026-08-07T12:22:21Z",
+          "message": "feat: implement professional artifact finder plugin",
+          "coauthors": [
+            "Copilot <223556219+Copilot@users.noreply.github.com>"
+          ],
+          "author_name": "Vaideeswaran Ganesan",
+          "author_email_redacted": "v*****@microsoft.com",
+          "verified": false,
+          "verification_reason": "unsigned",
+          "parent_count": 1
+        },
+        {
+          "sha": "353860e3780024dd0d69956413f3aad4e83d46a5",
+          "commit_url": "https://github.com/vaideesg/resumecontentbuilder/commit/353860e3780024dd0d69956413f3aad4e83d46a5",
+          "committed_at": "2026-08-07T06:11:09Z",
+          "message": "refactor: centralize artifact candidate config",
+          "coauthors": [
+            "Copilot <223556219+Copilot@users.noreply.github.com>"
+          ],
+          "author_name": "Vaideeswaran Ganesan",
+          "author_email_redacted": "v*****@microsoft.com",
+          "verified": false,
+          "verification_reason": "unsigned",
+          "parent_count": 1
+        },
+        {
+          "sha": "0a5105fe0c0e1d640085b7d89752014840d8cdfc",
+          "commit_url": "https://github.com/vaideesg/resumecontentbuilder/commit/0a5105fe0c0e1d640085b7d89752014840d8cdfc",
+          "committed_at": "2026-08-07T05:54:14Z",
+          "message": "docs: add artifact finder master plan",
+          "coauthors": [
+            "Copilot <223556219+Copilot@users.noreply.github.com>"
+          ],
+          "author_name": "Vaideeswaran Ganesan",
+          "author_email_redacted": "v*****@microsoft.com",
+          "verified": false,
+          "verification_reason": "unsigned",
+          "parent_count": 1
+        },
+        {
+          "sha": "df1871803369c17b34069c98128b4c796ec932fd",
+          "commit_url": "https://github.com/vaideesg/resumecontentbuilder/commit/df1871803369c17b34069c98128b4c796ec932fd",
+          "committed_at": "2026-08-07T05:18:27Z",
+          "message": "Added new tasks",
+          "coauthors": [],
+          "author_name": "Vaideeswaran Ganesan",
+          "author_email_redacted": "v*****@microsoft.com",
+          "verified": false,
+          "verification_reason": "unsigned",
+          "parent_count": 1
+        },
+        {
+          "sha": "5e441b5d72bdd93f391217d1f0c6a27a6b84a37e",
+          "commit_url": "https://github.com/vaideesg/resumecontentbuilder/commit/5e441b5d72bdd93f391217d1f0c6a27a6b84a37e",
+          "committed_at": "2026-08-07T05:14:21Z",
+          "message": "Added backlogs",
+          "coauthors": [],
+          "author_name": "Vaideeswaran Ganesan",
+          "author_email_redacted": "v*****@microsoft.com",
+          "verified": false,
+          "verification_reason": "unsigned",
+          "parent_count": 1
+        },
+        {
+          "sha": "756b3954dd68b7be65226e5e8b8350a132103641",
+          "commit_url": "https://github.com/vaideesg/resumecontentbuilder/commit/756b3954dd68b7be65226e5e8b8350a132103641",
+          "committed_at": "2026-08-07T04:47:38Z",
+          "message": "Enhance README with project description",
+          "coauthors": [],
+          "author_name": "Vaideeswaran Ganesan",
+          "author_email_redacted": "v*****@gmail.com",
+          "committer_name": "GitHub",
+          "committer_id": "github_user:19864447",
+          "verified": true,
+          "verification_reason": "valid",
+          "verified_at": "2026-08-07T04:47:43Z",
+          "parent_count": 1
+        },
+        {
+          "sha": "8acf55d6f94009c6298a2ff9b62fbb145cf75134",
+          "commit_url": "https://github.com/vaideesg/resumecontentbuilder/commit/8acf55d6f94009c6298a2ff9b62fbb145cf75134",
+          "committed_at": "2026-08-07T04:45:03Z",
+          "message": "Initial commit",
+          "coauthors": [],
+          "author_name": "Vaideeswaran Ganesan",
+          "author_email_redacted": "v*****@gmail.com",
+          "committer_name": "GitHub",
+          "committer_id": "github_user:19864447",
+          "verified": true,
+          "verification_reason": "valid",
+          "verified_at": "2026-08-07T04:50:23Z",
+          "parent_count": 0,
+          "stats": {
+            "total_changes": 240,
+            "additions": 240,
+            "deletions": 0
+          },
+          "files_changed": [
+            ".gitignore",
+            "LICENSE",
+            "README.md"
+          ]
+        }
+      ],
+      "provisional_signals": {
+        "all_commits_on_single_day": "2026-08-07",
+        "copilot_coauthored_commit_count": 3,
+        "total_non_trivial_substantive_commits": 7,
+        "automated_commits_excluded": 0,
+        "two_distinct_email_domains_observed": true,
+        "email_domains_redacted": [
+          "*.microsoft.com",
+          "*.gmail.com"
+        ]
+      }
+    },
+    {
+      "candidate_record_id": "CR-004",
+      "source": "github_api",
+      "source_url": "https://api.github.com/repos/vaideesg/iDRAC-Redfish-Scripting",
+      "retrieved_at": "2026-08-07T16:04:23Z",
+      "record_type": "github_repository_fork",
+      "stable_repo_id": "github_repo:111563743",
+      "node_id": "MDEwOlJlcG9zaXRvcnkxMTE1NjM3NDM=",
+      "repo_full_name": "vaideesg/iDRAC-Redfish-Scripting",
+      "repo_url": "https://github.com/vaideesg/iDRAC-Redfish-Scripting",
+      "is_fork": true,
+      "fork_parent": {
+        "full_name": "dell/iDRAC-Redfish-Scripting",
+        "stable_repo_id": "github_repo:98206096",
+        "node_id": "MDEwOlJlcG9zaXRvcnk5ODIwNjA5Ng==",
+        "url": "https://github.com/dell/iDRAC-Redfish-Scripting",
+        "owner_org": "dell",
+        "owner_org_id": "github_org:20958494",
+        "description": "Python and PowerShell scripting for Dell EMC PowerEdge iDRAC REST API with DMTF Redfish",
+        "stars": 733,
+        "watchers": 733,
+        "created_at": "2017-07-24T15:30:04Z",
+        "updated_at": "2026-08-07T15:24:30Z",
+        "pushed_at": "2026-08-07T15:23:06Z"
+      },
+      "description": "Python and PowerShell scripting for Dell EMC PowerEdge iDRAC REST API with DMTF Redfish",
+      "fork_created_at": "2017-11-21T15:03:23Z",
+      "fork_updated_at": "2017-11-29T17:38:12Z",
+      "fork_pushed_at": "2017-10-05T19:11:40Z",
+      "author_commits_in_fork": 0,
+      "provisional_signals": {
+        "fork_purpose": "passive_mirror_or_workspace",
+        "no_divergent_contributions_detected": true,
+        "domain_relevance": "idrac_redfish_dell_emc_server_management",
+        "fork_age_years": 8.7,
+        "upstream_stars_raw": 733,
+        "upstream_org": "dell"
+      }
+    },
+    {
+      "candidate_record_id": "CR-005",
+      "source": "github_api",
+      "source_url": "https://api.github.com/users/vaideesg/events?per_page=100",
+      "retrieved_at": "2026-08-07T16:04:23Z",
+      "record_type": "github_public_events",
+      "total_events_observed": 7,
+      "event_types": {
+        "PushEvent": 6,
+        "CreateEvent": 1
+      },
+      "all_events_repo": "vaideesg/resumecontentbuilder",
+      "event_log": [
+        {
+          "event_id": "17049944212",
+          "type": "PushEvent",
+          "repo_id": 1326218870,
+          "created_at": "2026-08-07T12:22:32Z",
+          "ref": "refs/heads/main",
+          "head_sha": "463a924cfadb328ee95616eb64f8f8396b59d6c2"
+        },
+        {
+          "event_id": "17004829707",
+          "type": "PushEvent",
+          "repo_id": 1326218870,
+          "created_at": "2026-08-07T06:11:12Z",
+          "ref": "refs/heads/main",
+          "head_sha": "353860e3780024dd0d69956413f3aad4e83d46a5"
+        },
+        {
+          "event_id": "17002963405",
+          "type": "PushEvent",
+          "repo_id": 1326218870,
+          "created_at": "2026-08-07T05:57:38Z",
+          "ref": "refs/heads/main",
+          "head_sha": "0a5105fe0c0e1d640085b7d89752014840d8cdfc"
+        },
+        {
+          "event_id": "16998652627",
+          "type": "PushEvent",
+          "repo_id": 1326218870,
+          "created_at": "2026-08-07T05:18:39Z",
+          "ref": "refs/heads/main",
+          "head_sha": "df1871803369c17b34069c98128b4c796ec932fd"
+        },
+        {
+          "event_id": "16998272161",
+          "type": "PushEvent",
+          "repo_id": 1326218870,
+          "created_at": "2026-08-07T05:14:28Z",
+          "ref": "refs/heads/main",
+          "head_sha": "5e441b5d72bdd93f391217d1f0c6a27a6b84a37e"
+        },
+        {
+          "event_id": "16995950335",
+          "type": "PushEvent",
+          "repo_id": 1326218870,
+          "created_at": "2026-08-07T04:47:39Z",
+          "ref": "refs/heads/main",
+          "head_sha": "756b3954dd68b7be65226e5e8b8350a132103641"
+        },
+        {
+          "event_id": "16995646429",
+          "type": "CreateEvent",
+          "repo_id": 1326218870,
+          "created_at": "2026-08-07T04:45:03Z",
+          "ref": "main",
+          "ref_type": "branch"
+        }
+      ],
+      "date_range": {
+        "earliest": "2026-08-07T04:45:03Z",
+        "latest": "2026-08-07T12:22:32Z"
+      },
+      "provisional_signals": {
+        "all_activity_on_single_calendar_day": "2026-08-07",
+        "no_cross_repo_push_events": true,
+        "no_pr_review_events": true,
+        "no_fork_events_to_external_repos": true
+      }
+    },
+    {
+      "candidate_record_id": "CR-006",
+      "source": "github_api",
+      "source_url": "https://api.github.com/search/issues?q=author:vaideesg+type:pr&per_page=50",
+      "retrieved_at": "2026-08-07T16:04:23Z",
+      "record_type": "github_prs_filed_external",
+      "total_count": 0,
+      "incomplete_results": false,
+      "search_type": "lexical",
+      "items": [],
+      "provisional_signals": {
+        "no_public_prs_on_record": true
+      }
+    },
+    {
+      "candidate_record_id": "CR-007",
+      "source": "web_search_inference",
+      "evidence_sources": [
+        "https://patents.justia.com/inventor/vaideeswaran-ganesan (HTTP 403 — not fetched directly)",
+        "https://patents.google.com/patent/US10200242B2/en (partial fetch verified)",
+        "web_search result citing justia.com, google.com/patents, usptopatents.google.com"
+      ],
+      "retrieved_at": "2026-08-07T16:04:23Z",
+      "record_type": "patent_portfolio_inferred",
+      "retrieval_method": "web_search_secondary",
+      "confidence": "medium_inferred",
+      "assignee_observed_raw": "Dell Products L.P.",
+      "patents": [
+        {
+          "patent_number": "US12639120",
+          "title": "Managing usage of resources in a hybrid computing environment",
+          "type": "grant",
+          "granted_date": "2026-05-26",
+          "assignee": "Dell Products L.P.",
+          "source": "web_search_inference",
+          "verification_status": "unverified_primary_source"
+        },
+        {
+          "patent_number": "US12625722",
+          "title": "Semantic-aware workflow modification and execution with extraction of missing parameter",
+          "type": "grant",
+          "granted_date": "2026-05-12",
+          "assignee": "Dell Products L.P.",
+          "source": "web_search_inference",
+          "verification_status": "unverified_primary_source"
+        },
+        {
+          "patent_number": "US10200242",
+          "title": "System and method to replicate server configurations across systems using sticky attributions",
+          "type": "grant",
+          "granted_date": "2019-02-05",
+          "assignee": "Dell Products L.P.",
+          "source": "patents_google_partial_verified",
+          "evidence_url": "https://patents.google.com/patent/US10200242B2/en",
+          "verification_status": "partial_verified_text_only_inventor_name_not_extracted_from_truncated_fetch",
+          "domain": "server_configuration_replication_iDRAC_management"
+        },
+        {
+          "patent_number": "US20260119371A1",
+          "title": "Artificial intelligence-based log information incorporation into code",
+          "type": "application",
+          "assignee": "Dell Products L.P.",
+          "source": "web_search_inference",
+          "evidence_url": "https://patents.google.com/patent/US20260119371A1/en",
+          "verification_status": "unverified_primary_source"
+        }
+      ],
+      "domain_themes": [
+        "server_configuration_replication",
+        "hybrid_cloud_resource_management",
+        "AI_driven_log_analysis",
+        "semantic_workflow_automation",
+        "information_handling_systems"
+      ],
+      "provisional_signals": {
+        "assignee_aligns_with_employer_alias": "Dell Products L.P. matches profile employer Dell/Dell EMC/Dell Technologies",
+        "patent_domain_aligns_with_fork_domain": "iDRAC and server management domain consistent with iDRAC-Redfish-Scripting fork",
+        "do_not_treat_as_final_identity_decision": true
+      }
+    },
+    {
+      "candidate_record_id": "CR-008",
+      "source": "web_search_inference",
+      "evidence_sources": [
+        "https://stackoverflow.com/users/11216073/vaitheeswaran"
+      ],
+      "retrieved_at": "2026-08-07T16:04:23Z",
+      "record_type": "community_qa_profile_candidate",
+      "platform": "Stack Overflow",
+      "stable_account_id": "stackoverflow_user:11216073",
+      "profile_url": "https://stackoverflow.com/users/11216073/vaitheeswaran",
+      "display_name_raw": "Vaitheeswaran",
+      "reputation_raw": 107,
+      "answers_raw": 3,
+      "questions_raw": 6,
+      "location_raw": "Madurai, India",
+      "active_communities": [
+        "Google Cloud",
+        "Software Quality Assurance & Testing",
+        "Unix & Linux"
+      ],
+      "confidence": "low_unverified",
+      "provisional_signals": {
+        "name_variant_match_type": "possible_alternate_spelling",
+        "name_distance_note": "Vaitheeswaran vs Vaideeswaran — transposition of i/ai, not confirmed same individual",
+        "location_india_consistent": true,
+        "domain_overlap_partial": true,
+        "excluded_from_primary_signals": true,
+        "do_not_treat_as_final_identity_decision": true
+      }
+    }
+  ],
+  "proposed_duplicate_groups": [],
+  "proposed_relationships": [
+    {
+      "relationship_id": "REL-001",
+      "type": "fork_of",
+      "from_record": "CR-004",
+      "from_repo_id": "github_repo:111563743",
+      "to_entity_full_name": "dell/iDRAC-Redfish-Scripting",
+      "to_entity_stable_id": "github_repo:98206096",
+      "forked_at": "2017-11-21T15:03:23Z",
+      "divergence_commits_observed": 0,
+      "relationship_strength": "passive_mirror"
+    },
+    {
+      "relationship_id": "REL-002",
+      "type": "email_domain_identity_bridge",
+      "note": "Two distinct email address domains observed under the same GitHub account across commit history. Specific addresses are redacted per policy. Domains observed: one personal webmail domain, one enterprise domain associated with a major US technology company. The enterprise domain is not Dell. Possible explanations include employer change, use of an identity provider/SSO tenant, or personal use of enterprise credentials. No final determination made.",
+      "affected_records": [
+        "CR-003"
+      ],
+      "evidence_url": "https://api.github.com/repos/vaideesg/resumecontentbuilder/commits?per_page=100",
+      "do_not_treat_as_final_identity_decision": true
+    },
+    {
+      "relationship_id": "REL-003",
+      "type": "patent_employer_alignment",
+      "patent_assignee_raw": "Dell Products L.P.",
+      "profile_employer_aliases": [
+        "Dell",
+        "Dell Technologies",
+        "Dell EMC",
+        "Dell Products L.P."
+      ],
+      "confidence": "medium_inferred",
+      "source_record": "CR-007",
+      "do_not_treat_as_final_identity_decision": true
+    }
+  ],
+  "warnings": [
+    {
+      "code": "W001",
+      "severity": "medium",
+      "message": "Commit history reveals two distinct email address domains: a personal webmail domain and an enterprise domain not matching the listed employer (Dell). The enterprise domain is redacted per policy. This may indicate the candidate has changed employers, uses an SSO/identity provider, or uses non-Dell enterprise credentials for personal projects. No final determination made.",
+      "affected_records": [
+        "CR-003"
+      ],
+      "do_not_treat_as_final_identity_decision": true
+    },
+    {
+      "code": "W002",
+      "severity": "low",
+      "message": "vaideesg/iDRAC-Redfish-Scripting (github_repo:111563743) is a fork of dell/iDRAC-Redfish-Scripting (github_repo:98206096). Author-filtered commit query for vaideesg returned an empty array. The fork was created 2017-11-21 and last updated 2017-11-29. No contribution signal extracted; retained as domain-alignment signal only.",
+      "affected_records": [
+        "CR-004"
+      ]
+    },
+    {
+      "code": "W003",
+      "severity": "medium",
+      "message": "Patent data sourced entirely from web search inference. Direct registry fetches (patents.justia.com, uspto.report) returned HTTP 403. patents.google.com US12639120B2 returned HTTP 404. US10200242 was partially fetched from patents.google.com but the inventor name was not extracted from the truncated response. Do not treat patent list as authoritative or complete.",
+      "affected_records": [
+        "CR-007"
+      ]
+    },
+    {
+      "code": "W004",
+      "severity": "high",
+      "message": "GitHub search/issues API returned total_count=0 for both PR and issue queries scoped to author:vaideesg. No cross-community pull request or issue contribution evidence detected on any public repository. Community contribution footprint is limited to two personal repositories (one owned, one passive fork).",
+      "affected_records": [
+        "CR-006"
+      ]
+    },
+    {
+      "code": "W005",
+      "severity": "low",
+      "message": "Stack Overflow user display_name='Vaitheeswaran' (stable_id stackoverflow_user:11216073) uses a different spelling variant from the canonical name 'Vaideeswaran'. Identity is unverified. Excluded from primary signals. Retained for completeness only.",
+      "affected_records": [
+        "CR-008"
+      ]
+    },
+    {
+      "code": "W006",
+      "severity": "info",
+      "message": "vaideesg/resumecontentbuilder was created on 2026-08-07 (same calendar day as this workflow run). All 7 commits occurred on a single day within an 8-hour window. GitHub Copilot co-authored 3 of 7 commits. Repository has 0 stars, 0 forks, 0 issues, 0 watchers at time of retrieval. No community engagement metrics available.",
+      "affected_records": [
+        "CR-002",
+        "CR-003"
+      ]
+    },
+    {
+      "code": "W007",
+      "severity": "info",
+      "message": "Candidate GitHub profile (github_user:19719198) has company field null and blog field empty. LinkedIn URL https://linkedin.com/in/vaidees was not fetched — no authenticated LinkedIn access tool is available to this workflow. LinkedIn data is entirely absent from this artifact.",
+      "affected_records": [
+        "CR-001"
+      ]
+    }
+  ]
+}

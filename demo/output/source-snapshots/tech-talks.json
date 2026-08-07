@@ -1,0 +1,97 @@
+{
+  "artifact_type": "tech-talks",
+  "schema_version": "1.0",
+  "workflow_status": "COMPLETE_DEGRADED_NO_CANDIDATES",
+  "generated_at": "2026-08-07T16:02:00Z",
+  "worker_count": 3,
+  "source_independence": true,
+  "retrieval_statuses": {
+    "official_event_schedules": "not_found",
+    "recordings_podcasts": "not_found",
+    "slides_corroboration": "partial"
+  },
+  "query_plan": {
+    "strategies": [
+      "official conference, meetup, webinar, and employer event schedules",
+      "public video, audio, podcast, and webinar recordings",
+      "slide repositories, event recaps, and alternate archives"
+    ],
+    "sources": [
+      "Dell Technologies World",
+      "Dell Events",
+      "SNIA SDC",
+      "OCP Summit",
+      "DeveloperWeek",
+      "YouTube",
+      "SlideShare",
+      "SpeakerDeck",
+      "InfoQ"
+    ]
+  },
+  "worker_envelopes": [
+    {
+      "worker_id": "A",
+      "partition": "official_event_schedules",
+      "retrieval_status": "not_found",
+      "assertions": [
+        {
+          "evidence_id": "talk-a-001",
+          "source_url": "https://www.dell.com/en-us/delltechnologiesworld/lp/2026-speakers",
+          "retrieved_at": "2026-08-07T16:02:00Z",
+          "authority_rank": 1,
+          "field": "delivery",
+          "raw_value": "No matching scheduled delivery surfaced",
+          "normalized_value": "",
+          "extraction_method": "search"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "worker_id": "B",
+      "partition": "recordings_podcasts",
+      "retrieval_status": "not_found",
+      "assertions": [
+        {
+          "evidence_id": "talk-b-001",
+          "source_url": "https://www.youtube.com/channel/UCVZfVq9VVAmV9Dy35ITKAwQ",
+          "retrieved_at": "2026-08-07T16:02:00Z",
+          "authority_rank": 2,
+          "field": "recording",
+          "raw_value": "No recording or podcast with attributable speaker identity surfaced",
+          "normalized_value": "",
+          "extraction_method": "search"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "worker_id": "C",
+      "partition": "slides_corroboration",
+      "retrieval_status": "partial",
+      "assertions": [
+        {
+          "evidence_id": "talk-c-001",
+          "source_url": "https://www.slideshare.net/",
+          "retrieved_at": "2026-08-07T16:02:00Z",
+          "authority_rank": 4,
+          "field": "slides",
+          "raw_value": "No attributable slide deck surfaced; same-name results belonged to other people",
+          "normalized_value": "",
+          "extraction_method": "search"
+        }
+      ],
+      "warnings": [
+        "LinkedIn and some archive traversal were blocked or unavailable",
+        "No candidate was promoted from topic proximity or patent evidence"
+      ]
+    }
+  ],
+  "candidate_records": [],
+  "proposed_duplicate_groups": [],
+  "proposed_relationships": [],
+  "warnings": [
+    "No public technical-talk delivery could be proven with both speaker identity and occurrence evidence",
+    "Some event archives and professional-network sources were unavailable"
+  ]
+}

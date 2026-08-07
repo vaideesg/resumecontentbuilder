@@ -1,0 +1,42 @@
+{
+  "artifact_types": [
+    "certifications",
+    "community-contributions",
+    "patents",
+    "white-papers"
+  ],
+  "checksums": {
+    "articles.csv": "6915adb270eb51bbc6e37f5a3d73a6a08dff31304697ed6a1807bb128f4e2511",
+    "articles.enriched.csv": "3e6d4893bd7263f071b83db8712209a353774d7c3f954bd9f01bee634a89d90a",
+    "certifications.csv": "17855224c833eac40e9ea439b454fb972d052871e899309f9bf8c6fd52b071c3",
+    "certifications.enriched.csv": "0ee0f3a7ae41468e957c531a52508c914c4bbb7eec44585059ad7f72482d130e",
+    "community-contributions.csv": "bbfc2bde72befd2701cf7c6c6d4c04534dac0a425517ccfa715bd3a789e68f30",
+    "community-contributions.enriched.csv": "5aad7a250fa0c2d9a88ab68e6e9fd6cbfdcb60ee7e54ced6eac2d57235189403",
+    "conflicts.jsonl": "8ac307aa2d28685b91ed2e5e94305f2332e53284f16015fb1c529876a5c64128",
+    "dedup-decisions.jsonl": "8d5adba39f5633c09b55350ca4e747623d7e5a5d9cade2f73158e86716c98655",
+    "identity-decisions.jsonl": "cc2d0a59db2f3f8f5fa0a2a43eefebe9818e7c6be97a16b125abed1514aae61a",
+    "identity-decisions.runtime.jsonl": "2907cee41631cf6313603ae29d2257fca8600b6e6827fa4fc3020a08b9a0571e",
+    "normalized-records.jsonl": "52114cf51605b554572afa52b272bb128ebe9657ab48849e007242a9308f499c",
+    "patents.csv": "7d7a8c39eee80ea01f0f6105dcb6ab3bf3ca96acfc4a813f5d5cab8a651ff0ba",
+    "patents.enriched.csv": "0c5bdfff3e5b18c915e81e20849ca52a78f7a485d1809f2517d18b29155cc021",
+    "query-plan.json": "0f1c115ece39d5f9a00993486d6f4cbeba7b8c5867982d50ce42ac2013299ee3",
+    "run-manifest.json": "b2dcb2f4c8af0f2264a6dd02ba4e6280a0f30958c43e14c67dcaaaa404e223af",
+    "standards-publications.csv": "b8c7b60a2f7c8a52c4466c7b31231745859edc56ecd1b7d57f5e6fe9ea565841",
+    "standards-publications.enriched.csv": "3e3d4cd8f8c34099247c49e46a930d26ee9d5316e10da995b940ce36a3689fe0",
+    "status-events.jsonl": "479ce05c0870e61ff8b05f584bb35277143944661ca10e6545b0d797f642a547",
+    "supervisor-report.json": "24037c82b6e98031b76f8a88f13085a78ed4968e0e709c3cfb8f2b9db60bd438",
+    "tech-talks.csv": "a440bfdbae134aa8d20672117b9c38495286617a9bc0c61b1dbbbb988ef5b529",
+    "tech-talks.enriched.csv": "80b0a31704010c59f1e924dcbbf42b2bc5ba29cbf67fbb1c7e48021207a2b82e",
+    "white-papers.csv": "3f3413acf7d358519f43c6ec1377fce9222273a5b222a09e79a7ab1b80ebdb59",
+    "white-papers.enriched.csv": "fb894642d38875e1c986136cdbe2f8fac89f6f3210e6935ddeac6ea3409e2d77"
+  },
+  "decision_counts": {
+    "include": 28
+  },
+  "generated_at": "2026-08-07T17:40:00Z",
+  "schema_version": "1.0",
+  "source_count": 34,
+  "source_independence": true,
+  "status": "COMPLETE_DEGRADED",
+  "warning_count": 74
+}

@@ -1,0 +1,481 @@
+{
+  "artifact_type": "article-finder-output",
+  "schema_version": "1.0",
+  "workflow_status": "completed_with_degradation",
+  "worker_count": 3,
+  "run_timestamp_utc": "2026-08-07T16:18:28.764Z",
+  "source_independence": {
+    "worker_ids": [
+      "worker_publisher_byline",
+      "worker_scholarly_index",
+      "worker_professional_profile_syndication"
+    ],
+    "cross_contamination": "none — workers queried disjoint source classes before merge"
+  },
+  "retrieval_statuses": {
+    "patents_justia_direct_pages": {
+      "status": "BLOCKED",
+      "http_code": 403,
+      "urls_attempted": [
+        "https://patents.justia.com/inventor/vaideeswaran-ganesan",
+        "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=4",
+        "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=6"
+      ],
+      "degradation_impact": "patent metadata sourced from search snippets only; not primary-page-verified"
+    },
+    "uspto_report_direct": {
+      "status": "BLOCKED",
+      "http_code": 403,
+      "url_attempted": "https://uspto.report/company/Vaideeswaran-Ganesan"
+    },
+    "patents_google_grant_numbers": {
+      "status": "BLOCKED",
+      "http_code": 404,
+      "urls_attempted": [
+        "https://patents.google.com/patent/US12639120",
+        "https://patents.google.com/patent/US12625722"
+      ],
+      "note": "Grant numbers likely require B2 suffix variant; not retried in this pass"
+    },
+    "patents_google_application_US20240028934A1": {
+      "status": "SUCCESS",
+      "url": "https://patents.google.com/patent/US20240028934A1/en",
+      "content": "full_application_text_fetched",
+      "relevance": "contextual_only — patent record, not article"
+    },
+    "patents_gazette_US12511169": {
+      "status": "SUCCESS",
+      "url": "https://patentsgazette.uspto.gov/week52/OG/html/1541-5/US12511169-20251230.html",
+      "content": "claim_text_fetched",
+      "relevance": "contextual_only — patent record, not article"
+    },
+    "htsyndication_press_release": {
+      "status": "SUCCESS_via_search_snippet",
+      "url": "https://www.htsyndication.com/us-fed-news/article/us-patent-issued-to-dell-products-on-may-12-for--semantic-aware-workflow-modification-and-execution-with-extraction-of-missing-parameter---indian-inventors-/22214856825",
+      "relevance": "contextual_only — third-party patent press release wire, not authored article"
+    },
+    "linkedin_profile": {
+      "status": "BLOCKED",
+      "http_code": 999,
+      "url_attempted": "https://www.linkedin.com/in/vaidees",
+      "degradation_impact": "publications and articles sections inaccessible"
+    },
+    "github_profile": {
+      "status": "BLOCKED",
+      "url_attempted": "https://github.com/vaideesg",
+      "error": "login_wall — returned 'You can't perform that action at this time'",
+      "degradation_impact": "authored README content, pinned repos, and linked blog URLs not verified from live fetch"
+    },
+    "google_scholar": {
+      "status": "NOT_FOUND",
+      "query": "Vaideeswaran Ganesan site:scholar.google.com",
+      "note": "No profile indexed under any known name variant. Confusable profiles excluded: Vaitheeswaran Ganesan Lalgudi (SUNY Buffalo, ophthalmology, scholar.google.com/citations?user=QxHblUYAAAAJ), Ganapathy Vaitheeswaran (Univ. Hyderabad, materials science, scholar.google.com/citations?user=rdhl9MwAAAAJ) — both are distinct persons."
+    },
+    "dell_technologies_blog": {
+      "status": "NOT_FOUND",
+      "queries_attempted": [
+        "\"Vaideeswaran Ganesan\" Dell Technologies blog article 2020 2021 2022 2023 2024 2025",
+        "site:dell.com/blog Vaideeswaran Ganesan"
+      ],
+      "result": "zero bylined articles surfaced"
+    },
+    "medium_platform": {
+      "status": "UNVERIFIED_HANDLE",
+      "handle_found": "@vaideeswaran2001",
+      "url": "https://medium.com/@vaideeswaran2001",
+      "identity_linkage": "unconfirmed — first-name match only; no surname, employer, or corroborating signal"
+    },
+    "dzone": {
+      "status": "NOT_FOUND"
+    },
+    "towardsdatascience": {
+      "status": "NOT_FOUND"
+    },
+    "ieee_xplore": {
+      "status": "NOT_FOUND"
+    },
+    "acm_dl": {
+      "status": "NOT_FOUND"
+    },
+    "researchgate": {
+      "status": "NOT_FOUND"
+    },
+    "cncf_io": {
+      "status": "NOT_FOUND"
+    },
+    "redhat_com": {
+      "status": "NOT_FOUND"
+    },
+    "broadcom_techdocs": {
+      "status": "NOT_FOUND"
+    }
+  },
+  "query_plan": {
+    "worker_publisher_byline": {
+      "description": "Search publisher/author byline databases, tech blogs, press syndication for attributed authored articles",
+      "queries_issued": [
+        {
+          "rank": 1,
+          "query": "\"Vaideeswaran Ganesan\" author site:linkedin.com OR site:medium.com OR site:towardsdatascience.com OR site:dzone.com",
+          "engine": "bing_via_web_search",
+          "result_count": 1,
+          "top_result_url": "https://medium.com/@vaideeswaran2001",
+          "outcome": "handle found, identity unverified"
+        },
+        {
+          "rank": 2,
+          "query": "\"Vaideeswaran Ganesan\" Dell Technologies blog article 2020 2021 2022 2023 2024 2025",
+          "engine": "bing_via_web_search",
+          "result_count": 0,
+          "outcome": "no bylined articles found"
+        },
+        {
+          "rank": 3,
+          "query": "vaideesg github.com articles blog posts authored content",
+          "engine": "bing_via_web_search",
+          "result_count": 1,
+          "top_result_url": "https://github.com/vaideesg",
+          "outcome": "GitHub profile confirmed; no authored articles or linked blog posts confirmed from snippet"
+        },
+        {
+          "rank": 4,
+          "query": "\"Vaideeswaran Ganesan\" Dell publication OR paper OR article OR blog OR whitepaper",
+          "engine": "bing_via_web_search",
+          "result_count": 0,
+          "outcome": "no results"
+        }
+      ],
+      "outcome_summary": "No confirmed authored professional articles found. One unverified Medium handle surfaced."
+    },
+    "worker_scholarly_index": {
+      "description": "Search academic/patent/index databases for scholarly and technical publications",
+      "queries_issued": [
+        {
+          "rank": 1,
+          "query": "\"Vaideeswaran Ganesan\" Google Scholar OR IEEE OR ACM OR ResearchGate author",
+          "engine": "bing_via_web_search",
+          "result_count": 0,
+          "outcome": "no profiles or papers found"
+        },
+        {
+          "rank": 2,
+          "query": "\"Vaideeswaran Ganesan\" site:patents.google.com OR site:scholar.google.com",
+          "engine": "bing_via_web_search",
+          "result_count": 1,
+          "top_result_url": "https://patents.google.com/patent/US20240028934A1/en",
+          "outcome": "patent application found — not an article"
+        },
+        {
+          "rank": 3,
+          "query": "\"Vaideeswaran Ganesan\" Dell patent inventor list 2019 2020 2021 2022 2023 2024 2025 2026",
+          "engine": "bing_via_web_search",
+          "result_count": 7,
+          "outcome": "patent records surfaced — all contextual only, not articles"
+        },
+        {
+          "rank": 4,
+          "query": "\"Vaideeswaran Ganesan\" Dell Technologies authored articles publications blog posts",
+          "engine": "bing_via_web_search",
+          "result_count": 0,
+          "outcome": "no authored articles found; patent invention credits returned"
+        }
+      ],
+      "outcome_summary": "No authored scholarly articles found. Patent inventor credits confirmed as contextual signals only."
+    },
+    "worker_professional_profile_syndication": {
+      "description": "Search LinkedIn, GitHub, and press syndication wires for authored or republished professional content",
+      "queries_issued": [
+        {
+          "rank": 1,
+          "query": "site:techdocs.broadcom.com OR site:redhat.com OR site:cncf.io \"Vaideeswaran Ganesan\"",
+          "engine": "bing_via_web_search",
+          "result_count": 0,
+          "outcome": "no results"
+        },
+        {
+          "rank": 2,
+          "query": "inventor:\"Vaideeswaran Ganesan\" OR inventor:\"Ganesan Vaideeswaran\" Dell patent US10200242 US12511169",
+          "engine": "bing_via_web_search",
+          "result_count": 0,
+          "outcome": "no structured results; patent identity confirmed via separate queries"
+        },
+        {
+          "rank": 3,
+          "query": "Dell patent 20260119371 Artificial Intelligence-Based Log Information inventors",
+          "engine": "bing_via_web_search",
+          "result_count": 1,
+          "top_result_url": "https://patents.justia.com/inventor/vaideeswaran-ganesan",
+          "outcome": "patent press-release snippet confirmed inventors — contextual only, not article"
+        }
+      ],
+      "outcome_summary": "No authored syndicated articles confirmed. Patent press-release wires found on htsyndication.com — candidate is named as inventor, not author of any article."
+    }
+  },
+  "worker_envelopes": {
+    "worker_publisher_byline": {
+      "status": "completed_no_article_candidates",
+      "article_candidates_found": 0,
+      "assertions": [
+        {
+          "assertion_id": "PB-A001",
+          "type": "negative",
+          "claim": "No bylined articles found on Dell Technologies public blog (dell.com/en-us/blog) attributable to Vaideeswaran Ganesan.",
+          "source_url": "https://www.dell.com/en-us/blog/",
+          "extraction_method": "web_search_snippet",
+          "confidence": "high"
+        },
+        {
+          "assertion_id": "PB-A002",
+          "type": "negative",
+          "claim": "No authored articles found on DZone, Towards Data Science, CNCF, Red Hat, or Broadcom TechDocs under any known name variant.",
+          "extraction_method": "web_search",
+          "confidence": "medium"
+        },
+        {
+          "assertion_id": "PB-A003",
+          "type": "unresolved",
+          "claim": "Medium handle @vaideeswaran2001 exists as a platform profile. Identity linkage to candidate Vaideeswaran Ganesan at Dell is unconfirmed. No article titles, topics, or employer signals were visible in the search snippet.",
+          "url": "https://medium.com/@vaideeswaran2001",
+          "extraction_method": "web_search_snippet",
+          "confidence": "low",
+          "action_required": "manual verification of handle ownership before any inclusion decision"
+        },
+        {
+          "assertion_id": "PB-A004",
+          "type": "contextual_only",
+          "claim": "GitHub profile github.com/vaideesg is confirmed as belonging to Vaideeswaran Ganesan. Primary visible public contribution is a fork of 'iDRAC-Redfish-Scripting' (Dell EMC PowerEdge iDRAC REST/Redfish API scripts). No authored blog posts, published articles, or external publication links confirmed from available search snippet. Live profile fetch was blocked by login wall.",
+          "url": "https://github.com/vaideesg",
+          "extraction_method": "web_search_snippet",
+          "confidence": "medium_on_profile_identity_low_on_article_absence"
+        }
+      ]
+    },
+    "worker_scholarly_index": {
+      "status": "completed_no_article_candidates",
+      "article_candidates_found": 0,
+      "assertions": [
+        {
+          "assertion_id": "SI-A001",
+          "type": "negative",
+          "claim": "No Google Scholar profile found for Vaideeswaran Ganesan. Searches returned zero matching profiles under all known name variants.",
+          "extraction_method": "web_search",
+          "confidence": "high"
+        },
+        {
+          "assertion_id": "SI-A002",
+          "type": "negative",
+          "claim": "No IEEE Xplore or ACM Digital Library author records found for Vaideeswaran Ganesan.",
+          "extraction_method": "web_search",
+          "confidence": "medium"
+        },
+        {
+          "assertion_id": "SI-A003",
+          "type": "exclusion",
+          "claim": "Google Scholar profile scholar.google.com/citations?user=QxHblUYAAAAJ (Vaitheeswaran Ganesan Lalgudi, SUNY Buffalo, ophthalmology) is a distinct person — excluded.",
+          "extraction_method": "web_search_snippet",
+          "confidence": "high"
+        },
+        {
+          "assertion_id": "SI-A004",
+          "type": "exclusion",
+          "claim": "Google Scholar profile scholar.google.com/citations?user=rdhl9MwAAAAJ (Ganapathy Vaitheeswaran, University of Hyderabad, high-energy materials science) is a distinct person — excluded.",
+          "extraction_method": "web_search_snippet",
+          "confidence": "high"
+        },
+        {
+          "assertion_id": "SI-A005",
+          "type": "contextual_only",
+          "claim": "Vaideeswaran Ganesan is confirmed as inventor on US10200242 (granted 2019-02-05, assignee Dell Products L.P.), title: 'System and method to replicate server configurations across systems using sticky attributions'. This is a patent grant, not an authored article.",
+          "source_url": "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=6",
+          "extraction_method": "web_search_snippet"
+        },
+        {
+          "assertion_id": "SI-A006",
+          "type": "contextual_only",
+          "claim": "Vaideeswaran Ganesan is confirmed as inventor on US20200034221 (published 2020-01-30, assignee Dell Products L.P.), title: 'Apparatus and Method for Managing Part Life in a Datacenter'. This is a patent application, not an authored article.",
+          "source_url": "https://patents.justia.com/inventor/vaideeswaran-ganesan?page=6",
+          "extraction_method": "web_search_snippet"
+        },
+        {
+          "assertion_id": "SI-A007",
+          "type": "contextual_only",
+          "claim": "Vaideeswaran Ganesan is confirmed as inventor on US12511169 (granted 2025-12-30, assignee Dell Products L.P.), title: 'Message parsing to determine cross-application dependencies among actions'. Claim text fetched directly from USPTO Patents Gazette. This is a patent grant, not an authored article.",
+          "source_url": "https://patentsgazette.uspto.gov/week52/OG/html/1541-5/US12511169-20251230.html",
+          "extraction_method": "direct_web_fetch"
+        },
+        {
+          "assertion_id": "SI-A008",
+          "type": "contextual_only",
+          "claim": "Vaideeswaran Ganesan is confirmed as inventor (with co-inventors Vivek Bhargava and Rishav Sethia) on US20240028934A1 (published 2024-01-25, filed ~2022-07-21, assignee Dell Products L.P.), title: 'Analyzing message flows to select action clause paths for use in management of information technology assets'. Full application text fetched from Google Patents. This is a patent application, not an authored article.",
+          "source_url": "https://patents.google.com/patent/US20240028934A1/en",
+          "co_inventors_confirmed": [
+            "Vivek Bhargava",
+            "Rishav Sethia"
+          ],
+          "extraction_method": "direct_web_fetch"
+        },
+        {
+          "assertion_id": "SI-A009",
+          "type": "contextual_only",
+          "claim": "Vaideeswaran Ganesan is confirmed as inventor (with co-inventor Pravin Janakiram, Bangalore, India) on US12639120 (granted 2026-05-26, filed 2022-07-06, assignee Dell Products L.P.), title: 'Managing usage of resources in a hybrid computing environment'. This is a patent grant, not an authored article.",
+          "source_url": "https://patents.justia.com/inventor/vaideeswaran-ganesan",
+          "secondary_source_url": "https://patents.google.com/patent/US20240012687A1/en",
+          "co_inventors_confirmed": [
+            "Pravin Janakiram"
+          ],
+          "extraction_method": "web_search_snippet_cross_referenced"
+        },
+        {
+          "assertion_id": "SI-A010",
+          "type": "contextual_only",
+          "claim": "Vaideeswaran Ganesan is confirmed as inventor (with co-inventor Pravin Janakiram, Bangalore, India) on US12625722 (granted 2026-05-12, filed 2022-01-27, assignee Dell Products L.P.), title: 'Semantic-aware workflow modification and execution with extraction of missing parameter'. Inventor geography (Bangalore, India) confirmed in press-release wire. This is a patent grant, not an authored article.",
+          "source_url": "https://www.htsyndication.com/us-fed-news/article/us-patent-issued-to-dell-products-on-may-12-for--semantic-aware-workflow-modification-and-execution-with-extraction-of-missing-parameter---indian-inventors-/22214856825",
+          "co_inventors_confirmed": [
+            "Pravin Janakiram"
+          ],
+          "extraction_method": "web_search_snippet_confirmed"
+        },
+        {
+          "assertion_id": "SI-A011",
+          "type": "contextual_only",
+          "claim": "Vaideeswaran Ganesan is confirmed as inventor (with co-inventor Pravin Janakiram) on US20260119371 (published 2026-05-12, filed 2022-01-27, assignee Dell Products L.P.), title: 'Artificial Intelligence-Based Log Information Incorporation into Code'. This is a patent application, not an authored article.",
+          "source_url": "https://patents.justia.com/inventor/vaideeswaran-ganesan",
+          "co_inventors_confirmed": [
+            "Pravin Janakiram"
+          ],
+          "extraction_method": "web_search_snippet"
+        }
+      ]
+    },
+    "worker_professional_profile_syndication": {
+      "status": "completed_no_article_candidates",
+      "article_candidates_found": 0,
+      "assertions": [
+        {
+          "assertion_id": "PP-A001",
+          "type": "contextual_only",
+          "claim": "LinkedIn profile linkedin.com/in/vaidees is the candidate's confirmed professional profile per input schema. Articles/publications section content could not be retrieved — HTTP 999 block applied.",
+          "url": "https://www.linkedin.com/in/vaidees",
+          "extraction_method": "profile_url_from_input_schema_confirmed"
+        },
+        {
+          "assertion_id": "PP-A002",
+          "type": "contextual_only",
+          "claim": "Patent press release for US12625722 published on htsyndication.com wire service. Document type is a third-party patent announcement wire, not an authored article by the candidate. Candidate is named as inventor only.",
+          "url": "https://www.htsyndication.com/us-fed-news/article/us-patent-issued-to-dell-products-on-may-12-for--semantic-aware-workflow-modification-and-execution-with-extraction-of-missing-parameter---indian-inventors-/22214856825",
+          "wire_publication_date": "2026-05-12",
+          "extraction_method": "web_search_snippet"
+        },
+        {
+          "assertion_id": "PP-A003",
+          "type": "negative",
+          "claim": "No authored articles, whitepapers, or technical posts found on any syndication platform (DZone, Towards Data Science, InfoQ, Dev.to, Hashnode, Substack) under any known name variant of the candidate.",
+          "extraction_method": "web_search",
+          "confidence": "medium"
+        }
+      ]
+    }
+  },
+  "candidate_records": [],
+  "candidate_records_note": "No attributed authored or co-authored professional articles were confirmed across all three workers and all queried sources. candidate_records is intentionally empty. Patent inventor credits are recorded solely as contextual assertions in worker_envelopes. The unverified Medium handle (PB-A003) is insufficient for article candidacy without confirmed identity linkage.",
+  "proposed_duplicate_groups": [],
+  "proposed_relationships": [
+    {
+      "relationship_id": "REL-CTX-001",
+      "type": "patent_family_probable",
+      "note": "SI-A010 (US12625722, granted 2026-05-12, filed 2022-01-27) and SI-A011 (US20260119371, published 2026-05-12, filed 2022-01-27) share identical filing date and publication date with the same co-inventor (Pravin Janakiram) and assignee. Likely filed as a patent family or continuation pair.",
+      "members": [
+        "SI-A010",
+        "SI-A011"
+      ],
+      "relevance": "contextual_only"
+    },
+    {
+      "relationship_id": "REL-CTX-002",
+      "type": "patent_application_to_grant_probable",
+      "note": "SI-A009 (US12639120 grant) likely corresponds to application US20240012687A1 per cross-referenced Google Patents URL.",
+      "members": [
+        "SI-A009"
+      ],
+      "app_number": "US20240012687A1",
+      "relevance": "contextual_only"
+    },
+    {
+      "relationship_id": "REL-CTX-003",
+      "type": "co_inventor_cluster",
+      "note": "Pravin Janakiram (Bangalore, India) is confirmed co-inventor on SI-A009, SI-A010, SI-A011 — consistent research collaboration with candidate at Dell.",
+      "members": [
+        "SI-A009",
+        "SI-A010",
+        "SI-A011"
+      ],
+      "relevance": "contextual_only"
+    },
+    {
+      "relationship_id": "REL-CTX-004",
+      "type": "co_inventor_cluster",
+      "note": "Vivek Bhargava and Rishav Sethia are confirmed co-inventors on SI-A008 (US20240028934A1) — separate collaboration cluster from Pravin Janakiram group.",
+      "members": [
+        "SI-A008"
+      ],
+      "relevance": "contextual_only"
+    },
+    {
+      "relationship_id": "REL-CTX-005",
+      "type": "thematic_series",
+      "note": "SI-A007 (US12511169, message parsing / cross-application dependencies) and SI-A008 (US20240028934A1, message flow analysis / action clause paths) share overlapping technical subject matter in IT asset management via message analysis. Possible complementary or continuation relationship.",
+      "members": [
+        "SI-A007",
+        "SI-A008"
+      ],
+      "relevance": "contextual_only"
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "W-001",
+      "severity": "high",
+      "message": "patents.justia.com returned HTTP 403 on all direct page fetches. All patent metadata in worker_scholarly_index contextual assertions is sourced from search engine snippets, not from primary Justia page content. Co-inventor lists and filing dates for some patents may be incomplete."
+    },
+    {
+      "warning_id": "W-002",
+      "severity": "medium",
+      "message": "patents.google.com returned HTTP 404 for grant numbers US12639120 and US12625722 as typed. These numbers likely require a B2 suffix (e.g., US12639120B2) for direct Google Patents resolution. Not retried in this pass."
+    },
+    {
+      "warning_id": "W-003",
+      "severity": "high",
+      "message": "LinkedIn profile linkedin.com/in/vaidees blocked at HTTP 999. The candidate's LinkedIn articles and publications section — a primary source for professional authored content — was entirely inaccessible. Negative article finding is therefore degraded for this source."
+    },
+    {
+      "warning_id": "W-004",
+      "severity": "medium",
+      "message": "GitHub profile github.com/vaideesg returned a login-wall error. Authored README posts, linked external articles, or blog URLs in the profile bio or pinned repositories could not be verified from a live fetch. Profile existence and iDRAC-Redfish-Scripting fork confirmed only via search snippet."
+    },
+    {
+      "warning_id": "W-005",
+      "severity": "medium",
+      "message": "Medium handle @vaideeswaran2001 (https://medium.com/@vaideeswaran2001) discovered but identity linkage to candidate Vaideeswaran Ganesan at Dell Products L.P. is unconfirmed. First-name-only match. No article titles, employer signals, or corroborating metadata visible in the search snippet. This handle must not be used for any article record without manual verification."
+    },
+    {
+      "warning_id": "W-006",
+      "severity": "low",
+      "message": "The Justia inventor page for Vaideeswaran Ganesan is estimated to span multiple pages (20+ patent records inferred from page=6 reference in snippets). This pass captured only 7 distinct patent records as contextual assertions. Additional patents may exist. No additional patents affect the article candidate_records result (which remains empty), but the contextual assertions in worker_scholarly_index are not exhaustive."
+    },
+    {
+      "warning_id": "W-007",
+      "severity": "low",
+      "message": "US20200034221 grant status is unknown. The application (published 2020-01-30) may have been granted under a different number, abandoned, or withdrawn. Not resolvable from available snippet data."
+    },
+    {
+      "warning_id": "W-008",
+      "severity": "low",
+      "message": "Co-inventor lists for US10200242 (SI-A005) and US12511169 (SI-A007) are not fully confirmed from available sources. The USPTO Gazette fetch for US12511169 returned claim text only; inventor names were not present in the fetched HTML segment."
+    },
+    {
+      "warning_id": "W-009",
+      "severity": "informational",
+      "message": "No final identity, inclusion, or merge decisions have been made in this artifact. All records are provisional. The empty candidate_records array reflects the absence of confirmed attributed authored articles, not a judgment on the candidate's overall professional output."
+    }
+  ]
+}
