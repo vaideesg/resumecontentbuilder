@@ -80,6 +80,7 @@ Create a standard plugin at `./plugins/artifact-finder` with a master skill and 
 plugins/artifact-finder/
 |-- .claude-plugin/
 |   `-- plugin.json
+|-- candidate.config.json
 |-- README.md
 |-- skills/
 |   |-- artifact-finder/
@@ -139,7 +140,7 @@ The plugin manifest should begin with:
   "description": "Discover and verify professional artifacts using multi-agent identity disambiguation.",
   "version": "0.1.0",
   "author": {
-    "name": "Vaideeswaran Ganesan"
+    "name": "Resume Content Builder Contributors"
   },
   "keywords": [
     "patents",
@@ -159,6 +160,10 @@ The plugin manifest should begin with:
 Implement `skills/patent-finder/SKILL.md` first, while keeping shared policies under the master
 `skills/artifact-finder/references/` directory.
 
+`candidate.config.json` is the single shared candidate profile for every skill in this plugin.
+Focused skills must not embed a person's name, employer, profile URL, account name, or known
+collaborator. They load those values from this plugin-root file through the coordinator.
+
 ### 5.1 Skill Entry Contract
 
 Every `SKILL.md` must contain:
@@ -168,7 +173,7 @@ Every `SKILL.md` must contain:
 name: <skill-name>
 description: <when the skill should be invoked and what artifact it produces>
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash(*), Task
-argument-hint: "inventor=<name> consent_confirmed=<true|false> [output_dir=<path>]"
+argument-hint: "candidate_config=<path> consent_confirmed=<true|false> [output_dir=<path>]"
 ---
 ```
 
@@ -184,13 +189,7 @@ Each focused skill must:
 
 ```json
 {
-  "subject": {
-    "canonical_name": "Vaideeswaran Ganesan",
-    "known_name_variants": [],
-    "professional_profile_urls": ["https://linkedin.com/in/vaidees"],
-    "known_employers": [],
-    "known_collaborators": []
-  },
+  "candidate_config": "plugins/artifact-finder/candidate.config.json",
   "consent_confirmed": true,
   "artifact_types": ["patents"],
   "jurisdictions": ["US"],
@@ -203,9 +202,52 @@ Each focused skill must:
 }
 ```
 
-Only `subject.canonical_name`, `consent_confirmed`, and `artifact_types` are required.
-Professional profiles, employers, and collaborators are optional evidence seeds, not inclusion
-requirements.
+Only `candidate_config`, `consent_confirmed`, and `artifact_types` are required. The candidate
+configuration supplies the canonical name, variants, employer history, professional profiles,
+public accounts, and known collaborators. Empty optional arrays are valid and must not prevent a
+run.
+
+### 5.3 Shared Candidate Configuration Contract
+
+The plugin-root `candidate.config.json` uses this schema:
+
+```json
+{
+  "schema_version": "1.0",
+  "candidate": {
+    "canonical_name": "<full public name>",
+    "known_name_variants": ["<variant>"],
+    "employment": [
+      {
+        "company": "<company>",
+        "aliases": ["<legal or historical company name>"],
+        "start_date": "YYYY-MM-DD or null",
+        "end_date": "YYYY-MM-DD or null"
+      }
+    ],
+    "professional_profiles": [
+      {
+        "type": "linkedin|github|gitlab|orcid|other",
+        "url": "https://...",
+        "username": "<optional public username>"
+      }
+    ],
+    "known_collaborators": ["<public professional name>"]
+  }
+}
+```
+
+Rules:
+
+- The file is common to all focused skills inside `plugins/artifact-finder`.
+- `canonical_name` is required.
+- Variants, employment, profiles, and collaborators are evidence seeds, not proof.
+- Skills may enrich the in-memory candidate profile with evidence discovered during a run, but
+  they must not silently rewrite the configuration.
+- Consent is deliberately not stored in this file; every run still requires
+  `consent_confirmed=true`.
+- Do not place credentials, private contact information, tokens, cookies, or non-public personal
+  data in this file.
 
 Allowed `artifact_types` values are:
 
@@ -325,9 +367,9 @@ Create a minimal public professional profile containing only evidence needed for
 - Technology and subject-area timeline.
 - Confirmed public profile identifiers.
 
-For Vaideeswaran Ganesan, the initial subject profile may use the consented public LinkedIn profile
-only to confirm employer and role timelines. It must not collect connections, contact details,
-recommendations, or private activity.
+Professional-profile URLs from `candidate.config.json` may be used only to confirm public
+employer, role, account, and topic timelines. The workflow must not collect connections, contact
+details, recommendations, or private activity.
 
 ### 7.1 Initial Confidence Signals
 
@@ -441,7 +483,7 @@ The embedded golden contract fixture is:
 
 ```csv
 "Title","Patent Number","Application Number","Type","Filed","Inventors"
-"System and method to prevent power supply failures based on data center environmental behavior","10877539","20190324514","Grant","April 23, 2018","Santosh Kumar Sahu, Rama R. Bisa, Sunil Lingappa, Ajaya K. Senapati, Vaideeswaran Ganesan"
+"Example information-handling-system invention","12345678","20240001234","Grant","January 15, 2022","Example Inventor, Candidate Name"
 ```
 
 The skill must discover the complete patent dataset from authoritative sources rather than
@@ -494,7 +536,7 @@ One row per intellectual work and major published edition.
 Title,Published Date,Type,Domain,Website
 ```
 
-`Website` is a human-readable publisher/source label, such as `Dell White Paper`. The enriched output additionally
+`Website` is a human-readable publisher/source label, such as `Publisher White Paper`. The enriched output additionally
 stores canonical URL, authors, publisher, revision, document ID, content hash, evidence, and
 confidence.
 
@@ -502,7 +544,7 @@ The embedded white-paper positive fixture is:
 
 ```csv
 "Title","Published Date","Type","Domain","Website"
-"Scalability with Dell EMC OpenManage Integration with Microsoft System Center (OMIMSSC) for System Center Operations Manager (SCOM)","July 2021","Technical White Paper","Systems Management","Dell White Paper"
+"Example systems-management scalability paper","July 2021","Technical White Paper","Systems Management","Publisher White Paper"
 ```
 
 ## 8.3 Articles
@@ -1086,21 +1128,19 @@ source-snapshots/
 ## 10. Invocation Examples
 
 ```text
-/patent-finder inventor="Vaideeswaran Ganesan" \
+/patent-finder candidate_config="plugins/artifact-finder/candidate.config.json" \
   consent_confirmed=true
 
-/professional-artifact-finder inventor="Vaideeswaran Ganesan" \
+/professional-artifact-finder candidate_config="plugins/artifact-finder/candidate.config.json" \
   consent_confirmed=true \
-  types="patents,white-papers,articles,tech-talks,certifications,standards-publications,community-contributions" \
-  professional_profile="https://linkedin.com/in/vaidees"
+  types="patents,white-papers,articles,tech-talks,certifications,standards-publications,community-contributions"
 
-/standards-publication-finder inventor="Vaideeswaran Ganesan" \
+/standards-publication-finder candidate_config="plugins/artifact-finder/candidate.config.json" \
   consent_confirmed=true \
   standards_bodies="IETF,W3C,OASIS,IEEE"
 
-/community-contribution-finder inventor="Vaideeswaran Ganesan" \
-  consent_confirmed=true \
-  profile_urls="https://github.com/vaideesg"
+/community-contribution-finder candidate_config="plugins/artifact-finder/candidate.config.json" \
+  consent_confirmed=true
 
 /professional-artifact-finder resume=<run-id> offline=true
 ```
@@ -1287,7 +1327,7 @@ The skill must distinguish `valid search with no results` from `search could not
 - All compatibility CSVs match the contracts in Section 9 exactly.
 - Compatibility CSVs remain usable without losing enriched evidence.
 - The patent workflow generates the six-column patent contract and matches the embedded fixture.
-- The white-paper workflow finds the embedded OMIMSSC/SCOM positive fixture.
+- The white-paper workflow matches the embedded candidate-neutral positive fixture.
 - Article impressions are never inferred and always include a retrieval timestamp in enriched
   output.
 - Suspicious matches remain visible with confidence and reasons.
