@@ -1,0 +1,28 @@
+name: Bug report
+description: Tell us about a problem.
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping us improve the project.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Tell us what went wrong and what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How can we see the problem?
+      description: Share short steps, sample input, or a safe public link.
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Extra details
+      description: Add logs or screen shots if they help. Remove private data and secrets.
